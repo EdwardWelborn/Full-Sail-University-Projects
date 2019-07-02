@@ -1,0 +1,410 @@
+{
+  "title" : "",
+  "description" : "",
+  "author" : "",
+  "targetLoudness" : -18.0,
+  "shouldApplyLoudnessNormalization" : true,
+  "videoPlaybackRate" : 30,
+  "audioPlaybackRate" : 44100,
+  "width" : 1440.0,
+  "height" : 900.0,
+  "version" : "3.0",
+  "editRate" : 30,
+  "authoringClientName" :  {
+    "name" : "Camtasia",
+    "platform" : "Mac",
+    "version" : "2019.0.1"
+  },
+  "sourceBin" : [
+    {
+      "id" : 1,
+      "src" : "/Users/roywelborn/Movies/Camtasia 2019/Temporary Recordings/Rec 6-12-2019.trec",
+      "rect" : [0, 0, 1440, 900],
+      "lastMod" : "20190612T223841",
+      "sourceTracks" : [
+        {
+          "range" : [0, 2788],
+          "type" : 0,
+          "editRate" : 30,
+          "trackRect" : [0, 0, 1440, 900],
+          "sampleRate" : 0,
+          "bitDepth" : 0,
+          "numChannels" : 0,
+          "integratedLUFS" : 100.0,
+          "peakLevel" : -1.0,
+          "metaData" : "2b7b6a01-7a1f-11e2-83d0-0017f200be7f;2b7b6af0-7a1f-11e2-83d0-0017f200be7f;2b7b6af1-7a1f-11e2-83d0-0017f200be7f;2b7b6af2-7a1f-11e2-83d0-0017f200be7f;2b7b6af3-7a1f-11e2-83d0-0017f200be7f;2b7b6af5-7a1f-11e2-83d0-0017f200be7f;2b7b6af6-7a1f-11e2-83d0-0017f200be7f;2b7b6af7-7a1f-11e2-83d0-0017f200be7f;2b7b6af8-7a1f-11e2-83d0-0017f200be7f;2b7b6af9-7a1f-11e2-83d0-0017f200be7f;2b7b6afa-7a1f-11e2-83d0-0017f200be7f;2b7b6afb-7a1f-11e2-83d0-0017f200be7f;2b7b6afc-7a1f-11e2-83d0-0017f200be7f;"
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "src" : "/Users/roywelborn/Library/Application Support/TechSmith/Camtasia 2019/Library/Camtasia Libraries/Camtasia 2019/Music Tracks/atthetop.asset/Music Tracks - atthetop.mp3",
+      "rect" : [0, 0, 0, 0],
+      "lastMod" : "20190520T183646",
+      "sourceTracks" : [
+        {
+          "range" : [0, 7272576],
+          "type" : 2,
+          "editRate" : 48000,
+          "trackRect" : [0, 0, 0, 0],
+          "sampleRate" : 48000,
+          "bitDepth" : 0,
+          "numChannels" : 2,
+          "integratedLUFS" : -10.802492453226,
+          "peakLevel" : 1.05997455120087,
+          "metaData" : ""
+        }
+      ],
+      "metadata" : {
+        "assetLibraryId" : "4af5c833-ae27-41d4-9481-2402491a43ea"
+      }
+    },
+    {
+      "id" : 3,
+      "src" : "/Users/roywelborn/Library/Application Support/TechSmith/Camtasia 2019/Library/Camtasia Libraries/Camtasia 2019/Music Tracks/firefly.asset/Music Tracks - firefly.mp3",
+      "rect" : [0, 0, 0, 0],
+      "lastMod" : "20190520T183647",
+      "sourceTracks" : [
+        {
+          "range" : [0, 6999552],
+          "type" : 2,
+          "editRate" : 48000,
+          "trackRect" : [0, 0, 0, 0],
+          "sampleRate" : 48000,
+          "bitDepth" : 0,
+          "numChannels" : 2,
+          "integratedLUFS" : -12.2962181599677,
+          "peakLevel" : 1.09296011924744,
+          "metaData" : ""
+        }
+      ],
+      "metadata" : {
+        "assetLibraryId" : "0c885071-fdb8-4246-bfe6-41eda076e682"
+      }
+    },
+    {
+      "id" : 4,
+      "src" : "/Users/roywelborn/Library/Application Support/TechSmith/Camtasia 2019/Library/Camtasia Libraries/Camtasia 2019/Motion Backgrounds/rainbowwaves.asset/Animated Backgrounds - rainbowwaves.mp4",
+      "rect" : [0, 0, 1920, 1078],
+      "lastMod" : "20190520T183646",
+      "sourceTracks" : [
+        {
+          "range" : [0, 15000],
+          "type" : 0,
+          "editRate" : 1000,
+          "trackRect" : [0, 0, 1920, 1078],
+          "sampleRate" : 0,
+          "bitDepth" : 0,
+          "numChannels" : 0,
+          "integratedLUFS" : 100.0,
+          "peakLevel" : -1.0,
+          "metaData" : ""
+        },
+        {
+          "range" : [0, 14976],
+          "type" : 2,
+          "editRate" : 1000,
+          "trackRect" : [0, 0, 0, 0],
+          "sampleRate" : 48000,
+          "bitDepth" : 0,
+          "numChannels" : 2,
+          "integratedLUFS" : -1.79769313486232e+308,
+          "peakLevel" : 0.0,
+          "metaData" : ""
+        }
+      ],
+      "metadata" : {
+        "assetLibraryId" : "8e6d1663-66c3-4530-8e7c-82c88e0e2e4c"
+      }
+    },
+    {
+      "id" : 5,
+      "src" : "/Users/roywelborn/Movies/Camtasia 2019/Temporary Recordings/Rec 6-12-2019 1.m4a",
+      "rect" : [0, 0, 0, 0],
+      "lastMod" : "not-a-date-time",
+      "sourceTracks" : [
+        {
+          "range" : [0, 67964],
+          "type" : 2,
+          "editRate" : 1000,
+          "trackRect" : [0, 0, 0, 0],
+          "sampleRate" : 44100,
+          "bitDepth" : 0,
+          "numChannels" : 2,
+          "integratedLUFS" : -32.301920858036,
+          "peakLevel" : 0.209173291921616,
+          "metaData" : ""
+        }
+      ]
+    },
+    {
+      "id" : 6,
+      "src" : "/Users/roywelborn/Movies/Camtasia 2019/Temporary Recordings/Rec 6-12-2019 2.m4a",
+      "rect" : [0, 0, 0, 0],
+      "lastMod" : "20190612T230112",
+      "sourceTracks" : [
+        {
+          "range" : [0, 65875],
+          "type" : 2,
+          "editRate" : 1000,
+          "trackRect" : [0, 0, 0, 0],
+          "sampleRate" : 44100,
+          "bitDepth" : 0,
+          "numChannels" : 2,
+          "integratedLUFS" : -30.1316737968888,
+          "peakLevel" : 0.346014440059662,
+          "metaData" : ""
+        }
+      ]
+    }
+  ],
+  "timeline" : {
+    "id" : 7,
+    "sceneTrack" : {
+      "scenes" : [
+        {
+          "duration" : 61.8333333333333,
+          "title" : "",
+          "type" : "",
+          "csml" : {
+            "tracks" : [
+              {
+                "trackIndex" : 0,
+                "medias" : [
+                  {
+                    "id" : 8,
+                    "_type" : "ScreenVMFile",
+                    "src" : 1,
+                    "trackNumber" : 0,
+                    "attributes" : {
+                      "ident" : "Rec 6-12-2019"
+                    },
+                    "parameters" : {
+                      "translation0" : {
+                        "type" : "double",
+                        "defaultValue" : -23.0,
+                        "interp" : "eioe"
+                      },
+                      "cursorScale" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      },
+                      "cursorOpacity" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      }
+                    },
+                    "effects" : [
+
+                    ],
+                    "start" : 0,
+                    "duration" : 1855,
+                    "mediaStart" : 0,
+                    "mediaDuration" : 1855,
+                    "scalar" : 1,
+                    "metadata" : {
+                      "clipSpeedAttribute" : false,
+                      "default-scale" : "1",
+                      "effectApplied" : "none"
+                    },
+                    "animationTracks" : {
+
+                    }
+                  }
+                ]
+              },
+              {
+                "trackIndex" : 1,
+                "medias" : [
+                  {
+                    "id" : 9,
+                    "_type" : "AMFile",
+                    "src" : 3,
+                    "trackNumber" : 0,
+                    "attributes" : {
+                      "ident" : "firefly",
+                      "sampleRate" : 48000,
+                      "bitDepth" : 0,
+                      "gain" : 1.0,
+                      "mixToMono" : false
+                    },
+                      "channelNumber" : "0,1",
+                    "parameters" : {
+                      "volume" : {
+                        "type" : "double",
+                        "keyframes" : [
+                          {
+                            "endTime" : -1,
+                            "time" : -1,
+                            "value" : 1.0,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 0,
+                            "time" : 0,
+                            "value" : 0.820487406716418,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 1855,
+                            "time" : 1855,
+                            "value" : 0.820487406716418,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 1856,
+                            "time" : 1856,
+                            "value" : 1.0,
+                            "duration" : 0
+                          }
+                        ]
+                      }
+                    },
+                    "effects" : [
+
+                    ],
+                    "start" : 0,
+                    "duration" : 1810,
+                    "mediaStart" : 0,
+                    "mediaDuration" : 1810,
+                    "scalar" : 1,
+                    "metadata" : {
+                      "clipSpeedAttribute" : false,
+                      "effectApplied" : "none"
+                    },
+                    "animationTracks" : {
+
+                    }
+                  }
+                ]
+              },
+              {
+                "trackIndex" : 2,
+                "medias" : [
+                  {
+                    "id" : 10,
+                    "_type" : "AMFile",
+                    "src" : 6,
+                    "trackNumber" : 0,
+                    "attributes" : {
+                      "ident" : "Rec 6-12-2019 2",
+                      "sampleRate" : 44100,
+                      "bitDepth" : 0,
+                      "gain" : 1.0,
+                      "mixToMono" : false
+                    },
+                      "channelNumber" : "0,1",
+                    "parameters" : {
+                      "volume" : {
+                        "type" : "double",
+                        "keyframes" : [
+                          {
+                            "endTime" : -1,
+                            "time" : -1,
+                            "value" : 1.0,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 0,
+                            "time" : 0,
+                            "value" : 2.77104710820896,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 1855,
+                            "time" : 1855,
+                            "value" : 2.77104710820896,
+                            "duration" : 0
+                          },
+                          {
+                            "endTime" : 1856,
+                            "time" : 1856,
+                            "value" : 1.0,
+                            "duration" : 0
+                          }
+                        ]
+                      }
+                    },
+                    "effects" : [
+
+                    ],
+                    "start" : 0,
+                    "duration" : 1855,
+                    "mediaStart" : 0,
+                    "mediaDuration" : 1855,
+                    "scalar" : 1,
+                    "metadata" : {
+                      "clipSpeedAttribute" : false,
+                      "effectApplied" : "none"
+                    },
+                    "animationTracks" : {
+
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "trackAttributes" : [
+      {
+        "ident" : "",
+        "audioMuted" : false,
+        "videoHidden" : false,
+        "magnetic" : false,
+        "metadata" : {
+          "IsLocked" : "False",
+          "trackHeight" : "33"
+        }
+      },
+      {
+        "ident" : "",
+        "audioMuted" : false,
+        "videoHidden" : false,
+        "magnetic" : false,
+        "metadata" : {
+          "IsLocked" : "False",
+          "trackHeight" : "33"
+        }
+      },
+      {
+        "ident" : "",
+        "audioMuted" : false,
+        "videoHidden" : false,
+        "magnetic" : false,
+        "metadata" : {
+          "IsLocked" : "False",
+          "trackHeight" : "33"
+        }
+      }
+    ],
+    "captionAttributes" : {
+      "enabled" : true,
+      "fontName" : "Arial",
+      "fontSize" : 32,
+      "backgroundColor" : [ 0, 0, 0, 204],
+      "foregroundColor" : [ 255, 255, 255, 255],
+      "lang" : "en",
+      "alignment" : 0,
+      "defaultFontSize" : true,
+      "opacity" : 0.5,
+      "backgroundEnabled" : true,
+      "backgroundOnlyAroundText" : true
+    },
+    "backgroundColor" : [ 0, 0, 0, 255],
+    "metadata" : {
+      "RecordingHeight" : "900",
+      "RecordingWidth" : "1440"
+    }
+  },
+  "metadata" : {
+    "CanvasSizeWarning" : 1,
+    "activeThemeId" : "e59eeb42-ccf0-4a36-bdf9-e630fdab686d",
+    "firstMedia" : true,
+    "hasNotifiedAboutHFRMedia" : false
+  }
+}
