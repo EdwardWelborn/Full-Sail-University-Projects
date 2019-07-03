@@ -2,8 +2,7 @@
 // c:/VFW/Connection.txt (this file contains ONLY the ip address of the mysql server
 //Database Location
 //  string cs = $"server={sConnection};userid=dbremoteuser;password=password;database=notetrackerplus;port=8889";
-//Output Location
-//  string outPutPath = $@"../../../FirstLast_ConvertedData.json";
+
 
 using System;
 using System.Collections.Generic;
@@ -12,12 +11,13 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
 
 namespace EdwardWelborn_Project1c
 {
     class Program
     {
+        // This is the main class for the program, below is code for the window resizing and positioning
+
         const int SWP_NOSIZE = 0x0001;
 
         [DllImport("kernel32.dll", ExactSpelling = true)]
@@ -28,6 +28,7 @@ namespace EdwardWelborn_Project1c
         [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
         public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy,
             int wFlags);
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(100, 20);
@@ -36,6 +37,7 @@ namespace EdwardWelborn_Project1c
             SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
             MainMenu();
         }
+
 
         public static void MainMenu()
         {
@@ -64,7 +66,8 @@ namespace EdwardWelborn_Project1c
 
             string strPassword = Orb.App.Console.ReadPassword();
 
-            MySqlCommand cmd = new MySqlCommand("select * from user_table where username like @username and password = @password;");
+            MySqlCommand cmd =
+                new MySqlCommand("select * from user_table where username like @username and password = @password;");
             cmd.Parameters.AddWithValue("@username", strName);
             cmd.Parameters.AddWithValue("@password", strPassword);
             cmd.Connection = conn;
@@ -75,27 +78,29 @@ namespace EdwardWelborn_Project1c
             da.Fill(ds);
             bool loginSuccessful = ((ds.Tables.Count > 0) && (ds.Tables[0].Rows.Count > 0));
 
-            /// need a way to log in if they are a new user....
-            /// 
+            // need to make the code to where if the password is incorrect it will just go with bad username or password, instead it asks if they are a new user.
+            // I need to create this in the new iteration
+
             if (!loginSuccessful)
             {
                 Console.WriteLine("Invalid username or password");
                 Console.Write("Are you a new user? (y or n): ");
                 string strNewUser = Console.ReadLine().ToLower();
-                switch (strNewUser)  
+                switch (strNewUser)
                 {
                     case "y":
                     {
-                            CreateUser(conn);
-                            string myApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
-                            System.Diagnostics.Process.Start(myApp);
-                            Environment.Exit(0);
+                        // if they are a new user, it will create the user and restart the application so they can log in
+                        CreateUser(conn);
+                        string myApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+                        System.Diagnostics.Process.Start(myApp);
+                        Environment.Exit(0);
                     }
                         break;
                     case "n":
                     {
-                            Utility.PressAnyKeyToContinue("Have a Nice Day, Press any key to Exit");
-                            Environment.Exit(0);
+                        Utility.PressAnyKeyToContinue("Have a Nice Day, Press any key to Exit");
+                        Environment.Exit(0);
                     }
                         break;
                     default:
@@ -117,15 +122,15 @@ namespace EdwardWelborn_Project1c
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine($"       Welcome {strName}\n" +
-                    "       Note Tracker Plus\n" +
-                    "-------------------------------\n" +
-                    "[1]..  User Menu {user}\n" +
-                    "[2]..  Create New Note {create}\n" +
-                    "[3]..  Edit Notes {edit}\n" +
-                    "[4]..  View Notes {view}\n" +
-                    "[5]..  Delete Notes {delete}\n" +
-                    "[6]..  Exit Program {e}\n" +
-                    "------------------------------\n");
+                                  "       Note Tracker Plus\n" +
+                                  "-------------------------------\n" +
+                                  "[1]..  User Menu {user}\n" +
+                                  "[2]..  Create New Note {create}\n" +
+                                  "[3]..  Edit Notes {edit}\n" +
+                                  "[4]..  View Notes {view}\n" +
+                                  "[5]..  Delete Notes {delete}\n" +
+                                  "[6]..  Exit Program {e}\n" +
+                                  "------------------------------\n");
                 Console.WriteLine("Select an Option: ");
                 Console.Write("Please Input the phrase, or use 1 thru 6, or abbreviated phrase in {}: ");
                 string input = Console.ReadLine().ToLower();
@@ -159,7 +164,7 @@ namespace EdwardWelborn_Project1c
                     {
                         ViewNote(conn, strName);
                     }
-                    break;
+                        break;
                     case "5":
                     case "delete notes":
                     case "delete":
@@ -170,14 +175,14 @@ namespace EdwardWelborn_Project1c
                     case "6":
                     case "e":
                     case "exit program":
-                        {
-                            bProgramRunning = false;
-                        }
+                    {
+                        bProgramRunning = false;
+                    }
                         break;
                     default:
-                        {
-                            Console.WriteLine("Please Input the phrase, or use 1 thru 6, or abbreviated phrase in {}: ");
-                        }
+                    {
+                        Console.WriteLine("Please Input the phrase, or use 1 thru 6, or abbreviated phrase in {}: ");
+                    }
                         break;
                 }
 
@@ -218,43 +223,42 @@ namespace EdwardWelborn_Project1c
                     case "1":
                     case "create new user":
                     case "create":
-                        {
-                            CreateUser(conn);
-                        }
+                    {
+                        CreateUser(conn);
+                    }
                         break;
                     case "2":
                     case "edit user":
                     case "edit":
-                        {
-                            EditUser(conn);
-
-                        }
+                    {
+                        EditUser(conn);
+                    }
                         break;
                     case "3":
                     case "view user information":
                     case "view":
-                        {
-                            ViewUser(conn);
-                        }
+                    {
+                        ViewUser(conn);
+                    }
                         break;
                     case "4":
                     case "delete user":
                     case "delete":
-                        {
-                            DeleteUser(conn);
-                        }
+                    {
+                        DeleteUser(conn);
+                    }
                         break;
                     case "5":
                     case "r":
                     case " return to main menu":
-                        {
-                            bUserMenuRunning = false;
-                        }
+                    {
+                        bUserMenuRunning = false;
+                    }
                         break;
                     default:
-                        {
-                            Console.WriteLine("Please Input the phrase, or use 1 thru 5, or abbreviated phrase in {}: ");
-                        }
+                    {
+                        Console.WriteLine("Please Input the phrase, or use 1 thru 5, or abbreviated phrase in {}: ");
+                    }
                         break;
                 }
 
@@ -267,7 +271,7 @@ namespace EdwardWelborn_Project1c
 
         public static void CreateUser(MySqlConnection conn)
         {
-            /// This method creates a new user and writes that information to the database
+            // This method creates a new user and writes that information to the database
 
 //            MySqlCommand cmd;
 //            MySqlDataReader rdr;
@@ -288,7 +292,8 @@ namespace EdwardWelborn_Project1c
             string strEmail = Console.ReadLine();
             string strUserEmail = Validation.ValidateEmail(strEmail);
 
-            MySqlCommand cmd = new MySqlCommand("select * from user_table where username like @username and password = @password;");
+            MySqlCommand cmd =
+                new MySqlCommand("select * from user_table where username like @username and password = @password;");
             cmd.Parameters.AddWithValue("@username", strName);
             cmd.Parameters.AddWithValue("@password", strPassword);
             cmd.Connection = conn;
@@ -304,7 +309,9 @@ namespace EdwardWelborn_Project1c
             {
                 conn.Open();
             }
-            string strSQLStatement = $"insert into user_table (username, email, password, creation_date) values(@username, @email, @password, @creation_date);";
+
+            string strSQLStatement =
+                $"insert into user_table (username, email, password, creation_date) values(@username, @email, @password, @creation_date);";
             MySqlCommand myCmd = new MySqlCommand(strSQLStatement, conn);
             if (!boolAccountExist)
             {
@@ -327,6 +334,7 @@ namespace EdwardWelborn_Project1c
                 Console.WriteLine("\nAccount Already Exist!");
                 Utility.PressAnyKeyToContinue("Press any key to Return");
             }
+
             cmd.Connection.Close();
             myCmd.Connection.Close();
             conn.Close();
@@ -367,13 +375,14 @@ namespace EdwardWelborn_Project1c
 
                     while (rdr.Read())
                     {
-                        /// Database data, read into a List<string>
+                        // Database data, read into a List<string>
 
                         strUser_Name = rdr["username"].ToString();
                         strUser_Email = rdr["email"].ToString();
-                       strUser_Password = rdr["password"].ToString();
+                        strUser_Password = rdr["password"].ToString();
                     }
                 }
+
                 Console.Write($"Enter your Username: (old = {strUser_Name}): ");
                 string strEditName = Console.ReadLine();
                 string strEditUserName = Validation.ValidateText(strEditName);
@@ -386,7 +395,9 @@ namespace EdwardWelborn_Project1c
                 string strEditEmail = Console.ReadLine();
                 string strEditUserEmail = Validation.ValidateEmail(strEditEmail);
 
-                string strInsertSql = "update user_table set username = @username, email = @email, password = @password where username='" + strEditName + "' ;";
+                string strInsertSql =
+                    "update user_table set username = @username, email = @email, password = @password where username='" +
+                    strEditName + "' ;";
 
                 using (conn)
                 {
@@ -418,6 +429,7 @@ namespace EdwardWelborn_Project1c
             {
                 Console.WriteLine(element.ToString());
             }
+
             Utility.PressAnyKeyToContinue("Press Any Key to Continue");
         }
 
@@ -460,17 +472,18 @@ namespace EdwardWelborn_Project1c
                 }
             }
         }
+
         public static void CreateNote(MySqlConnection conn, string strName)
         {
-            ///  This method will create the new note and write that information to the database.
-            /// This method creates a new user and writes that information to the database
+            //  This method will create the new note and write that information to the database.
+            // This method creates a new user and writes that information to the database
 
             //            MySqlCommand cmd;
             //            MySqlDataReader rdr;
             string strAlertDate = string.Empty;
             string strCompletionDate = string.Empty;
             DateTime dateAlertDate = new DateTime();
-            DateTime dateCompletionDate = new DateTime();
+//            DateTime dateCompletionDate = new DateTime();
             Console.Clear();
             Console.WriteLine("Please complete all the information below\n");
 
@@ -486,7 +499,7 @@ namespace EdwardWelborn_Project1c
                     string strAlarmChoise = Console.ReadLine();
                     strAlertDate = Validation.ValidateDateTime(strAlarmChoise);
                     dateAlertDate = Convert.ToDateTime(strAlertDate);
-                    }
+                }
                     break;
                 case "n":
                 case "no":
@@ -500,7 +513,8 @@ namespace EdwardWelborn_Project1c
                 }
                     break;
             }
-            Console.Write("Do you want to add an completeion date to the note: (y or n)");
+
+            Console.Write("Do you want to add an completion date to the note: (y or n)");
             string strCompletionChoice = Console.ReadLine().ToLower();
             string strValidCompletion = Validation.ValidateText(strCompletionChoice);
             switch (strValidCompletion)
@@ -525,6 +539,7 @@ namespace EdwardWelborn_Project1c
                 }
                     break;
             }
+
             Console.Write("Enter the note Title: ");
             string strNoteTitleChoice = Console.ReadLine();
             string strNoteTitle = Validation.ValidateText(strNoteTitleChoice);
@@ -537,16 +552,18 @@ namespace EdwardWelborn_Project1c
             string strCreationDate = DateTime.Now.ToShortDateString();
             DateTime dateCreationDate = Convert.ToDateTime(strCreationDate);
 
-            string strSQLStatement = $"insert into notes_table (username, creation_date, alert_date, completion_date, title, description) values(@username, @creation_date, @alert_date, completion_date, @title, @description);";
- 
+            string strSQLStatement =
+                $"insert into notes_table (username, creation_date, alert_date, completion_date, title, description) values(@username, @creation_date, @alert_date, completion_date, @title, @description);";
+
             using (conn)
             {
-                 if (conn != null && conn.State == ConnectionState.Closed)
-                 {
-                     conn.Open();   
-                 }
-                 using (MySqlCommand myCmd = new MySqlCommand(strSQLStatement, conn))
-                 {
+                if (conn != null && conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                using (MySqlCommand myCmd = new MySqlCommand(strSQLStatement, conn))
+                {
                     myCmd.CommandType = CommandType.Text;
                     myCmd.Parameters.AddWithValue("@username", strName);
                     myCmd.Parameters.AddWithValue("@creation_date", dateCreationDate);
@@ -555,11 +572,10 @@ namespace EdwardWelborn_Project1c
                     myCmd.Parameters.AddWithValue("@title", strNoteTitle);
                     myCmd.Parameters.AddWithValue("@description", strNoteText);
                     myCmd.ExecuteNonQuery();
-                 }
+                }
             }
 
             conn.Close();
-
         }
 
         public static void EditNote(MySqlConnection conn, string strName)
@@ -567,7 +583,7 @@ namespace EdwardWelborn_Project1c
             // list users for the user to select and edit
             //            MySqlCommand cmd;
             //            MySqlDataReader rdr;
- 
+
             List<string> lstNotes = new List<string>();
             string strTitle = string.Empty;
             string strDescription = string.Empty;
@@ -578,7 +594,8 @@ namespace EdwardWelborn_Project1c
 
             Console.Clear();
 
-            lstNotes = PopulateViewChoice(conn, "SELECT note_id, username, creation_date, title FROM notes_table;", strName);
+            lstNotes = PopulateViewChoice(conn, "SELECT note_id, username, creation_date, title FROM notes_table;",
+                strName);
             if (lstNotes.Count > 0)
             {
                 Console.WriteLine("Note ID     UserName             Note Created   Note Title");
@@ -634,7 +651,6 @@ namespace EdwardWelborn_Project1c
                             string strAlarmChoice = Console.ReadLine();
                             strAlertDate = Validation.ValidateDateTime(strAlarmChoice);
                             dateAlertDate = Convert.ToDateTime(strAlertDate);
-
                         }
                             break;
                         case "n":
@@ -707,10 +723,13 @@ namespace EdwardWelborn_Project1c
 
         public static void ViewNote(MySqlConnection conn, string strName)
         {
+            // This method creates a list of notes, the user chooses a note, and it will display the detail of the note
+
             List<string> lstNotes = new List<string>();
 
             Console.Clear();
-            lstNotes = PopulateViewChoice(conn, "SELECT * FROM notes_table where username='" + strName + "' ;", strName);
+            lstNotes = PopulateViewChoice(conn, "SELECT * FROM notes_table where username='" + strName + "' ;",
+                strName);
             if (lstNotes.Count > 0)
             {
                 Console.WriteLine("NoteID   UserName                   Note Created            Note Title ");
@@ -737,52 +756,51 @@ namespace EdwardWelborn_Project1c
             }
 
             Utility.PressAnyKeyToContinue("Press Any Key to continue");
- 
         }
 
         public static void DeleteNote(MySqlConnection conn, string strName)
         {
             // list users for the user to select and edit
-            //            MySqlCommand cmd;
-            //            MySqlDataReader rdr;
 
             List<string> lstNotes = new List<string>();
             Console.Clear();
-            
+
             lstNotes = PopulateViewChoice(conn, "SELECT * FROM notes_table; ; ", strName);
             if (lstNotes.Count > 0)
             {
-
-            Console.WriteLine("Note ID    UserName     Date Created        Note Title");
-            Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
-            for (int i = 1; i < lstNotes.Count; i++)
-            {
-                Console.WriteLine($"{lstNotes[i].ToString()}");
-            }
-
-            Console.Write("\nSelect a note to edit: ");
-            string strNoteChoice = Console.ReadLine();
-            int intEditNote = Validation.ValidateIntRange(1, lstNotes.Count, strNoteChoice);
-            string strSQL = @"delete FROM notes_table where note_id = @note_id;";
-
-            using (conn)
-            {
-                conn.Open();
-                using (MySqlCommand myCmd = new MySqlCommand(strSQL, conn))
+                Console.WriteLine("Note ID    UserName     Date Created        Note Title");
+                Console.WriteLine(
+                    "----------------------------------------------------------------------------------------------------------------");
+                for (int i = 1; i < lstNotes.Count; i++)
                 {
-                    myCmd.CommandType = CommandType.Text;
-                    myCmd.Parameters.AddWithValue("@note_id", intEditNote);
-                    MySqlDataReader rdr = myCmd.ExecuteReader();
+                    Console.WriteLine($"{lstNotes[i].ToString()}");
                 }
-            }
+
+                Console.Write("\nSelect a note to edit: ");
+                string strNoteChoice = Console.ReadLine();
+                int intEditNote = Validation.ValidateIntRange(1, lstNotes.Count, strNoteChoice);
+                string strSQL = @"delete FROM notes_table where note_id = @note_id;";
+
+                using (conn)
+                {
+                    conn.Open();
+                    using (MySqlCommand myCmd = new MySqlCommand(strSQL, conn))
+                    {
+                        myCmd.CommandType = CommandType.Text;
+                        myCmd.Parameters.AddWithValue("@note_id", intEditNote);
+                        MySqlDataReader rdr = myCmd.ExecuteReader();
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("There are not notes to deleteS");
             }
+
             Utility.PressAnyKeyToContinue("Press Any Key to Continue");
             conn.Close();
         }
+
         public static List<string> PopulateUsers(MySqlConnection conn, string strSQLStatement)
         {
             // This method will populate the Activity Descriptions from the database for viewing
@@ -792,7 +810,7 @@ namespace EdwardWelborn_Project1c
 
             string strUserName = string.Empty;
             try
-            { 
+            {
                 string newList = null;
 
                 // Form SQL Statement
@@ -804,13 +822,14 @@ namespace EdwardWelborn_Project1c
                 {
                     conn.Open();
                 }
+
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 // Read Info
                 while (rdr.Read())
                 {
-                    /// Database data, read into a List<string>
-                    
+                    // Database data, read into a List<string>
+
                     string strUser_Name = rdr["username"].ToString();
                     string strUser_Email = rdr["email"].ToString();
                     string strAccountCreated = rdr["creation_date"].ToString();
@@ -820,6 +839,7 @@ namespace EdwardWelborn_Project1c
                     newList = strNewUserName + "   " + strNewUser_Email + "   " + strNewAccountCreation;
                     lstUsers.Add(newList);
                 }
+
                 rdr.Close();
             }
             catch (MySqlException ex)
@@ -830,7 +850,7 @@ namespace EdwardWelborn_Project1c
             {
                 if (conn != null)
                 {
-                     conn.Close();
+                    conn.Close();
                 }
             }
 
@@ -864,7 +884,7 @@ namespace EdwardWelborn_Project1c
                 // Read Info
                 while (rdr.Read())
                 {
-                    /// Database data, read into a List<string>
+                    // Database data, read into a List<string>
 
                     string strNoteID = rdr["note_id"].ToString();
                     string strUserName = rdr["username"].ToString();
@@ -876,7 +896,7 @@ namespace EdwardWelborn_Project1c
                     DateTime dateCreationDate = Convert.ToDateTime(strAccountCreated);
                     String.Format("{0:MM/dd/yyyy}", dateCreationDate);
                     newList = strNoteID + "~" + strUserName + "~" + dateCreationDate + "~" + strAlertDate + "~" +
-                                  strCompletionDate + "~" + strNoteTitle + "~" + strNoteDescription;
+                              strCompletionDate + "~" + strNoteTitle + "~" + strNoteDescription;
                     lstNote.Add(newList);
                 }
 
@@ -918,6 +938,7 @@ namespace EdwardWelborn_Project1c
                 {
                     conn.Open();
                 }
+
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 using (conn)
                 {
@@ -925,6 +946,7 @@ namespace EdwardWelborn_Project1c
                     {
                         conn.Open();
                     }
+
                     using (MySqlCommand myCmd = new MySqlCommand(strSQLStatement, conn))
                     {
                         myCmd.CommandType = CommandType.Text;
@@ -932,7 +954,8 @@ namespace EdwardWelborn_Project1c
                         // Read Info
                         while (rdr.Read())
                         {
-                            /// Database data, read into a List<string>
+                            // Database data, read into a List<string>
+
                             string strNoteID = rdr["note_id"].ToString();
                             string strUserName = rdr["username"].ToString();
                             string strAccountCreated = rdr["creation_date"].ToString();
@@ -947,6 +970,7 @@ namespace EdwardWelborn_Project1c
                         }
                     }
                 }
+
                 rdr.Close();
             }
             catch (MySqlException ex)
@@ -963,6 +987,7 @@ namespace EdwardWelborn_Project1c
 
             return lstNote;
         }
+
         public static void ConvertNote(List<string> NoteList)
         {
             // This method iterates through the list converted from the database then
@@ -993,7 +1018,7 @@ namespace EdwardWelborn_Project1c
             List<string> tempList = new List<string>();
             foreach (string strItem in NoteList)
             {
-                char[] splitChar = { '~' };
+                char[] splitChar = {'~'};
                 tempList = strItem.Split(splitChar).ToList();
                 splitter.Add(tempList);
             }
@@ -1028,8 +1053,8 @@ namespace EdwardWelborn_Project1c
                 Console.WriteLine(totalString[iOutPut]);
             }
         }
-        
     }
+
     namespace Orb.App
     {
         /// <summary>
@@ -1045,10 +1070,10 @@ namespace EdwardWelborn_Project1c
             public static string ReadPassword(char mask)
             {
                 const int ENTER = 13, BACKSP = 8, CTRLBACKSP = 127;
-                int[] FILTERED = { 0, 27, 9, 10 /*, 32 space, if you care */ }; // const
+                int[] FILTERED = {0, 27, 9, 10 /*, 32 space, if you care */}; // const
 
                 var pass = new Stack<char>();
-                char chr = (char)0;
+                char chr = (char) 0;
 
                 while ((chr = System.Console.ReadKey(true).KeyChar) != ENTER)
                 {
@@ -1068,10 +1093,12 @@ namespace EdwardWelborn_Project1c
                             pass.Pop();
                         }
                     }
-                    else if (FILTERED.Count(x => chr == x) > 0) { }
+                    else if (FILTERED.Count(x => chr == x) > 0)
+                    {
+                    }
                     else
                     {
-                        pass.Push((char)chr);
+                        pass.Push((char) chr);
                         System.Console.Write(mask);
                     }
                 }
@@ -1090,6 +1117,11 @@ namespace EdwardWelborn_Project1c
                 return Orb.App.Console.ReadPassword('*');
             }
         }
-
     }
 }
+/*
+ * TO DO list
+ * redo login, if they username is right, but the password is wrong, it should tell them bad password, or if username is wrong, then reflect that
+ * then restart they app so they can log in correctly.
+ * if they are a new user, then create the user and restart as I do now
+ */
