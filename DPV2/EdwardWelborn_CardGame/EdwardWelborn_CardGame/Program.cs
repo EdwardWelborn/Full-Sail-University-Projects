@@ -1,8 +1,15 @@
-﻿using System;
+﻿// Connection.TXT Location
+// c:/VFW/Connection.txt (this file contains ONLY the ip address of the mysql server
+//Database Location
+//  string cs = $"server={sConnection};userid=dbremoteuser;password=password;database=notetrackerplus;port=8889";
+// make sure you set your console to legacy in order to view the card graphic.
+// click the icon in the upper left.
+// click properties
+// click the checkbox for 'use legacy console'
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
 using System.IO;
@@ -12,7 +19,7 @@ namespace EdwardWelborn_CardGame
 {
     class Program
     {
-        /// This section of code deals with setting the window position other than default
+        // This section of code deals with setting the window position other than default
 
         const int SWP_NOSIZE = 0x0001;
 
@@ -25,7 +32,7 @@ namespace EdwardWelborn_CardGame
         public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy,
             int wFlags);
 
-        /// 
+        // 
 
         static void Main(string[] args)
         {
@@ -610,8 +617,8 @@ namespace EdwardWelborn_CardGame
 
         public static List<string> GetProfile(MySqlConnection conn, string strSQLStatement)
         {
-            /// This method populates a list to be manipulated for the JSON portion of the assignment
-            /// It will grab the data from the database, then can be split or manipulated into the JSON file
+            // This method populates a list to be manipulated for the JSON portion of the assignment
+            // It will grab the data from the database, then can be split or manipulated into the JSON file
 
             Console.WriteLine("Populating Restaurant Profile List\n");
             List<string> restaurantProfile = new List<string>();
@@ -688,9 +695,9 @@ namespace EdwardWelborn_CardGame
 
         public static void ListData(MySqlConnection conn, string SQLstatement)
         {
-            /// This method is called from the ShowCaseMenu method,  it passes in the mysql connection string, then a SQL string in order
-            /// to grab the data from the database and display accordingly.
-            /// 
+            // This method is called from the ShowCaseMenu method,  it passes in the mysql connection string, then a SQL string in order
+            // to grab the data from the database and display accordingly.
+            // 
             List<string> restaurantData = new List<string>();
             try
             {
@@ -709,7 +716,7 @@ namespace EdwardWelborn_CardGame
                 // Read Info
                 while (rdr.Read())
                 {
-                    /// Database data, read into a List<string>
+                    // Database data, read into a List<string>
 
                     string RestaurantName = rdr["RestaurantName"].ToString();
                     string Cuisine = rdr["Cuisine"].ToString();
@@ -758,8 +765,8 @@ namespace EdwardWelborn_CardGame
 
         public static string ChangeOverAllRating(double OverallRating)
         {
-            /// This method is called from the ListData method to change the OverAllRating from a numeric value to a star rating system
-            /// 
+            // This method is called from the ListData method to change the OverAllRating from a numeric value to a star rating system
+            // 
             string newOverAllRating = string.Empty;
 
             if (OverallRating < 0)
@@ -862,8 +869,8 @@ namespace EdwardWelborn_CardGame
 
         public static void ListReview(MySqlConnection conn)
         {
-            /// This method is called from the ShowCaseMenu method,  it passes in the mysql connection string, then a SQL string in order
-            /// to grab the data from the database and display accordingly.
+            // This method is called from the ShowCaseMenu method,  it passes in the mysql connection string, then a SQL string in order
+            // to grab the data from the database and display accordingly.
 
             var lstRestuarantReview = new List<KeyValuePair<string, double>>();
             try
@@ -934,7 +941,7 @@ namespace EdwardWelborn_CardGame
 
         public static string ChangeOverAllReview(double OverallReview)
         {
-            /// This method is called from the ListData method to change the OverAllRating from a numeric value to a star rating system
+            // This method is called from the ListData method to change the OverAllRating from a numeric value to a star rating system
 
             string strReviewBar = string.Empty;
             string strTemp = string.Format("{0:0.00}", OverallReview);
@@ -973,8 +980,8 @@ namespace EdwardWelborn_CardGame
 
         public static void DinnerSpinner(MySqlConnection conn)
         {
-            /// Choose a random restaurant to go eat
-            ///
+            // Choose a random restaurant to go eat
+
             Console.Clear();
             Console.Write("Getting Your Next Dinner Idea");
             Console.BackgroundColor = ConsoleColor.Cyan;
@@ -1001,13 +1008,14 @@ namespace EdwardWelborn_CardGame
 
         public static void TopTenList(MySqlConnection conn)
         {
-            ///  Top Ten showcase sorted by percentile
-            /// 
-            /// SELECT RestaurantProfiles.RestaurantName, avg(RestaurantReviews.ReviewScore) FROM RestaurantReviews 
-            /// join RestaurantProfiles on RestaurantProfiles.id = RestaurantReviews.RestaurantId
-            /// group by RestaurantProfiles.RestaurantName
-            /// order by avg(RestaurantReviews.ReviewScore) desc
-            /// limit 10;
+            //  Top Ten showcase sorted by percentile
+            // 
+            // SELECT RestaurantProfiles.RestaurantName, avg(RestaurantReviews.ReviewScore) FROM RestaurantReviews 
+            // join RestaurantProfiles on RestaurantProfiles.id = RestaurantReviews.RestaurantId
+            // group by RestaurantProfiles.RestaurantName
+            // order by avg(RestaurantReviews.ReviewScore) desc
+            // limit 10;
+
             List<string> lstTopTen = new List<string>();
             string strSqlStatement =
                 " SELECT RestaurantProfiles.RestaurantName, avg(RestaurantReviews.ReviewScore) FROM RestaurantReviews " +
@@ -1021,9 +1029,9 @@ namespace EdwardWelborn_CardGame
         }
         public static void ListTopTen(MySqlConnection conn)
         {
-            /// This method is called from the reviewmenu method,  it passes in the mysql connection string, then a SQL string in order
-            /// to grab the data from the database and display accordingly.
-            /// 
+            // This method is called from the reviewmenu method,  it passes in the mysql connection string, then a SQL string in order
+            // to grab the data from the database and display accordingly.
+             
             var lstRestuarantReview = new List<KeyValuePair<string, double>>();
             try
             {
@@ -1160,8 +1168,8 @@ namespace EdwardWelborn_CardGame
         }
         public static List<string> GetDinner(MySqlConnection conn, string strSQLStatement)
         {
-            /// This method populates a list to be manipulated for the JSON portion of the assignment
-            /// It will grab the data from the database, then can be split or manipulated into the JSON file
+            // This method populates a list to be manipulated for the JSON portion of the assignment
+            // It will grab the data from the database, then can be split or manipulated into the JSON file
 
             List<string> restaurantProfile = new List<string>();
             try
@@ -1184,7 +1192,7 @@ namespace EdwardWelborn_CardGame
                 // Read Info
                 while (rdr.Read())
                 {
-                    /// Database data, read into a List<string>
+                    // Database data, read into a List<string>
 
                     string RestaurantName = rdr["RestaurantName"].ToString();
                     string Address = rdr["Address"].ToString();
@@ -1231,8 +1239,8 @@ namespace EdwardWelborn_CardGame
 
         public static List<String> Shuffle(MySqlConnection conn)
         {
-            /// Choose a random restaurant to go eat
-            ///
+            // Choose a random restaurant to go eat
+
             Console.Clear();
             Console.Write("Getting Your Next group of players, please wait: ");
             Console.BackgroundColor = ConsoleColor.Cyan;
@@ -1268,8 +1276,8 @@ namespace EdwardWelborn_CardGame
         }
         public static string GetPlayer(MySqlConnection conn, string strSQLStatement)
         {
-            /// This method populates a list to be manipulated for the JSON portion of the assignment
-            /// It will grab the data from the database, then can be split or manipulated into the JSON file
+            // This method populates a list to be manipulated for the JSON portion of the assignment
+            // It will grab the data from the database, then can be split or manipulated into the JSON file
 
             ;
             string newList = null;
@@ -1289,11 +1297,13 @@ namespace EdwardWelborn_CardGame
                 // Read Info
                 while (rdr.Read())
                 {
-                    /// Database data, read into a List<string>
+                    // Database data, read into a List<string>
 
 
-                    string strPlayerName = rdr["username"].ToString();
-                    string strPaddedPlayerName = strPlayerName.PadRight(15);
+                    string strPlayerFirstName = rdr["First"].ToString();
+                    string strPlayerLastName = rdr["Last"].ToString();
+                    string strPlayerFullName = strPlayerFirstName + " " + strPlayerLastName;
+                    string strPaddedPlayerName = strPlayerFullName.PadRight(20);
                     newList = (strPaddedPlayerName);
                 }
             }
@@ -1317,26 +1327,31 @@ namespace EdwardWelborn_CardGame
         public static void DealTheCards(List<string> lstPlayers)
         {
             Console.Clear();
+            int cHeart = 3;
+            int cDiamond = 5;
+            int cClubs = 7;
+            int cSpades = 4;
+
+            Console.SetWindowSize(135, 25);
+            int xpos = 600;
+            int ypos = 300;
+            SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
 
             List<string> lstAvailableClubs = new List<string>()
             {
-                "Ace(C) ", "2(C)   ", "3(C)   ", "4(C)   ", "5(C)   ", "6(C)   ", "7(C)   ", "8(C)   ", "9(C)   ", "10(C)  ", "J(C)   ", "Q(C)   ",
-                "K(C)  "
+                "  A♣  ", "  2♣  ", "  3♣  ", "  4♣  ", "  5♣  ", "  6♣  ", "  7♣  ", "  8♣  ", "  9♣  ", " 10♣  ", "  J♣  ", "  Q♣  ", "  K♣  "
             };
             List<string> lstAvailableHearts = new List<string>()
             {
-                "Ace(H) ", "2(H)   ", "3(H)   ", "4(H)   ", "5(H)   ", "6(H)   ", "7(H)   ", "8(H)   ", "9(H)   ", "10(H)  ", "J(H)   ", "Q(H)   ",
-                "K(H)   "
+                "  A♥  ", "  2♥  ", "  3♥  ", "  4♥  ", "  5♥  ", "  6♥  ", "  7♥  ", "  8♥  ", "  9♥  ", " 10♥  ", "  J♥  ", "  Q♥  ", "  K♥  "
             };
             List<string> lsAvailableDiamonds = new List<string>()
             {
-                "Ace(D) ", "2(D)   ", "3(D)   ", "4(D)   ", "5(D)   ", "6(D)   ", "7(D)   ", "8(D)   ", "9(D)   ", "10(D)  ", "J(D)   ", "Q(D)   ",
-                "K(D)   "
+                "  A♦  ", "  2♦  ", "  3♦  ", "  4♦  ", "  5♦  ", "  6♦  ", "  7♦  ", "  8♦  ", "  9♦  ", " 10♦  ", "  J♦  ", "  Q♦  ", "  K♦  "
             };
             List<string> lstAvailableSpades = new List<string>()
             {
-                "Ace(S) ", "2(S)   ", "3(S)   ", "4(S)   ", "5(S)   ", "6(S)   ", "7(S)   ", "8(S)   ", "9(S)   ", "10(S)  ", "J(S)   ", "Q(S)   ",
-                "K(S)   "
+                "  A♠  ", "  2♠  ", "  3♠  ", "  4♠  ", "  5♠  ", "  6♠  ", "  7♠  ", "  8♠  ", "  9♠  ", " 10♠  ", "  J♠  ", "  Q♠  ", "  K♠  "
             };
 
             List<string> lstPlayer1Hand = new List<string>();
@@ -1360,8 +1375,11 @@ namespace EdwardWelborn_CardGame
             int intTemp3 = 0;
             int intTemp4 = 0;
 
+            int x = 0; //x position of the cursor. We move it left and right
+            int y = 5;//y position of the cursor, we move up and down
+
             // first player dealt
-            Console.WriteLine("Player   Name           Hand");
+            Console.WriteLine("\nPlayer   Name                  Hand");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             do
             {
@@ -1412,12 +1430,19 @@ namespace EdwardWelborn_CardGame
             //            Console.WriteLine(lstAvailableClubs.Count + " " + lstAvailableHearts.Count + " " + lsAvailableDiamonds.Count + " " + lstAvailableSpades.Count);
             //            Utility.PressAnyKeyToContinue("pause");
             Console.Write($"\nPlayer1: {lstPlayers.ElementAt(0)}");
-            foreach (var element in lstPlayer1Hand)
+            for (int i = 0; i < 13; i++)
             {
-                Console.Write(element);
+                DrawCardOutline(x, y);
+                DrawCardSuitValue(lstPlayer1Hand[i], x, y);
+                
+                x++;//move to the right
             }
+//            foreach (var element in lstPlayer1Hand)
+//            {
+//                Console.Write(element.ToString());
+//            }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"\nPlayer 1 Hand Total: {intPlayer1Sum}\n");
+            Console.WriteLine($"\n\n\n\nPlayer 1 Hand Total: {intPlayer1Sum}\n");
             Console.ForegroundColor = ConsoleColor.Gray;
             do
             {
@@ -1470,7 +1495,7 @@ namespace EdwardWelborn_CardGame
             Console.Write($"Player2: {lstPlayers.ElementAt(1)}");
             foreach (var element in lstPlayer2Hand)
             {
-                Console.Write(element);
+                Console.Write(element.ToString());
             }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"\nPlayer 2 Hand Total: {intPlayer2Sum}\n");
@@ -1526,7 +1551,12 @@ namespace EdwardWelborn_CardGame
             Console.Write($"Player3: {lstPlayers.ElementAt(2)}");
             foreach (var element in lstPlayer3Hand)
             {
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Gray;
                 Console.Write(element);
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Gray;
+
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -1580,7 +1610,7 @@ namespace EdwardWelborn_CardGame
             Console.Write($"Player4: {lstPlayers.ElementAt(3)}");
             foreach (var element in lstPlayer4Hand)
             {
-                Console.Write(element);
+                Console.Write(element.ToString());
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -1598,55 +1628,55 @@ namespace EdwardWelborn_CardGame
         {
             int intTotal = 0;
 
-            if (strCard.Contains("2("))
+            if (strCard.Contains("2"))
             {
                 intTotal += 2;
             }
-            else if (strCard.Contains("3("))
+            else if (strCard.Contains("3"))
             {
                 intTotal += 3;
             }
-            else if (strCard.Contains("4("))
+            else if (strCard.Contains("4"))
             {
                 intTotal += 4;
             }
-            else if (strCard.Contains("5("))
+            else if (strCard.Contains("5"))
             {
                 intTotal += 5;
             }
-            else if (strCard.Contains("6("))
+            else if (strCard.Contains("6"))
             {
                 intTotal += 6;
             }
-            else if (strCard.Contains("7("))
+            else if (strCard.Contains("7"))
             {
                 intTotal += 7;
             }
-            else if (strCard.Contains("8("))
+            else if (strCard.Contains("8"))
             {
                 intTotal += 8;
             }
-            else if (strCard.Contains("9("))
+            else if (strCard.Contains("9"))
             {
                 intTotal += 9;
             }
-            else if (strCard.Contains("10("))
+            else if (strCard.Contains("10"))
             {
                 intTotal += 10;
             }
-            else if (strCard.Contains("J("))
+            else if (strCard.Contains("J"))
             {
                 intTotal += 12;
             }
-            else if (strCard.Contains("Q("))
+            else if (strCard.Contains("Q"))
             {
                 intTotal += 12;
             }
-            else if (strCard.Contains("K("))
+            else if (strCard.Contains("K"))
             {
                 intTotal += 12;
             }
-            else if (strCard.Contains("Ace("))
+            else if (strCard.Contains("A"))
             {
                 intTotal += 15;
             }
@@ -1679,15 +1709,52 @@ namespace EdwardWelborn_CardGame
 
             return intWinner;
         }
+        public static void DrawCardOutline(int xcoor, int ycoor)
+        {
+
+            int x = xcoor * 5;
+            int y = ycoor;
+
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.Write(" ___________\n"); //top edge of the card
+
+            for (int i = 0; i < 6; i++)
+            {
+                Console.SetCursorPosition(x, y + 1 + i);
+
+                if (i != 6)
+                    Console.WriteLine("|            |");//left and right edges of the card
+                else
+                    Console.WriteLine("|____________|");//bottom edge of the card
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        public static void DrawCardSuitValue(string Card, int xcoor, int ycoor)
+        {
+            int x = xcoor * 5;
+            int y = ycoor;
+
+            //Encode each byte array from the CodePage437 into a character
+            //hears and diamonds are red, clubs and spades are black
+
+            //display the encoded character and value of the card
+
+            Console.SetCursorPosition(x, y + 3);
+            Console.Write(Card);
+
+        }
     }
 }
-/// card game psuedo code
-/// shuffle deck
-/// four suits diamond, hearts, spades, clubs
-/// Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king
-/// 52 total cards
-/// dealing 13 to each of four players
-/// total cards for each player
-/// 
+// card game psuedo code
+// shuffle deck
+// four suits diamond, hearts, spades, clubs
+// Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king
+// 52 total cards
+// dealing 13 to each of four players
+// total cards for each player
 
 

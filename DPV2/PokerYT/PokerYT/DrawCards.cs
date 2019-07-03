@@ -31,7 +31,7 @@ namespace PokerYT
         }
 
         //displays suit and value of the card inside its outline
-        public static void DrawCardSuitValue(Card card, int xcoor, int ycoor)
+        public static void DrawCardSuitValue(string Card, int xcoor, int ycoor)
         {
             char cardSuit = ' ';
             int x = xcoor * 12;
@@ -63,7 +63,7 @@ namespace PokerYT
             Console.SetCursorPosition(x +5 , y + 5);
             Console.Write(cardSuit);
             Console.SetCursorPosition(x + 4, y + 7);
-            Console.Write(card.MyValue);
+            Console.Write(Card);
 
         }
     }
