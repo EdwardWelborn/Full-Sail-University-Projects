@@ -10,7 +10,7 @@ namespace EdwardWelborn_CardGame
     public class ProgressBar : IDisposable, IProgress<double>
     {
         private const int blockCount = 10;
-        private readonly TimeSpan animationInterval = TimeSpan.FromSeconds(1.0 / 8);
+        private readonly TimeSpan animationInterval = TimeSpan.FromSeconds(1.0 / 6);
         private const string animation = @"|/-\";
 
         private readonly Timer timer;
@@ -49,7 +49,7 @@ namespace EdwardWelborn_CardGame
                 int progressBlockCount = (int) (currentProgress * blockCount);
                 int percent = (int) (currentProgress * 100);
                 string text = string.Format("[{0}{1}] {2,3}% {3}",
-                    new string('#', progressBlockCount), new string('-', blockCount - progressBlockCount),
+                    new string('*', progressBlockCount), new string('-', blockCount - progressBlockCount),
                     percent,
                     animation[animationIndex++ % animation.Length]);
                 UpdateText(text);
