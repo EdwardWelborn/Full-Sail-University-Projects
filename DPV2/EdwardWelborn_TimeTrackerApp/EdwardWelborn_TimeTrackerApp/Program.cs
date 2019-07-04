@@ -748,7 +748,7 @@ namespace EdwardWelborn_TimeTrackerApp
 
             try
             {
-                string newList = null; 
+ //               string newList = null; 
 
                 // Form SQL Statement
 

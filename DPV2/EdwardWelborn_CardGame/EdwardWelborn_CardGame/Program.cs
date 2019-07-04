@@ -1016,15 +1016,6 @@ namespace EdwardWelborn_CardGame
             // order by avg(RestaurantReviews.ReviewScore) desc
             // limit 10;
 
-            List<string> lstTopTen = new List<string>();
-            string strSqlStatement =
-                " SELECT RestaurantProfiles.RestaurantName, avg(RestaurantReviews.ReviewScore) FROM RestaurantReviews " +
-                "join RestaurantProfiles on RestaurantProfiles.id = RestaurantReviews.RestaurantId " +
-                "group by RestaurantProfiles.RestaurantName " +
-                "order by avg(RestaurantReviews.ReviewScore) desc " +
-                "limit 10;";
-            // conn.Open();
-
             ListTopTen(conn);
         }
         public static void ListTopTen(MySqlConnection conn)
@@ -1036,7 +1027,7 @@ namespace EdwardWelborn_CardGame
             try
             {
                 double dblReviewScore = 0;
-                string newList = null;
+               // string newList = null;
 
                 // Form SQL Statement
 
@@ -1327,11 +1318,7 @@ namespace EdwardWelborn_CardGame
         public static void DealTheCards(List<string> lstPlayers)
         {
             Console.Clear();
-            int cHeart = 3;
-            int cDiamond = 5;
-            int cClubs = 7;
-            int cSpades = 4;
-
+ 
             Console.SetWindowSize(135, 25);
             int xpos = 600;
             int ypos = 300;
@@ -1380,7 +1367,7 @@ namespace EdwardWelborn_CardGame
 
             // first player dealt
             Console.WriteLine("\nPlayer   Name                  Hand");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------");
             do
             {
 
@@ -1430,19 +1417,20 @@ namespace EdwardWelborn_CardGame
             //            Console.WriteLine(lstAvailableClubs.Count + " " + lstAvailableHearts.Count + " " + lsAvailableDiamonds.Count + " " + lstAvailableSpades.Count);
             //            Utility.PressAnyKeyToContinue("pause");
             Console.Write($"\nPlayer1: {lstPlayers.ElementAt(0)}");
-            for (int i = 0; i < 13; i++)
-            {
-                DrawCardOutline(x, y);
-                DrawCardSuitValue(lstPlayer1Hand[i], x, y);
-                
-                x++;//move to the right
-            }
-//            foreach (var element in lstPlayer1Hand)
+//            for (int i = 0; i < 13; i++)
 //            {
-//                Console.Write(element.ToString());
+//
+//                DrawCardOutline(x, y);
+//                DrawCardSuitValue(lstPlayer1Hand[i], x, y);
+//                
+//                x++;//move to the right
 //            }
+            foreach (var element in lstPlayer1Hand)
+            {
+                Console.Write(element.ToString());
+            }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"\n\n\n\nPlayer 1 Hand Total: {intPlayer1Sum}\n");
+            Console.WriteLine($"\nPlayer 1 Hand Total: {intPlayer1Sum}\n");
             Console.ForegroundColor = ConsoleColor.Gray;
             do
             {
@@ -1551,12 +1539,7 @@ namespace EdwardWelborn_CardGame
             Console.Write($"Player3: {lstPlayers.ElementAt(2)}");
             foreach (var element in lstPlayer3Hand)
             {
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.BackgroundColor = ConsoleColor.Gray;
                 Console.Write(element);
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Gray;
-
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -1610,7 +1593,7 @@ namespace EdwardWelborn_CardGame
             Console.Write($"Player4: {lstPlayers.ElementAt(3)}");
             foreach (var element in lstPlayer4Hand)
             {
-                Console.Write(element.ToString());
+                Console.Write(element);
             }
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
