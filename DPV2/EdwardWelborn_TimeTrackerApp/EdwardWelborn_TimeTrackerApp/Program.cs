@@ -103,14 +103,18 @@ namespace EdwardWelborn_TimeTrackerApp
                 }
             }
 
+            string strLogin = $"Welcome {strName}";
+
             
+           
             bool bProgramRunning = true;
 
             while (bProgramRunning)
             {
                 Console.Clear();
                 Console.SetWindowSize(100, 20);
-                Console.WriteLine($"     Welcome {strName}\n\n" + 
+                Console.WriteLine(String.Format("{0," + ((32S / 2) + (strLogin.Length / 2)) + "}", strLogin));
+                Console.WriteLine( 
                         "       Time Tracker Plus\n" +
                         "-------------------------------\n" +
                         "[1]..  Enter Activity {enter}\n" +
