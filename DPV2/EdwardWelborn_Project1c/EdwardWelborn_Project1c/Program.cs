@@ -120,8 +120,10 @@ namespace EdwardWelborn_Project1c
                 Console.SetWindowSize(100, 20);
                 int xpos = 650;
                 int ypos = 275;
+                string strLogin = $"Welcome {strName}";
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
-                Console.WriteLine($"       Welcome {strName}\n" +
+                Console.WriteLine(String.Format("{0," + ((32 / 2) + (strLogin.Length / 2)) + "}", strLogin));
+                Console.WriteLine(
                                   "       Note Tracker Plus\n" +
                                   "-------------------------------\n" +
                                   "[1]..  User Menu {user}\n" +
@@ -359,9 +361,13 @@ namespace EdwardWelborn_Project1c
                 Console.WriteLine($"{lstUsers[i].ToString()}");
             }
 
-            Console.Write("\nSelect a user to edit: ");
+            Console.Write("\nSelect a user to edit: (type 'quit' to exit) ");
             string strName = Console.ReadLine();
             string strUserName = Validation.ValidateText(strName);
+            if (strUserName == "quit")
+            {
+                return;
+            }
             string strSQL = @"SELECT * FROM user_table where username = @username;";
 
             using (conn)
@@ -450,11 +456,14 @@ namespace EdwardWelborn_Project1c
                 Console.WriteLine($"{lstUsers[i].ToString()}");
             }
 
-            Console.Write("\nSelect a user to delete: ");
+            Console.Write("\nSelect a user to delete: (Type 'quit' to exit) ");
             string strDeleteUSer = Console.ReadLine();
             string strdeleteUserName = Validation.ValidateText(strDeleteUSer);
             string strdeletetSql = "delete from user_table where username='" + strdeleteUserName + "' ;";
-
+            if (strdeleteUserName == "quit")
+            {
+                return;
+            }
             using (conn)
             {
                 conn.Open();
@@ -606,11 +615,15 @@ namespace EdwardWelborn_Project1c
                     Console.WriteLine($"{lstNotes[i].ToString()}");
                 }
 
-                Console.Write("\nSelect a note to edit: ");
+                Console.Write("\nSelect a note to edit: (type 0 to exit) ");
                 string strNoteChoice = Console.ReadLine();
-                int intEditNote = Validation.ValidateIntRange(1, lstNotes.Count, strNoteChoice);
-                string strSQL = @"SELECT * FROM notes_table where note_id = @note_id;";
+                int intEditNote = Validation.ValidateIntRange(0, lstNotes.Count, strNoteChoice);
 
+                string strSQL = @"SELECT * FROM notes_table where note_id = @note_id;";
+                if (intEditNote == 0)
+                {
+                    return;
+                }
                 using (conn)
                 {
                     conn.Open();
@@ -776,11 +789,14 @@ namespace EdwardWelborn_Project1c
                     Console.WriteLine($"{lstNotes[i].ToString()}");
                 }
 
-                Console.Write("\nSelect a note to edit: ");
+                Console.Write("\nSelect a note to edit: (Type 0 to exit) ");
                 string strNoteChoice = Console.ReadLine();
                 int intEditNote = Validation.ValidateIntRange(1, lstNotes.Count, strNoteChoice);
                 string strSQL = @"delete FROM notes_table where note_id = @note_id;";
-
+                if (intEditNote == 0)
+                {
+                    return;
+                }
                 using (conn)
                 {
                     conn.Open();

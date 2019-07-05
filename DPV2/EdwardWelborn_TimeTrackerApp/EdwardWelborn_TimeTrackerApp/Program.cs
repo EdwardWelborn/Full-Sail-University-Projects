@@ -113,7 +113,7 @@ namespace EdwardWelborn_TimeTrackerApp
             {
                 Console.Clear();
                 Console.SetWindowSize(100, 20);
-                Console.WriteLine(String.Format("{0," + ((32S / 2) + (strLogin.Length / 2)) + "}", strLogin));
+                Console.WriteLine(String.Format("{0," + ((32 / 2) + (strLogin.Length / 2)) + "}", strLogin));
                 Console.WriteLine( 
                         "       Time Tracker Plus\n" +
                         "-------------------------------\n" +

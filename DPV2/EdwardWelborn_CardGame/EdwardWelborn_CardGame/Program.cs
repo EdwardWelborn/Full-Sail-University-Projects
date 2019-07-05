@@ -68,7 +68,7 @@ namespace EdwardWelborn_CardGame
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine(
-                    "                         Bar Graph Assignment\n" +
+                    "                         Card Game Assignment\n" +
                     "-------------------------------------------------------------------------\n" +
                     "[1]..  Convert The Restaurant Reviews Database From SQL To JSON {convert}\n" +
                     "[2]..  Showcase Our 5 Star Rating System {showcase}\n" +
@@ -276,7 +276,7 @@ namespace EdwardWelborn_CardGame
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine(
-                    "                              Bar Graph Assignment\n" +
+                    "                              Card Game Assignment\n" +
                     "                           Showcase Our 5 Star Ratings\n" +
                     "------------------------------------------------------------------------------------\n" +
                     "[1]..  List Restaurants Alphabetically (Show Rating Next To Name) {alphabetically}\n" +
@@ -375,7 +375,7 @@ namespace EdwardWelborn_CardGame
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine(
-                    "                              Bar Graph Assignment\n" +
+                    "                              Card Game Assignment\n" +
                     "                          Showcase Our 5 Star Ratings\n" +
                     "------------------------------------------------------------------------------------\n" +
                     "[1]..  Show the Best (5 Star) {5 star}\n" +
@@ -482,7 +482,7 @@ namespace EdwardWelborn_CardGame
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine(
-                    "                Bar Graph Assignment\n" +
+                    "                Card Game Assignment\n" +
                     "      Showcase Our Animated Bar Graph Review System\n" +
                     "-----------------------------------------------------------\n" +
                     "[1]..  Show Average of Reviews for Restaurants {average}\n" +
@@ -558,7 +558,7 @@ namespace EdwardWelborn_CardGame
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
                 Console.WriteLine(
-                    "      Bar Graph Assignment\n" +
+                    "      Card Game Assignment\n" +
                     "        Play a Card Game\n" +
                     "-----------------------------------\n" +
                     "[1]..  Shuffle the Deck {shuffle}\n" +
