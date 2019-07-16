@@ -484,32 +484,32 @@ namespace EdwardWelborn_TimeTrackerApp
             int intDayOfWeek = 0;
             int intDateChoice = 0;
 
-            Console.WriteLine(intUser_ID);
-            Utility.PressAnyKeyToContinue("pause");
+//            Console.WriteLine(intUser_ID);
+//            Utility.PressAnyKeyToContinue("pause");
             // select description Menu
-            while (boolDaysRunning)
-            {
+//            while (boolDaysRunning)
+//            {
                 Console.Clear();
                 Console.SetWindowSize(100, 20);
                 int xpos = 650;
                 int ypos = 275;
                 SetWindowPos(MyConsole, 0, xpos, ypos, 0, 0, SWP_NOSIZE);
-                Console.WriteLine(
-                        "        Time Tracker Plus\n" +
-                        "       Enter Activity Menu\n" +
-                        "-----------------------------------\n" +
-                        "[1]..  Enter Activity {enter}\n" +
-                        "[2]..  Return to the Main Menu {e}\n" +
-                        "----------------------------------\n");
-                Console.WriteLine("Select an Option: ");
-                Console.Write("Please Input the phrase, or use 1 thru 2: ");
-                string input = Console.ReadLine().ToLower();
+ //               Console.WriteLine(
+ //                       "        Time Tracker Plus\n" +
+ //                       "       Enter Activity Menu\n" +
+ //                       "-----------------------------------\n" +
+ //                       "[1]..  Enter Activity {enter}\n" +
+ //                       "[2]..  Return to the Main Menu {e}\n" +
+ //                       "----------------------------------\n");
+ //               Console.WriteLine("Select an Option: ");
+ //               Console.Write("Please Input the phrase, or use 1 thru 2: ");
+ //               string input = Console.ReadLine().ToLower();
 
-                switch (input)
-                {
-                    case "1":
-                    case "enter activity":
-                    case "enter":
+//                switch (input)
+//                {
+//                    case "1":
+//                    case "enter activity":
+//                    case "enter":
                     {
                         intCategory = CategoryMenu(lstCategory);
                         intDescription = DescriptionMenu(lstDescription);
@@ -533,26 +533,26 @@ namespace EdwardWelborn_TimeTrackerApp
                         }
                         Console.WriteLine("Activity Entered");
                     }
-                    break;
-                    case "2":
-                    case "e":
-                    case "return to the main menu":
-                        {
-                            boolDaysRunning = false;
-                        }
-                        break;
-                    default:
-                        {
-                            Console.WriteLine("Please Input the phrase, or use 1 thru 2: ");
+//                    break;
+//                    case "2":
+//                    case "e":
+//                    case "return to the main menu":
+//                        {
+//                            boolDaysRunning = false;
+//                        }
+//                        break;
+//                    default:
+//                        {
+//                            Console.WriteLine("Please Input the phrase, or use 1 thru 2: ");
                             Utility.PressAnyKeyToContinue("Press the space bar to try again.");
-                        }
-                        break;
-                }
-                if (!boolDaysRunning)
-                {
-                    Utility.PressAnyKeyToContinue("Press Any Key To Return to the Main Menu");
-                }
-            }
+//                        }
+//                        break;
+//                }
+//                if (!boolDaysRunning)
+//                {
+//                    Utility.PressAnyKeyToContinue("Press Any Key To Return to the Main Menu");
+//                }
+//            }
         }
         public static int SelectActivityDate(List<string> lstCalendarDates)
         {
