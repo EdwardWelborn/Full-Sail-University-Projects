@@ -1,7 +1,0 @@
-I have watched the creating SQL queries, structured where clauses as well as the sorting results.
-
-I am okay with doing queries as well as the SQL sorting.  It is the other things I am light in. But I am rewatching each video to get a better understanding of what I am
-supposed to accomplish.
-
-I will be late on my databases project, I am sorry for the inconvenience.  But I really want to understand the ideas behind the project better and gain a better grade. 
-Even though I do understand that being late does hurt my grade.
