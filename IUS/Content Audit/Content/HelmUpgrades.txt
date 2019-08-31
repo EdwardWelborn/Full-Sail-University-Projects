@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="236" height="721" viewBox="0 0 236 721">
+  <text id="Helm_of_Flying" data-name="Helm of Flying" transform="translate(0 22)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Flying</tspan></text>
+  <text id="Helm_of_Not_Flying" data-name="Helm of Not Flying" transform="translate(0 92)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Not Flying</tspan></text>
+  <text id="Helm_of_Ogre_Slaying" data-name="Helm of Ogre Slaying" transform="translate(0 161)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Ogre Slaying</tspan></text>
+  <text id="Helm_of_Invisibilty" data-name="Helm of Invisibilty" transform="translate(0 230)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Invisibilty</tspan></text>
+  <text id="Helm_of_Killing_Everything" data-name="Helm of Killing Everything" transform="translate(0 300)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Killing Everything</tspan></text>
+  <text id="Helm_of_Reckless_Abandon" data-name="Helm of Reckless Abandon" transform="translate(0 370)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Reckless Abandon</tspan></text>
+  <text id="Helm_of_Shame" data-name="Helm of Shame" transform="translate(0 439)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Shame</tspan></text>
+  <text id="Helm_of_Sleep" data-name="Helm of Sleep" transform="translate(0 508)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Sleep</tspan></text>
+  <text id="Helm_of_Bleeding" data-name="Helm of Bleeding" transform="translate(0 577)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Bleeding</tspan></text>
+  <text id="Helm_of_Swiftness" data-name="Helm of Swiftness" transform="translate(0 647)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Swiftness</tspan></text>
+  <text id="Helm_of_Narcissus" data-name="Helm of Narcissus" transform="translate(0 716)" fill="#421300" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Helm of Narcissus</tspan></text>
+</svg>
