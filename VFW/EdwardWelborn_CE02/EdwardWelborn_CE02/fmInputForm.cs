@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EdwardWelborn_CE02
 {
-    public partial class Form1 : Form
+    public partial class fmInputForm : Form
     {
-        public Form1()
+        public fmInputForm()
         {
             InitializeComponent();
         }

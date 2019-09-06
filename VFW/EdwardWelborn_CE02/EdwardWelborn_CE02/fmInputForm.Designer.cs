@@ -1,6 +1,15 @@
-﻿namespace EdwardWelborn_CE02
+﻿/*
+* Created by Edward Welborn on 09/06/2019
+* Class: Visual Framworks
+* Description: Project CE02
+* Copyright © 2019 Roy Welborn. All rights reserved
+*
+* Input Form
+* Summary: Input form for the program, here is where the data will be input then sent over to the main form.
+*/
+namespace EdwardWelborn_CE02
 {
-    partial class Form1
+    partial class fmInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +37,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // fmInputForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(792, 700);
+            this.Name = "fmInputForm";
+            this.Text = "CE02 Input Form";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
