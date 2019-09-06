@@ -13,6 +13,10 @@ namespace WindowsFormsIntro
 {
     public partial class Form1 : Form
     {
+        private event System.EventHandler ItemCountChanged;
+
+        public 
+
         public Form1()
         {
             InitializeComponent();

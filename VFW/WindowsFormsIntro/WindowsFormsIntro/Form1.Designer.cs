@@ -32,15 +32,17 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkboxStudent = new System.Windows.Forms.CheckBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.defaultButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this.defaultButton = new System.Windows.Forms.Button();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.checkboxStudent = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -69,12 +71,14 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitApplication);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.label1);
@@ -85,47 +89,26 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 506);
+            this.groupBox1.Size = new System.Drawing.Size(324, 378);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Controls";
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 26);
-            this.textBox1.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Age";
             // 
-            // checkboxStudent
+            // numericUpDown1
             // 
-            this.checkboxStudent.AutoSize = true;
-            this.checkboxStudent.Location = new System.Drawing.Point(87, 334);
-            this.checkboxStudent.Name = "checkboxStudent";
-            this.checkboxStudent.Size = new System.Drawing.Size(101, 24);
-            this.checkboxStudent.TabIndex = 1;
-            this.checkboxStudent.Text = "Student?";
-            this.checkboxStudent.UseVisualStyleBackColor = true;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(31, 42);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(82, 20);
-            this.nameLabel.TabIndex = 2;
-            this.nameLabel.Text = "FirstName";
-            // 
-            // defaultButton
-            // 
-            this.defaultButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.defaultButton.Location = new System.Drawing.Point(87, 382);
-            this.defaultButton.Name = "defaultButton";
-            this.defaultButton.Size = new System.Drawing.Size(158, 48);
-            this.defaultButton.TabIndex = 3;
-            this.defaultButton.Text = "Default";
-            this.defaultButton.UseVisualStyleBackColor = false;
-            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
+            this.numericUpDown1.Location = new System.Drawing.Point(119, 132);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown1.TabIndex = 6;
             // 
             // label1
             // 
@@ -143,21 +126,42 @@
             this.textBox2.Size = new System.Drawing.Size(158, 26);
             this.textBox2.TabIndex = 4;
             // 
-            // numericUpDown1
+            // defaultButton
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(119, 132);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 6;
+            this.defaultButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.defaultButton.Location = new System.Drawing.Point(118, 284);
+            this.defaultButton.Name = "defaultButton";
+            this.defaultButton.Size = new System.Drawing.Size(158, 48);
+            this.defaultButton.TabIndex = 3;
+            this.defaultButton.Text = "Add";
+            this.defaultButton.UseVisualStyleBackColor = false;
+            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
-            // label2
+            // nameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Age";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(31, 42);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(82, 20);
+            this.nameLabel.TabIndex = 2;
+            this.nameLabel.Text = "FirstName";
+            // 
+            // checkboxStudent
+            // 
+            this.checkboxStudent.AutoSize = true;
+            this.checkboxStudent.Location = new System.Drawing.Point(118, 236);
+            this.checkboxStudent.Name = "checkboxStudent";
+            this.checkboxStudent.Size = new System.Drawing.Size(97, 24);
+            this.checkboxStudent.TabIndex = 1;
+            this.checkboxStudent.Text = "Immortal";
+            this.checkboxStudent.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(119, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(158, 26);
+            this.textBox1.TabIndex = 0;
             // 
             // listBox1
             // 
@@ -165,14 +169,34 @@
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(445, 36);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(352, 504);
+            this.listBox1.Size = new System.Drawing.Size(352, 384);
             this.listBox1.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBox1.Location = new System.Drawing.Point(118, 178);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 182);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Gender";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 622);
+            this.ClientSize = new System.Drawing.Size(890, 464);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip);
@@ -204,6 +228,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
