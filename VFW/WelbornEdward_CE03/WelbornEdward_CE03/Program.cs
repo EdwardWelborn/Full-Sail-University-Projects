@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+* Created by Edward Welborn on 09/09/2019
+* Class: Visual Framworks
+* Description: Project CE02
+* Copyright © 2019 Roy Welborn. All rights reserved
+*
+* Program.CS
+* Summary: Main Program file.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +25,7 @@ namespace WelbornEdward_CE03
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new fmMain());
         }
     }
 }
