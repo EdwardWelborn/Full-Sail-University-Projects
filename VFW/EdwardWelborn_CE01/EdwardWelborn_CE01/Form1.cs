@@ -55,13 +55,6 @@ namespace EdwardWelborn_CE01
                     }
                 }
             }
-            //            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            //            {
-            
-
-                // split line
-                
-
                 // Read data list, split the string
                 List<string> tempList = new List<string>();
                 List<string> splitter = new List<string>();
@@ -182,13 +175,11 @@ namespace EdwardWelborn_CE01
         {
             c.MouseEnter += (sender, e) =>
             {
-                // Debug.WriteLine(String.Format("enter {0}", c));
                 lb.Text = tip;
             };
 
             c.MouseLeave += (sender, e) =>
             {
-                // Debug.WriteLine(String.Format("Leave {0}", c));
                 lb.Text = "";
             };
 

@@ -22,8 +22,9 @@ namespace EdwardWelborn_CE02
         /// </summary>
         
         /* TO DO
+         *  Add information to the list
+         *  open information form
          *  
-         *    
         */
         [STAThread]
         static void Main()

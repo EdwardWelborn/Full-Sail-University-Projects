@@ -58,6 +58,7 @@
     <Compile Include="fmInputForm.Designer.cs">
       <DependentUpon>fmInputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="People.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmInputForm.resx">
