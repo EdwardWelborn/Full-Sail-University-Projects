@@ -17,40 +17,188 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace WelbornEdward_CE03
 {
     public partial class fmMain : Form
     {
-        
-        People Information
-        {
-            get
-            {
-                People infoObject = new People();
-                infoObject.firstname = tbFirstName.Text;
-                infoObject.lastname = tbLastName.Text;
-                infoObject.Gender = chkbStudent.Checked;
-                infoObject.gender = cmbGender.Text;
-                infoObject.age = udAge.Text;
-                return infoObject;
-            }
-        }
 
-        public List<string> lstUserData = new List<string>();
+        public fmList formList;
 
         public fmMain()
         {
             InitializeComponent();
         }
-        private void fmMain_Load(object sender, EventArgs e)
+
+        //Create the event delegate.
+        private EventHandler PersonAdded;
+
+        public People Information
         {
-            addHovertip((ToolStripStatusLabel)statusStrip.Items[0], this.udAge, "Enter Age");
+            get
+            {
+                People infoObject = new People();
+                infoObject.Firstname = tbFirstName.Text;
+                infoObject.Lastname = tbLastName.Text;
+                infoObject.Student = chkbStudent.Checked;
+                infoObject.Gender = cmbGender.Text;
+                infoObject.Age = udAge.Text;
+                return infoObject;
+            }
+
+            set
+            {
+
+                tbFirstName.Text = value.Firstname;
+                tbLastName.Text = value.Lastname;
+                chkbStudent.Checked = value.Student;
+                cmbGender.Text = value.Gender;
+                udAge.Text = value.Age;
+
+
+            }
+
         }
+
+        //public List<string> lstUserData = new List<string>();
+
+        //Property for the Persons in the list
+        public List<People> PersonData
+        {
+            get
+            {
+                return personData;
+            }
+
+            set
+            {
+                personData = value;
+            }
+        }
+
+
+
+
+        //instantiate the person list
+        List<People> personData = new List<People>();
+
+
+        private void btnAddData_Click(object sender, EventArgs e)
+        {
+            // create information object and add it to the listbox
+            PersonData.Add(Information);
+
+            Information = new People();
+
+
+            //raise the StudentAdded event
+            PersonAdded?.Invoke(this, new EventArgs());
+
+
+            // clear the user inputs
+            //ClearForm_Event(this, new EventArgs());
+
+
+
+        }
+
+        public void ClearForm_Event(object sender, EventArgs e)
+        {
+            // Clears the data form
+            //tbFirstName.Text = "";
+            //tbLastName.Text = "";
+            //udAge.Text = "";
+            //cmbGender.Text = "";
+            //chkbStudent.Checked = false;
+
+            People p = new People();
+
+            Information = p;
+        }
+
+
+        public void clearUserInput()
+        {
+            People p = new People();
+
+            Information = p;
+        }
+        
+        private void displayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //fmList frmList = new fmList();
+
+            //for (int x = 0; x < personData.Count; x++)
+            //{
+            //    frmList.lbDataList.Items.Add(personData[x]);
+            //}
+            //frmList.ShowDialog();
+
+
+            if (formList == null || formList.IsDisposed == true)
+            {
+
+                formList = new fmList(this);
+                
+                PersonAdded += formList.HandlePersonAdded;
+                
+
+                foreach (People p in PersonData)
+                {
+                    formList.PersonsListBox = p;
+                }
+
+                formList.Show();
+
+                
+                displayToolStripMenuItem.Checked = true;
+            }
+
+            
+        }
+
+        private void udAge_Enter(object sender, EventArgs e)
+        {
+            // udAge.Text = "";
+        }
+
+       
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int totalPersons = PersonData.Count;
+
+            while (--totalPersons >= 0)
+            {
+                formList.PersonsRemove = totalPersons;
+            }
+
+            //clear the list<>
+            PersonData.Clear();
+
+        }
+
+        public bool ToolTipChecked
+        {
+            set
+            {
+                displayToolStripMenuItem.Checked = value;
+            }
+        }
+
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void fmMain_Load(object sender, EventArgs e)
+        {
+            addHovertip((ToolStripStatusLabel)statusStrip.Items[0], this.udAge, "Enter Age");
+        }
+
         public static void addHovertip(ToolStripStatusLabel lb, Control c, string tip)
         {
             c.MouseEnter += (sender, e) =>
@@ -111,38 +259,7 @@ namespace WelbornEdward_CE03
         {
             toolStripStatusLabel.Text = "Clear Information";
         }
-        public void ClearForm_Event(object sender, EventArgs e)
-        {
-            // Clears the data form
-            tbFirstName.Text = "";
-            tbLastName.Text = "";
-            udAge.Text = "";
-            cmbGender.Text = "";
-            chkbStudent.Checked = false;
-        }
 
-        private void btnAddData_Click(object sender, EventArgs e)
-        {
-            // create information object and add it to the listbox
-            lstUserData.Add(Information.ToString());
-            
-            // clear the user inputs
-            ClearForm_Event(this, new EventArgs());
-        }
-
-        private void displayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fmList frmList = new fmList();
-            for (int x = 0; x < lstUserData.Count; x++)
-            {
-                frmList.lbDataList.Items.Add(lstUserData[x]);
-            }
-            frmList.ShowDialog();
-        }
-
-        private void udAge_Enter(object sender, EventArgs e)
-        {
-            udAge.Text = "";
-        }
+       
     }
 }

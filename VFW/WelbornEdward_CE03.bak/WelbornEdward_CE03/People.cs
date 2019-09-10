@@ -16,25 +16,18 @@ using System.Threading.Tasks;
 
 namespace WelbornEdward_CE03
 {
-    public class People
+    class People
     {
-        public string Firstname { get; set; }
-
-        public string Lastname { get; set; }
-
-        public string Age { get; set; }
-
-        public string Gender { get; set; }
-
-        public bool Student { get; set; }
-
+        public string firstname;
+        public string lastname;
+        public string age;
+        public string gender;
+        public bool student;
 
         public override string ToString()
         {
-            return Firstname + " " + Lastname +" ";
+            return firstname + " " + lastname + " " + age + " " + gender + " " + student;
         }
-
-       
 
     }
 }
