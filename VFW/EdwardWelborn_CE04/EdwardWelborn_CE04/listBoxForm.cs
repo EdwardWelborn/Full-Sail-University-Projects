@@ -12,7 +12,7 @@ namespace EdwardWelborn_CE04
 {
     public partial class listBoxForm : Form
     {
-        mainForm mainFrm;
+        dataEntryForm dataEntryFrm;
         listViewForm listViewFrm;
 
 
@@ -24,20 +24,25 @@ namespace EdwardWelborn_CE04
         private void listBoxForm_Load(object sender, EventArgs e)
         {
             // when this form loads, it is going to also open the other two forms.
-            mainFrm = new mainForm();
+            dataEntryFrm = new dataEntryForm();
             listViewFrm = new listViewForm();
 
-            mainFrm.AddCharacter += listViewFrm.listViewForm_AddCharacter;
+            dataEntryFrm.AddCharacter += listViewFrm.listViewForm_AddCharacter;
             listViewFrm.AddtoParty += ListViewFrm_AddtoParty;
             // show the windows as modeless
-            mainFrm.Show();
+            dataEntryFrm.Show();
             listViewFrm.Show();
         }
 
         private void ListViewFrm_AddtoParty(object sender, EventArgs e)
         {
             // get the object data from the listviewitem tag property
-             listBox.Items.Add(sender as listViewForm).Sele
+            lstParty.Items.Add(sender as listViewForm).SelectedCharacter.Tag;
+        }
+
+        private void listBoxForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

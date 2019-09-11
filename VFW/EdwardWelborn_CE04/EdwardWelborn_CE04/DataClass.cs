@@ -26,12 +26,6 @@
             set => gender = value;
         }
 
-        public int imageIndex
-        {
-            get => imageIndex;
-            set => imageIndex = value;
-        }
-
         public string race
         {
             get => race;
@@ -47,6 +41,18 @@
         {
             get => immortal;
             set => immortal = value;
+        }
+        public int imageIndex
+        {
+            get => imageIndex;
+            set => imageIndex = value;
+        }
+
+        public override string ToString()
+        {
+            string returnString = string.Empty;
+            returnString = $"{className}: {firstName} {lastName}";
+            return returnString;
         }
     }
 }

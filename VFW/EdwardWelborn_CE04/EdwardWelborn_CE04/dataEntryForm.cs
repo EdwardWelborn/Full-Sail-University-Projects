@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
 {
-    public partial class mainForm : Form
+    public partial class dataEntryForm : Form
     {
         public DataClass Data
         {
             get
             {
                 DataClass c = new DataClass();
-                c.age = udAge.Value;
+                c.age = numAge.Value;
                 c.firstName = tbFirstName.Text;
                 c.lastName = tbLastName.Text;
                 c.gender = cmbGender.Text;
@@ -31,7 +31,7 @@ namespace EdwardWelborn_CE04
             }
             set
             {
-                udAge.Value = value.age;
+                numAge.Value = value.age;
                 tbFirstName.Text = value.firstName;
                 tbLastName.Text = value.lastName;
                 cmbGender.Text = value.gender;
@@ -44,14 +44,9 @@ namespace EdwardWelborn_CE04
 
         public event EventHandler AddCharacter;
 
-        public mainForm()
+        public dataEntryForm()
         {
             InitializeComponent();
-        }
-
-        private void udAge_Enter(object sender, EventArgs e)
-        {
-            udAge.Text = "";
         }
 
         private void btnAddData_Click(object sender, EventArgs e)
@@ -71,6 +66,11 @@ namespace EdwardWelborn_CE04
         {
             tbFirstName.Clear();
             tbLastName.Clear();
+            numAge.Text = "";
+            cmbGender.Text = "";
+            cbImmortal.Checked = false;
+            cmbClass.Text = "";
+            cmbRace.Text = "";
         }
     }
 }

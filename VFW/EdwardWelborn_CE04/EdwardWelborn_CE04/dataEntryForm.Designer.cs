@@ -1,6 +1,6 @@
 ﻿namespace EdwardWelborn_CE04
 {
-    partial class mainForm
+    partial class dataEntryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,20 +42,13 @@
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.udAge = new System.Windows.Forms.NumericUpDown();
+            this.numAge = new System.Windows.Forms.NumericUpDown();
             this.lblAge = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.llblFirstname = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.gbDataView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udAge)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -63,10 +56,10 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 604);
+            this.statusStrip.Location = new System.Drawing.Point(0, 385);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
-            this.statusStrip.Size = new System.Drawing.Size(416, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
+            this.statusStrip.Size = new System.Drawing.Size(277, 22);
             this.statusStrip.TabIndex = 5;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -88,34 +81,38 @@
             this.gbDataView.Controls.Add(this.cmbGender);
             this.gbDataView.Controls.Add(this.tbLastName);
             this.gbDataView.Controls.Add(this.tbFirstName);
-            this.gbDataView.Controls.Add(this.udAge);
+            this.gbDataView.Controls.Add(this.numAge);
             this.gbDataView.Controls.Add(this.lblAge);
             this.gbDataView.Controls.Add(this.lblLastName);
             this.gbDataView.Controls.Add(this.llblFirstname);
-            this.gbDataView.Location = new System.Drawing.Point(15, 49);
+            this.gbDataView.Location = new System.Drawing.Point(0, 11);
+            this.gbDataView.Margin = new System.Windows.Forms.Padding(2);
             this.gbDataView.Name = "gbDataView";
-            this.gbDataView.Size = new System.Drawing.Size(386, 542);
+            this.gbDataView.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDataView.Size = new System.Drawing.Size(267, 373);
             this.gbDataView.TabIndex = 4;
             this.gbDataView.TabStop = false;
-            this.gbDataView.Text = "Data View";
+            this.gbDataView.Text = "Character Information";
             // 
             // cbImmortal
             // 
             this.cbImmortal.AutoSize = true;
-            this.cbImmortal.Location = new System.Drawing.Point(142, 407);
+            this.cbImmortal.Location = new System.Drawing.Point(95, 265);
+            this.cbImmortal.Margin = new System.Windows.Forms.Padding(2);
             this.cbImmortal.Name = "cbImmortal";
             this.cbImmortal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbImmortal.Size = new System.Drawing.Size(106, 24);
-            this.cbImmortal.TabIndex = 14;
+            this.cbImmortal.Size = new System.Drawing.Size(71, 17);
+            this.cbImmortal.TabIndex = 7;
             this.cbImmortal.Text = "?Immortal";
             this.cbImmortal.UseVisualStyleBackColor = true;
             // 
             // lblRace
             // 
             this.lblRace.AutoSize = true;
-            this.lblRace.Location = new System.Drawing.Point(42, 366);
+            this.lblRace.Location = new System.Drawing.Point(28, 238);
+            this.lblRace.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRace.Name = "lblRace";
-            this.lblRace.Size = new System.Drawing.Size(47, 20);
+            this.lblRace.Size = new System.Drawing.Size(33, 13);
             this.lblRace.TabIndex = 13;
             this.lblRace.Text = "Race";
             // 
@@ -130,17 +127,19 @@
             "Tauren",
             "Elf",
             "Undead"});
-            this.cmbRace.Location = new System.Drawing.Point(144, 359);
+            this.cmbRace.Location = new System.Drawing.Point(96, 233);
+            this.cmbRace.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRace.Name = "cmbRace";
-            this.cmbRace.Size = new System.Drawing.Size(121, 28);
-            this.cmbRace.TabIndex = 12;
+            this.cmbRace.Size = new System.Drawing.Size(82, 21);
+            this.cmbRace.TabIndex = 6;
             // 
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(42, 306);
+            this.lblClass.Location = new System.Drawing.Point(28, 199);
+            this.lblClass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(48, 20);
+            this.lblClass.Size = new System.Drawing.Size(32, 13);
             this.lblClass.TabIndex = 11;
             this.lblClass.Text = "Class";
             // 
@@ -154,16 +153,18 @@
             "Druid",
             "Mage",
             "Priest"});
-            this.cmbClass.Location = new System.Drawing.Point(144, 299);
+            this.cmbClass.Location = new System.Drawing.Point(96, 194);
+            this.cmbClass.Margin = new System.Windows.Forms.Padding(2);
             this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(121, 28);
-            this.cmbClass.TabIndex = 10;
+            this.cmbClass.Size = new System.Drawing.Size(82, 21);
+            this.cmbClass.TabIndex = 4;
             // 
             // btnAddData
             // 
-            this.btnAddData.Location = new System.Drawing.Point(206, 460);
+            this.btnAddData.Location = new System.Drawing.Point(137, 299);
+            this.btnAddData.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddData.Name = "btnAddData";
-            this.btnAddData.Size = new System.Drawing.Size(146, 51);
+            this.btnAddData.Size = new System.Drawing.Size(97, 33);
             this.btnAddData.TabIndex = 9;
             this.btnAddData.Text = "Add Data to List";
             this.btnAddData.UseVisualStyleBackColor = true;
@@ -171,9 +172,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(26, 460);
+            this.btnClear.Location = new System.Drawing.Point(17, 299);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(129, 51);
+            this.btnClear.Size = new System.Drawing.Size(86, 33);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear Data";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -181,9 +183,10 @@
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(38, 235);
+            this.lblGender.Location = new System.Drawing.Point(25, 153);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(63, 20);
+            this.lblGender.Size = new System.Drawing.Size(42, 13);
             this.lblGender.TabIndex = 7;
             this.lblGender.Text = "Gender";
             // 
@@ -197,128 +200,88 @@
             "Male",
             "Female",
             "Other"});
-            this.cmbGender.Location = new System.Drawing.Point(142, 232);
+            this.cmbGender.Location = new System.Drawing.Point(95, 151);
+            this.cmbGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(121, 28);
+            this.cmbGender.Size = new System.Drawing.Size(82, 21);
             this.cmbGender.TabIndex = 3;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(144, 120);
+            this.tbLastName.Location = new System.Drawing.Point(96, 78);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(206, 26);
+            this.tbLastName.Size = new System.Drawing.Size(139, 20);
             this.tbLastName.TabIndex = 1;
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(144, 62);
+            this.tbFirstName.Location = new System.Drawing.Point(96, 40);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(206, 26);
+            this.tbFirstName.Size = new System.Drawing.Size(139, 20);
             this.tbFirstName.TabIndex = 0;
             // 
-            // udAge
+            // numAge
             // 
-            this.udAge.Location = new System.Drawing.Point(144, 178);
-            this.udAge.Name = "udAge";
-            this.udAge.Size = new System.Drawing.Size(120, 26);
-            this.udAge.TabIndex = 2;
-            this.udAge.Enter += new System.EventHandler(this.udAge_Enter);
+            this.numAge.AutoSize = true;
+            this.numAge.Location = new System.Drawing.Point(96, 116);
+            this.numAge.Margin = new System.Windows.Forms.Padding(2);
+            this.numAge.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numAge.Name = "numAge";
+            this.numAge.Size = new System.Drawing.Size(80, 20);
+            this.numAge.TabIndex = 2;
             // 
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(38, 180);
+            this.lblAge.Location = new System.Drawing.Point(25, 117);
+            this.lblAge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(38, 20);
+            this.lblAge.Size = new System.Drawing.Size(26, 13);
             this.lblAge.TabIndex = 2;
             this.lblAge.Text = "Age";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(38, 125);
+            this.lblLastName.Location = new System.Drawing.Point(25, 81);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(86, 20);
+            this.lblLastName.Size = new System.Drawing.Size(58, 13);
             this.lblLastName.TabIndex = 1;
             this.lblLastName.Text = "Last Name";
             // 
             // llblFirstname
             // 
             this.llblFirstname.AutoSize = true;
-            this.llblFirstname.Location = new System.Drawing.Point(38, 66);
+            this.llblFirstname.Location = new System.Drawing.Point(25, 43);
+            this.llblFirstname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llblFirstname.Name = "llblFirstname";
-            this.llblFirstname.Size = new System.Drawing.Size(86, 20);
+            this.llblFirstname.Size = new System.Drawing.Size(57, 13);
             this.llblFirstname.TabIndex = 0;
             this.llblFirstname.Text = "First Name";
             // 
-            // menuStrip1
+            // dataEntryForm
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.listToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(416, 33);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            // 
-            // listToolStripMenuItem
-            // 
-            this.listToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.displayToolStripMenuItem,
-            this.clearToolStripMenuItem});
-            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
-            this.listToolStripMenuItem.Text = "List";
-            // 
-            // displayToolStripMenuItem
-            // 
-            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
-            this.displayToolStripMenuItem.Text = "&Display";
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
-            this.clearToolStripMenuItem.Text = "&Clear";
-            // 
-            // mainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 626);
+            this.ClientSize = new System.Drawing.Size(277, 407);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.gbDataView);
-            this.Controls.Add(this.menuStrip1);
-            this.Name = "mainForm";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "dataEntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CE04 Main Form";
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.gbDataView.ResumeLayout(false);
             this.gbDataView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udAge)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,16 +303,10 @@
         public System.Windows.Forms.ComboBox cmbGender;
         public System.Windows.Forms.TextBox tbLastName;
         public System.Windows.Forms.TextBox tbFirstName;
-        public System.Windows.Forms.NumericUpDown udAge;
+        public System.Windows.Forms.NumericUpDown numAge;
         private System.Windows.Forms.Label lblAge;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label llblFirstname;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
     }
 }
 

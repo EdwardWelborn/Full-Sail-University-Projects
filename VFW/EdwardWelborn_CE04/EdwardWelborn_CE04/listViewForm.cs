@@ -21,9 +21,9 @@ namespace EdwardWelborn_CE04
             get
             {
                 // verify that there is an item selected
-                if (listView.SelectedItems.Count > 0)
+                if (lvwCharacters.SelectedItems.Count > 0)
                 {
-                    return listView.SelectedItems[0];
+                    return lvwCharacters.SelectedItems[0];
                 }
                 return null;
             }
@@ -33,13 +33,14 @@ namespace EdwardWelborn_CE04
             InitializeComponent();
         }
 
+        // the event handler method to add a character to the listview
         public void listViewForm_AddCharacter(object sender, EventArgs e)
         {
             // list view stores their displayed items as listviewitems
             ListViewItem lvi = new ListViewItem();
 
             // get the data object from the sender
-            DataClass data = (sender as mainForm).Data;
+            DataClass data = (sender as dataEntryForm).Data;
 
             // Listview object with several properties that are setable
             lvi.Text = data.ToString();
@@ -49,7 +50,7 @@ namespace EdwardWelborn_CE04
             lvi.Tag = data;
 
             //add listviewitem to the listview
-            listView.Items.Add(lvi);
+            lvwCharacters.Items.Add(lvi);
 
         }
 
@@ -58,5 +59,9 @@ namespace EdwardWelborn_CE04
             AddtoParty?.Invoke(this, new EventArgs());
         }
 
+        private void listViewForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

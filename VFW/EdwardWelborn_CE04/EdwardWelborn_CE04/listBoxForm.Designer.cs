@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.lstParty = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // listBox
+            // lstParty
             // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 20;
-            this.listBox.Location = new System.Drawing.Point(12, 12);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(692, 724);
-            this.listBox.TabIndex = 0;
+            this.lstParty.FormattingEnabled = true;
+            this.lstParty.Location = new System.Drawing.Point(8, 8);
+            this.lstParty.Margin = new System.Windows.Forms.Padding(2);
+            this.lstParty.Name = "lstParty";
+            this.lstParty.Size = new System.Drawing.Size(463, 472);
+            this.lstParty.TabIndex = 0;
             // 
             // listBoxForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 742);
-            this.Controls.Add(this.listBox);
+            this.ClientSize = new System.Drawing.Size(477, 482);
+            this.Controls.Add(this.lstParty);
             this.Location = new System.Drawing.Point(800, 0);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "listBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "listBoxForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.listBoxForm_FormClosed);
             this.Load += new System.EventHandler(this.listBoxForm_Load);
             this.ResumeLayout(false);
 
@@ -57,6 +59,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.ListBox lstParty;
     }
 }
