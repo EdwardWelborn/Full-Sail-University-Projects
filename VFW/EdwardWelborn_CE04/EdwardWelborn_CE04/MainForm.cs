@@ -14,6 +14,15 @@ namespace EdwardWelborn_CE04
 {
     public partial class MainForm : Form
     {
+        // public property to get counts
+        public string ListCountDisplay
+        {
+            set
+            {
+                tbNumberofCharacters.Text = value;
+
+            }
+        }
         public MainForm()
         {
             InitializeComponent();
@@ -52,6 +61,11 @@ namespace EdwardWelborn_CE04
         private void Clear_StatusHintEvent(object sender, EventArgs e)
         {
             tspMainForm.Text = "";
+        }
+
+        private void tbNumberofCharacters_TextChanged(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

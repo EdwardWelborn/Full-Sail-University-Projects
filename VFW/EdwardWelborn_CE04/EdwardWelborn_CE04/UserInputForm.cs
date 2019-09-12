@@ -8,12 +8,60 @@
 * Summary: This form is utilized for entering the data to populate the list and list view form
 */
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
 {
     public partial class UserInputForm : Form
     {
+        private EventHandler CharacterAdded;
+        public MainForm frmMain;
+
+        public Character characterInfo
+        {
+            get
+            {
+                Character infoObject = new Character();
+                infoObject.Name = tbName.Text;
+                infoObject.Gender = cmbGender.Text;
+                infoObject.Level = numLevel.Text;
+                infoObject.Class = cmbClassName.Text;
+                infoObject.Race = cmbRace.Text;
+                infoObject.Role = cmbRole.Text;
+                infoObject.Mentor = chkbMentor.Checked;
+                return infoObject;
+            }
+            set
+            {
+
+                tbName.Text = value.Name;
+                cmbGender.Text = value.Gender;
+                numLevel.Text = value.Level;
+                cmbClassName.Text = value.Class;
+                cmbRace.Text = value.Race;
+                cmbRole.Text = value.Role;
+                chkbMentor.Checked = value.Mentor;
+            }
+        }
+
+        //instantiate the person list
+        List<Character> characterData = new List<Character>();
+
+        //Property for the Persons in the list
+        public List<Character> CharacterData
+        {
+            get
+            {
+                return characterData;
+            }
+
+            set
+            {
+                characterData = value;
+            }
+        }
+
         public UserInputForm()
         {
             InitializeComponent();
@@ -30,6 +78,21 @@ namespace EdwardWelborn_CE04
         private void tspbtnAddToList_Click(object sender, EventArgs e)
         {
             // Adds the form data to the main list.
+            // create information object and add it to the listbox
+            CharacterData.Add(characterInfo);
+            MainForm frmMain = new MainForm();
+            characterInfo = new Character();
+
+            //raise the StudentAdded event
+            CharacterAdded?.Invoke(this, new EventArgs());
+
+            // update numberofcharacters text box with the new number of characters in the list
+            frmMain.ListCountDisplay = characterData.Count.ToString();
+            frmMain.Close();
+            frmMain.Show();
+            // clear the user inputs
+            btnClearForm_Click(this, new EventArgs());
+
         }
         private void tbName_MouseEnter(object sender, EventArgs e)
         {
@@ -75,7 +138,20 @@ namespace EdwardWelborn_CE04
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             // This button will clear the data on the form only
+            tbName.Text = "";
+            cmbGender.SelectedIndex = -1;
+            numLevel.Text = "";
+            cmbClassName.SelectedIndex = -1;
+            cmbRace.SelectedIndex = -1;
+            cmbRole.SelectedIndex = -1;
+            chkbMentor.Checked = false;
 
+        }
+
+        private void numLevel_Enter(object sender, EventArgs e)
+        {
+            // This clears the 0 out of the text box so they can immediately edit without deleting the 0
+            numLevel.Text = "";
         }
     }
 }

@@ -15,7 +15,7 @@ namespace WindowsFormsIntro
     {
         private event System.EventHandler ItemCountChanged;
 
-        public 
+    
 
         public Form1()
         {

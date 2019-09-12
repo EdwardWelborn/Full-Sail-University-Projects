@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EdwardWelborn_CE04
 {
-    class Character
+    public class Character
     {
         public string Name { get; set; }
         public string Gender{ get; set; }
