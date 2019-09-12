@@ -31,7 +31,7 @@ namespace EdwardWelborn_CE04
         }
 
         //Event Handler for when a Person is added to the LB
-        public void HandlePersonAdded(object sender, EventArgs e)
+        public void HandleCharacterAdded(object sender, EventArgs e)
         {
             //fmMain is passed in as the Sender object
             //turn sender object into mainForm as a Form1

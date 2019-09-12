@@ -43,12 +43,12 @@ namespace EdwardWelborn_CE04
 
                 formList = new ListViewForm(this);
 
-                CharacterAdded += formList.HandlePersonAdded;
+                CharacterAdded += formList.HandleCharacterAdded;
 
 
                 foreach (Character p in CharacterData)
                 {
-                    formList.characterListBox = p;
+                    formList.CharacterList = p;
                 }
 
                 formList.Show();
