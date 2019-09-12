@@ -17,6 +17,7 @@ namespace EdwardWelborn_CE04
             get
             {
                 DataClass c = new DataClass();
+                c.imageIndex = cmbClass.SelectedIndex;
                 c.age = numAge.Value;
                 c.firstName = tbFirstName.Text;
                 c.lastName = tbLastName.Text;
@@ -25,7 +26,6 @@ namespace EdwardWelborn_CE04
                 c.className = cmbClass.Text;
                 c.race = cmbRace.Text;
                 // This will get the index for the selected class
-                c.imageIndex = cmbClass.SelectedIndex;
 
                 return c;
             }
