@@ -14,6 +14,39 @@ namespace EdwardWelborn_CE04
 {
     public partial class ListViewForm : Form
     {
+
+        public Character CharacterList        {
+            set
+            {
+                lvwCharacters.Items.Add(value);
+            }
+        }
+
+        public int PersonsRemove
+        {
+            set
+            {
+                lvwCharacters.Items.RemoveAt(value);
+            }
+        }
+
+        //Event Handler for when a Person is added to the LB
+        public void HandlePersonAdded(object sender, EventArgs e)
+        {
+            //fmMain is passed in as the Sender object
+            //turn sender object into mainForm as a Form1
+            UserInputForm formInput = sender as UserInputForm;
+
+            //add each list<> item from the fmMain into the lbDataList on fmList.
+            foreach (Character p in formInput.CharacterData)
+            {
+                //if the listBox doesn't contain the Person object already then add it.
+                if (!lvwCharacters.Items.Contains(p))
+                {
+                    lvwCharacters.Items.Add(p);
+                }
+            }
+        }
         public ListViewForm()
         {
             InitializeComponent();

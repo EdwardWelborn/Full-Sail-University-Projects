@@ -14,6 +14,7 @@ namespace EdwardWelborn_CE04
 {
     public partial class MainForm : Form
     {
+        ListViewForm formList = new ListViewForm();
         // public property to get counts
         public string ListCountDisplay
         {
@@ -37,9 +38,24 @@ namespace EdwardWelborn_CE04
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // opens Listview form if not already open
-            ListViewForm frmListViewForm = new ListViewForm();
+            if (formList == null || formList.IsDisposed == true)
+            {
 
-            frmListViewForm.Show();
+                formList = new ListViewForm(this);
+
+                CharacterAdded += formList.HandlePersonAdded;
+
+
+                foreach (Character p in CharacterData)
+                {
+                    formList.characterListBox = p;
+                }
+
+                formList.Show();
+
+
+                displayToolStripMenuItem.Checked = true;
+            }
         }
 
         private void clearDataToolStripMenuItem_Click(object sender, EventArgs e)

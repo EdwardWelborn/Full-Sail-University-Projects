@@ -15,9 +15,11 @@ namespace EdwardWelborn_CE04
         public string Race { get; set; }
         public string Role { get; set; }
         public bool Mentor { get; set; }
+
         public override string ToString()
         {
-            return Class + ": " + Name;
+            string returnString = $"{Class}: {Name}";
+            return returnString;
         }
     }
 }

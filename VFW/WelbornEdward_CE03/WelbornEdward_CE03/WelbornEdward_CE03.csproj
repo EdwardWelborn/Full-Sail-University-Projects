@@ -58,7 +58,7 @@
     <Compile Include="fmMain.Designer.cs">
       <DependentUpon>fmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="People.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmList.resx">

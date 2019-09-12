@@ -16,6 +16,7 @@ namespace EdwardWelborn_CE04
     public partial class UserInputForm : Form
     {
         private EventHandler CharacterAdded;
+
         public MainForm frmMain;
 
         public Character characterInfo
@@ -88,8 +89,7 @@ namespace EdwardWelborn_CE04
 
             // update numberofcharacters text box with the new number of characters in the list
             frmMain.ListCountDisplay = characterData.Count.ToString();
-            frmMain.Close();
-            frmMain.Show();
+           
             // clear the user inputs
             btnClearForm_Click(this, new EventArgs());
 
