@@ -8,5 +8,6 @@ namespace EdwardWelborn_CE04
 {
     class DataClass
     {
+
     }
 }
