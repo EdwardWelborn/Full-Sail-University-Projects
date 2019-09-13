@@ -9,15 +9,7 @@
 */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
 
 namespace WelbornEdward_CE03
 {
@@ -77,12 +69,8 @@ namespace WelbornEdward_CE03
             }
         }
 
-
-
-
         //instantiate the person list
         List<People> personData = new List<People>();
-
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
@@ -91,32 +79,16 @@ namespace WelbornEdward_CE03
 
             Information = new People();
 
-
             //raise the StudentAdded event
             PersonAdded?.Invoke(this, new EventArgs());
-
-
-            // clear the user inputs
-            //ClearForm_Event(this, new EventArgs());
-
-
-
         }
 
         public void ClearForm_Event(object sender, EventArgs e)
         {
-            // Clears the data form
-            //tbFirstName.Text = "";
-            //tbLastName.Text = "";
-            //udAge.Text = "";
-            //cmbGender.Text = "";
-            //chkbStudent.Checked = false;
-
             People p = new People();
 
             Information = p;
         }
-
 
         public void clearUserInput()
         {
@@ -127,22 +99,12 @@ namespace WelbornEdward_CE03
         
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //fmList frmList = new fmList();
-
-            //for (int x = 0; x < personData.Count; x++)
-            //{
-            //    frmList.lbDataList.Items.Add(personData[x]);
-            //}
-            //frmList.ShowDialog();
-
-
             if (formList == null || formList.IsDisposed == true)
             {
 
                 formList = new fmList(this);
                 
                 PersonAdded += formList.HandlePersonAdded;
-                
 
                 foreach (People p in PersonData)
                 {
@@ -150,17 +112,14 @@ namespace WelbornEdward_CE03
                 }
 
                 formList.Show();
-
                 
                 displayToolStripMenuItem.Checked = true;
             }
-
-            
         }
 
         private void udAge_Enter(object sender, EventArgs e)
         {
-            // udAge.Text = "";
+             udAge.Text = "";
         }
 
        
@@ -259,7 +218,5 @@ namespace WelbornEdward_CE03
         {
             toolStripStatusLabel.Text = "Clear Information";
         }
-
-       
     }
 }

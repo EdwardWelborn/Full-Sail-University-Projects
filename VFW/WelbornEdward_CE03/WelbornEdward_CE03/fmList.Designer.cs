@@ -57,7 +57,6 @@
             this.lbDataList.Name = "lbDataList";
             this.lbDataList.Size = new System.Drawing.Size(393, 368);
             this.lbDataList.TabIndex = 1;
-            this.lbDataList.DoubleClick += new System.EventHandler(this.lbDataList_DoubleClick);
             this.lbDataList.SelectedIndexChanged += new System.EventHandler(this.personListBox_SelectedIndexChanged);
             // 
             // toolStrip1

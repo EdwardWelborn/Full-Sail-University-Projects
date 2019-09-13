@@ -22,7 +22,7 @@ namespace EdwardWelborn_CE04
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserInputForm());
+            Application.Run(new MainForm());
         }
     }
 }

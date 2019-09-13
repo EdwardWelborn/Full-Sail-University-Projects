@@ -8,22 +8,20 @@
 * Summary: This is where the object and open input counters are held, as well as the application exit and list views
 */
 using System;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
 {
     public partial class MainForm : Form
     {
-        ListViewForm formList = new ListViewForm();
+        public UserInputForm formUserInput;
+        public ListViewForm formList;
+        
         // public property to get counts
-        public string ListCountDisplay
-        {
-            set
-            {
-                tbNumberofCharacters.Text = value;
+        private EventHandler CharacterAdded;
 
-            }
-        }
         public MainForm()
         {
             InitializeComponent();
@@ -37,7 +35,6 @@ namespace EdwardWelborn_CE04
 
         private void displayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // opens Listview form if not already open
             if (formList == null || formList.IsDisposed == true)
             {
 
@@ -46,13 +43,12 @@ namespace EdwardWelborn_CE04
                 CharacterAdded += formList.HandleCharacterAdded;
 
 
-                foreach (Character p in CharacterData)
+                foreach (Character c in formUserInput.CharacterData)
                 {
-                    formList.CharacterList = p;
+                    formList.CharacterListBox = c;
                 }
 
                 formList.Show();
-
 
                 displayToolStripMenuItem.Checked = true;
             }
@@ -65,7 +61,18 @@ namespace EdwardWelborn_CE04
 
         private void btnOpenInputForm_Click(object sender, EventArgs e)
         {
+            
             // opens new input form, and increments the counter
+            UserInputForm formInptForm = new UserInputForm();
+            
+            formInptForm.Show();
+        }
+        public bool ToolTipChecked
+        {
+            set
+            {
+                displayToolStripMenuItem.Checked = value;
+            }
         }
 
         private void tbOpenFormCount_MouseEnter(object sender, EventArgs e)

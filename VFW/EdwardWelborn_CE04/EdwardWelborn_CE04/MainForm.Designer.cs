@@ -47,41 +47,38 @@
             // 
             // tbNumberofCharacters
             // 
-            this.tbNumberofCharacters.Location = new System.Drawing.Point(198, 129);
-            this.tbNumberofCharacters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNumberofCharacters.Location = new System.Drawing.Point(132, 84);
             this.tbNumberofCharacters.Name = "tbNumberofCharacters";
             this.tbNumberofCharacters.ReadOnly = true;
-            this.tbNumberofCharacters.Size = new System.Drawing.Size(148, 26);
+            this.tbNumberofCharacters.Size = new System.Drawing.Size(100, 20);
             this.tbNumberofCharacters.TabIndex = 1;
             this.tbNumberofCharacters.TabStop = false;
+            this.tbNumberofCharacters.Text = "0";
             this.tbNumberofCharacters.TextChanged += new System.EventHandler(this.tbNumberofCharacters_TextChanged);
             // 
             // lblFormOpenCount
             // 
             this.lblFormOpenCount.AutoSize = true;
-            this.lblFormOpenCount.Location = new System.Drawing.Point(39, 78);
-            this.lblFormOpenCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormOpenCount.Location = new System.Drawing.Point(26, 51);
             this.lblFormOpenCount.Name = "lblFormOpenCount";
-            this.lblFormOpenCount.Size = new System.Drawing.Size(138, 20);
+            this.lblFormOpenCount.Size = new System.Drawing.Size(91, 13);
             this.lblFormOpenCount.TabIndex = 2;
             this.lblFormOpenCount.Text = "Open Input Forms";
             // 
             // lblDataObjectCu
             // 
             this.lblDataObjectCu.AutoSize = true;
-            this.lblDataObjectCu.Location = new System.Drawing.Point(19, 133);
-            this.lblDataObjectCu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDataObjectCu.Location = new System.Drawing.Point(13, 86);
             this.lblDataObjectCu.Name = "lblDataObjectCu";
-            this.lblDataObjectCu.Size = new System.Drawing.Size(168, 20);
+            this.lblDataObjectCu.Size = new System.Drawing.Size(112, 13);
             this.lblDataObjectCu.TabIndex = 3;
             this.lblDataObjectCu.Text = "Number Of Characters";
             // 
             // btnOpenInputForm
             // 
-            this.btnOpenInputForm.Location = new System.Drawing.Point(116, 178);
-            this.btnOpenInputForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpenInputForm.Location = new System.Drawing.Point(77, 116);
             this.btnOpenInputForm.Name = "btnOpenInputForm";
-            this.btnOpenInputForm.Size = new System.Drawing.Size(159, 35);
+            this.btnOpenInputForm.Size = new System.Drawing.Size(106, 23);
             this.btnOpenInputForm.TabIndex = 4;
             this.btnOpenInputForm.Text = "Open Input Form";
             this.btnOpenInputForm.UseVisualStyleBackColor = true;
@@ -92,10 +89,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tspMainForm});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 246);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 152);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(375, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(250, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -112,8 +108,7 @@
             this.listToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(375, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(250, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -122,13 +117,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -138,39 +133,40 @@
             this.displayToolStripMenuItem,
             this.clearDataToolStripMenuItem});
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.listToolStripMenuItem.Text = "List";
             // 
             // displayToolStripMenuItem
             // 
             this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            this.displayToolStripMenuItem.Size = new System.Drawing.Size(177, 30);
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.displayToolStripMenuItem.Text = "Display";
             this.displayToolStripMenuItem.Click += new System.EventHandler(this.displayToolStripMenuItem_Click);
             // 
             // clearDataToolStripMenuItem
             // 
             this.clearDataToolStripMenuItem.Name = "clearDataToolStripMenuItem";
-            this.clearDataToolStripMenuItem.Size = new System.Drawing.Size(177, 30);
+            this.clearDataToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.clearDataToolStripMenuItem.Text = "Clear Data";
             this.clearDataToolStripMenuItem.Click += new System.EventHandler(this.clearDataToolStripMenuItem_Click);
             // 
             // tbOpenFormCount
             // 
-            this.tbOpenFormCount.Location = new System.Drawing.Point(198, 74);
-            this.tbOpenFormCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbOpenFormCount.Location = new System.Drawing.Point(132, 48);
             this.tbOpenFormCount.Name = "tbOpenFormCount";
             this.tbOpenFormCount.ReadOnly = true;
-            this.tbOpenFormCount.Size = new System.Drawing.Size(148, 26);
+            this.tbOpenFormCount.Size = new System.Drawing.Size(100, 20);
             this.tbOpenFormCount.TabIndex = 0;
+            this.tbOpenFormCount.TabStop = false;
+            this.tbOpenFormCount.Text = "0";
             this.tbOpenFormCount.MouseEnter += new System.EventHandler(this.tbOpenFormCount_MouseEnter);
             this.tbOpenFormCount.MouseLeave += new System.EventHandler(this.Clear_StatusHintEvent);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 268);
+            this.ClientSize = new System.Drawing.Size(250, 174);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnOpenInputForm);
@@ -180,7 +176,6 @@
             this.Controls.Add(this.tbOpenFormCount);
             this.Location = new System.Drawing.Point(50, 100);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MainForm";

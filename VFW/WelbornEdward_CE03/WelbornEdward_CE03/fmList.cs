@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+* Created by Edward Welborn on 09/09/2019
+* Class: Visual Framworks
+* Description: Project CE03
+* Copyright © 2019 Roy Welborn. All rights reserved
+*
+* list Form
+* Summary: list form for the program, this form is to list the data
+*/
+using System;
 using System.Windows.Forms;
 
 namespace WelbornEdward_CE03
 {
     public partial class fmList : Form
     {
-
-        
-
         public fmMain formMain;
 
         public fmList(fmMain FmMain)
@@ -22,7 +21,6 @@ namespace WelbornEdward_CE03
             InitializeComponent();
             this.formMain = FmMain;
         }
-
 
         public People PersonsListBox
         {
@@ -59,51 +57,11 @@ namespace WelbornEdward_CE03
             }
         }
 
-        private void listView1_DoubleClick(object sender, EventArgs e)
-        {
-            // send data from item selected to the main form
-        }
-
-        private void lbDataList_DoubleClick(object sender, EventArgs e)
-        {
-
-            //List<string> tempList = new List<string>();
-            //List<string> splitter = new List<string>();
-
-            //fmMain frmMain = sender as fmMain;
-
-            //if (lbDataList.SelectedItem != null)
-            //{
-            //    splitter.Add(lbDataList.SelectedItem.ToString());
-            //    foreach (string strItem in splitter)
-            //    {
-            //        char[] splitChar = { ' ', ',' };
-            //        tempList = strItem.Split(splitChar).ToList();
-            //        foreach (var item in tempList)
-
-            //        {
-            //            frmMain.tbFirstName.Text = tempList[0];
-            //            frmMain.tbLastName.Text = tempList[1];
-            //            frmMain.udAge.Text = tempList[2];
-            //            frmMain.cmbGender.Text = tempList[3];
-            //            frmMain.chkbStudent.Checked = true;
-            //        }
-
-
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No Item Selected");
-            //}
-        }
-
         private void tsbtnClear_Click(object sender, EventArgs e)
         {
             lbDataList.Items.Clear();
             formMain.PersonData.Clear();
             formMain.clearUserInput();
-
         }
 
 
@@ -116,7 +74,6 @@ namespace WelbornEdward_CE03
                 formMain.Information = (People)lbDataList.Items[lbDataList.SelectedIndex] as People;
             }
         }
-
 
         //Event handler for when the display form is closed
         private void fmList_FormClosed(object sender, FormClosedEventArgs e)

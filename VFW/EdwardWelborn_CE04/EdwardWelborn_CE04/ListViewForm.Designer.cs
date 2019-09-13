@@ -30,23 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListViewForm));
-            this.lvwCharacters = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tspbtnClearData = new System.Windows.Forms.ToolStripButton();
+            this.lbCharacters = new System.Windows.Forms.ListBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lvwCharacters
-            // 
-            this.lvwCharacters.HideSelection = false;
-            this.lvwCharacters.LargeImageList = this.imageList;
-            this.lvwCharacters.Location = new System.Drawing.Point(0, 28);
-            this.lvwCharacters.Name = "lvwCharacters";
-            this.lvwCharacters.Size = new System.Drawing.Size(245, 379);
-            this.lvwCharacters.TabIndex = 0;
-            this.lvwCharacters.UseCompatibleStateImageBehavior = false;
-            this.lvwCharacters.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvwCharacters_MouseDoubleClick);
             // 
             // imageList
             // 
@@ -73,13 +62,21 @@
             this.tspbtnClearData.Text = "Clear Data";
             this.tspbtnClearData.Click += new System.EventHandler(this.tspbtnClearData_Click);
             // 
+            // lbCharacters
+            // 
+            this.lbCharacters.FormattingEnabled = true;
+            this.lbCharacters.Location = new System.Drawing.Point(0, 28);
+            this.lbCharacters.Name = "lbCharacters";
+            this.lbCharacters.Size = new System.Drawing.Size(245, 381);
+            this.lbCharacters.TabIndex = 2;
+            // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 408);
+            this.Controls.Add(this.lbCharacters);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.lvwCharacters);
             this.Location = new System.Drawing.Point(700, 100);
             this.Name = "ListViewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -92,10 +89,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView lvwCharacters;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tspbtnClearData;
+        private System.Windows.Forms.ListBox lbCharacters;
     }
 }

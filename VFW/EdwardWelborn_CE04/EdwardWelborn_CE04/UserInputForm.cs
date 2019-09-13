@@ -9,15 +9,17 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
 {
     public partial class UserInputForm : Form
     {
-        private EventHandler CharacterAdded;
 
-        public MainForm frmMain;
+        private EventHandler CharacterAdded;
+        public MainForm FormMain;
+        public int intFormCount = 0;
 
         public Character characterInfo
         {
@@ -56,7 +58,6 @@ namespace EdwardWelborn_CE04
             {
                 return characterData;
             }
-
             set
             {
                 characterData = value;
@@ -70,10 +71,42 @@ namespace EdwardWelborn_CE04
 
         private void UserInputForm_Load(object sender, EventArgs e)
         {
+            int form2Count;
+            
             // On loading the user input form, it will also open the main form where the counter are.
-            MainForm frmMain = new MainForm();
+            AddHovertip((ToolStripStatusLabel) statusStrip.Items[0], this.numLevel, "Enter Character Level");
+            // add to main form open form counter
+            
+            form2Count = Application.OpenForms.OfType<UserInputForm>().Count();
+            FormMain.tbOpenFormCount.Text = form2Count.ToString();
+        }
 
-            frmMain.Show();
+        private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Decriment open input form count
+            intFormCount--;
+            FormMain = new MainForm();
+            FormMain.tbOpenFormCount.Text = intFormCount.ToString();
+        }
+        public static void AddHovertip(ToolStripStatusLabel lb, Control c, string tip)
+        {
+            c.MouseEnter += (sender, e) =>
+            {
+                lb.Text = tip;
+            };
+
+            c.MouseLeave += (sender, e) =>
+            {
+                lb.Text = "";
+            };
+
+            // iterate over any child controls
+            foreach (Control child in c.Controls)
+            {
+                // and add the hover tip on 
+                // those childs as well
+                AddHovertip(lb, child, tip);
+            }
         }
 
         private void tspbtnAddToList_Click(object sender, EventArgs e)
@@ -81,17 +114,24 @@ namespace EdwardWelborn_CE04
             // Adds the form data to the main list.
             // create information object and add it to the listbox
             CharacterData.Add(characterInfo);
-            MainForm frmMain = new MainForm();
             characterInfo = new Character();
 
             //raise the StudentAdded event
             CharacterAdded?.Invoke(this, new EventArgs());
-
-            // update numberofcharacters text box with the new number of characters in the list
-            frmMain.ListCountDisplay = characterData.Count.ToString();
            
             // clear the user inputs
             btnClearForm_Click(this, new EventArgs());
+        }
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            // This button will clear the data on the form only
+            tbName.Text = "";
+            cmbGender.SelectedIndex = -1;
+            numLevel.Text = "";
+            cmbClassName.SelectedIndex = -1;
+            cmbRace.SelectedIndex = -1;
+            cmbRole.SelectedIndex = -1;
+            chkbMentor.Checked = false;
 
         }
         private void tbName_MouseEnter(object sender, EventArgs e)
@@ -135,22 +175,9 @@ namespace EdwardWelborn_CE04
             tspStatusBarHelper.Text = "";
         }
 
-        private void btnClearForm_Click(object sender, EventArgs e)
-        {
-            // This button will clear the data on the form only
-            tbName.Text = "";
-            cmbGender.SelectedIndex = -1;
-            numLevel.Text = "";
-            cmbClassName.SelectedIndex = -1;
-            cmbRace.SelectedIndex = -1;
-            cmbRole.SelectedIndex = -1;
-            chkbMentor.Checked = false;
-
-        }
-
         private void numLevel_Enter(object sender, EventArgs e)
         {
-            // This clears the 0 out of the text box so they can immediately edit without deleting the 0
+            // This clears the 0 out of the numericUpDown text so they can immediately edit without deleting the 0
             numLevel.Text = "";
         }
     }
