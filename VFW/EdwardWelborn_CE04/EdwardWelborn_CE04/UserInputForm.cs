@@ -71,22 +71,22 @@ namespace EdwardWelborn_CE04
 
         private void UserInputForm_Load(object sender, EventArgs e)
         {
-            int form2Count;
+            intFormCount++;
             
             // On loading the user input form, it will also open the main form where the counter are.
             AddHovertip((ToolStripStatusLabel) statusStrip.Items[0], this.numLevel, "Enter Character Level");
             // add to main form open form counter
             
-            form2Count = Application.OpenForms.OfType<UserInputForm>().Count();
-            FormMain.tbOpenFormCount.Text = form2Count.ToString();
+            
+           // FormMain.tbOpenFormCount.Text = intFormCount.ToString();
         }
 
         private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Decriment open input form count
             intFormCount--;
-            FormMain = new MainForm();
-            FormMain.tbOpenFormCount.Text = intFormCount.ToString();
+            
+         //   FormMain.tbOpenFormCount.Text = intFormCount.ToString();
         }
         public static void AddHovertip(ToolStripStatusLabel lb, Control c, string tip)
         {
