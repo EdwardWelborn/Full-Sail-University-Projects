@@ -8,8 +8,6 @@
 * Summary: This is where the object and open input counters are held, as well as the application exit and list views
 */
 using System;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
@@ -21,6 +19,8 @@ namespace EdwardWelborn_CE04
         
         // public property to get counts
         private EventHandler CharacterAdded;
+        public System.Windows.Forms.TextBox OpenTextBox;
+
 
         public MainForm()
         {
@@ -37,11 +37,9 @@ namespace EdwardWelborn_CE04
         {
             if (formList == null || formList.IsDisposed == true)
             {
-
                 formList = new ListViewForm(this);
 
                 CharacterAdded += formList.HandleCharacterAdded;
-
 
                 foreach (Character c in formUserInput.CharacterData)
                 {

@@ -9,7 +9,6 @@
 */
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
@@ -76,17 +75,17 @@ namespace EdwardWelborn_CE04
             // On loading the user input form, it will also open the main form where the counter are.
             AddHovertip((ToolStripStatusLabel) statusStrip.Items[0], this.numLevel, "Enter Character Level");
             // add to main form open form counter
-            
-            
-           // FormMain.tbOpenFormCount.Text = intFormCount.ToString();
+            FormMain.OpenTextBox.Text = intFormCount.ToString();
+
+            // FormMain.tbOpenFormCount.Text = intFormCount.ToString();
         }
 
         private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Decriment open input form count
             intFormCount--;
-            
-         //   FormMain.tbOpenFormCount.Text = intFormCount.ToString();
+            FormMain.OpenTextBox.Text = intFormCount.ToString();
+            //   FormMain.tbOpenFormCount.Text = intFormCount.ToString();
         }
         public static void AddHovertip(ToolStripStatusLabel lb, Control c, string tip)
         {
