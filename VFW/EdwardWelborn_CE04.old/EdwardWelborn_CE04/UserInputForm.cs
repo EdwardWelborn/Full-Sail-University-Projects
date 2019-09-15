@@ -17,30 +17,25 @@ namespace EdwardWelborn_CE04
     public partial class UserInputForm : Form
     {
 
-        public EventHandler CharacterAddedToList;
-        public EventHandler CharacterAddedToListView;
-        public EventHandler CloseUserInputWindow;
-     
-
-        public UserInputForm()
-        {
-            InitializeComponent();
-        }
+        private EventHandler CharacterAdded;
+        public MainForm FormMain;
+        
+        public event EventHandler Updated;  // define an event handler
+        private static int _id = 0;
 
         public Character characterInfo
         {
             get
             {
-                Character c = new Character();
-                c.Name = tbName.Text;
-                c.Gender = cmbGender.Text;
-                c.Level = numLevel.Text;
-                c.Class = cmbClassName.Text;
-                c.Race = cmbRace.Text;
-                c.Role = cmbRole.Text;
-                c.Mentor = chkbMentor.Checked;
-                c.ImageIndex = cmbClassName.SelectedIndex;
-                return c;
+                Character infoObject = new Character();
+                infoObject.Name = tbName.Text;
+                infoObject.Gender = cmbGender.Text;
+                infoObject.Level = numLevel.Text;
+                infoObject.Class = cmbClassName.Text;
+                infoObject.Race = cmbRace.Text;
+                infoObject.Role = cmbRole.Text;
+                infoObject.Mentor = chkbMentor.Checked;
+                return infoObject;
             }
             set
             {
@@ -55,52 +50,48 @@ namespace EdwardWelborn_CE04
             }
         }
 
-        private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
+        //instantiate the person list
+        List<Character> characterData = new List<Character>();
+
+        //Property for the Persons in the list
+        public List<Character> CharacterData
         {
-            CloseUserInputWindow?.Invoke(this, new EventArgs());
+            get
+            {
+                return characterData;
+            }
+            set
+            {
+                characterData = value;
+            }
         }
 
-        private void btnClearForm_Click(object sender, EventArgs e)
+        public UserInputForm()
         {
-            characterInfo = new Character();
+            InitializeComponent();
         }
-
-
-        private void tspbtnAddToList_Click(object sender, EventArgs e)
-        {
-            CharacterAddedToList?.Invoke(this, new EventArgs());
-
-            CharacterAddedToListView?.Invoke(this, new EventArgs());
-
-            characterInfo = new Character();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void UserInputForm_Load(object sender, EventArgs e)
         {
             // On loading the user input form, it will also open the main form where the counter are.
-            AddHovertip((ToolStripStatusLabel)statusStrip.Items[0], this.numLevel, "Enter Character Level");
+            AddHovertip((ToolStripStatusLabel) statusStrip.Items[0], this.numLevel, "Enter Character Level");
         }
 
+        private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Decrement open input form count
+
+            //            MainForm formMainForm = new MainForm();
+            //            formMainForm.Owner = (Form) this;
+            //            SetTextBoxOnForm1(FormMain.intFormCount.ToString());
+            //            formMainForm.Show();
+//            if (Updated != null)
+//            {
+//                Updated(sender, new EventArgs()); //Raise a change.
+//            }
+
+        }
+ 
         public static void AddHovertip(ToolStripStatusLabel lb, Control c, string tip)
         {
             c.MouseEnter += (sender, e) =>
@@ -120,6 +111,32 @@ namespace EdwardWelborn_CE04
                 // those childs as well
                 AddHovertip(lb, child, tip);
             }
+        }
+
+        private void tspbtnAddToList_Click(object sender, EventArgs e)
+        {
+            // Adds the form data to the main list.
+            // create information object and add it to the listbox
+            CharacterData.Add(characterInfo);
+            characterInfo = new Character();
+
+            //raise the StudentAdded event
+            CharacterAdded?.Invoke(this, new EventArgs());
+           
+            // clear the user inputs
+            btnClearForm_Click(this, new EventArgs());
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            // This button will clear the data on the form only
+            tbName.Text = "";
+            cmbGender.SelectedIndex = -1;
+            numLevel.Text = "";
+            cmbClassName.SelectedIndex = -1;
+            cmbRace.SelectedIndex = -1;
+            cmbRole.SelectedIndex = -1;
+            chkbMentor.Checked = false;
         }
 
         private void tbName_MouseEnter(object sender, EventArgs e)
@@ -163,7 +180,6 @@ namespace EdwardWelborn_CE04
             // This clears the 0 out of the numericUpDown text so they can immediately edit without deleting the 0
             numLevel.Text = "";
         }
-
         private void ClearStatusText_Event(object sender, EventArgs e)
         {
             // clears the tooltip text on mouse exit of the control
@@ -172,10 +188,10 @@ namespace EdwardWelborn_CE04
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (Updated != null)
-            //{
-            //    Updated(sender, new EventArgs()); //Raise a change.
-            //}
+            if (Updated != null)
+            {
+                Updated(sender, new EventArgs()); //Raise a change.
+            }
         }
     }
 }

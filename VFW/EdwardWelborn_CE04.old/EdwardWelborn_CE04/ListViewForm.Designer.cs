@@ -79,7 +79,6 @@
             this.lvwCharacters.Size = new System.Drawing.Size(245, 383);
             this.lvwCharacters.TabIndex = 2;
             this.lvwCharacters.UseCompatibleStateImageBehavior = false;
-            this.lvwCharacters.DoubleClick += new System.EventHandler(this.CharacterListView_DoubleClick);
             // 
             // ListViewForm
             // 

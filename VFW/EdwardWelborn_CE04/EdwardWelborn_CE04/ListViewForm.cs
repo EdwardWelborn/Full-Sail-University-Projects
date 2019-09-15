@@ -14,57 +14,98 @@ namespace EdwardWelborn_CE04
 {
     public partial class ListViewForm : Form
     {
-        public MainForm formMain;
+        public EventHandler ClosedListViewForm;
+        public EventHandler ClearCharacterListViewForm;
+        public EventHandler DoubleClickListViewFormObject;
 
-        public Character CharacterListBox
+        // public MainForm formMain;
+        public Character CharacterListView
         {
             set
             {
-                lvwCharacters.Items.Add(value);
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = value.ToString();
+                lvi.ImageIndex = value.ImageIndex;
+                lvi.Tag = value;
+
+                lvwCharacters.Items.Add(lvi);
             }
         }
-
-        public int CharacterRemove
+        
+        public Character SelectedCharacter
         {
-            set
+            get
             {
-                lvwCharacters.Items.RemoveAt(value);
+                return lvwCharacters.SelectedItems[0].Tag as Character;
             }
         }
-
-        //Event Handler for when a Person is added to the LB
-        public void CharacterAddedHandler(object sender, EventArgs e)
-        {
-            //fmMain is passed in as the Sender object
-            //turn sender object into mainForm as a Form1
-            UserInputForm formInput = sender as UserInputForm;
-
-            //add each list<> item from the fmMain into the lbDataList on fmList.
-            foreach (Character c in formInput.CharacterData)
-            {
-                //if the listBox doesn't contain the Person object already then add it.
-                if (!lvwCharacters.Items.Contains(c))
-                {
-                    lvwCharacters.Items.Add(c);
-                }
-            }
-        }
-
-        public ListViewForm(MainForm formMain)
+        
+        public ListViewForm()
         {
             InitializeComponent();
-            this.formMain = formMain;
         }
-
+        
         private void tspbtnClearData_Click(object sender, EventArgs e)
         {
             // This will clear the list, the list view box, and clear the data object counter on main form
 
-        }
+            ClearCharacterListViewForm?.Invoke(this, new EventArgs());
 
+            lvwCharacters.Clear();
+        }
+        
         private void ListViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // uncheck tooltip for display on Mainform
+            //raise the closedlistview event
+            ClosedListViewForm?.Invoke(this, new EventArgs());
         }
+        
+        public void HandleClearCharacterList(object sender, EventArgs e)
+        {
+            //remove all items from the listview
+            lvwCharacters.Clear();
+        }
+
+        private void CharacterListView_DoubleClick(object sender, EventArgs e)
+        {
+            //raise the doubleclicklistviewobject event
+            DoubleClickListViewFormObject?.Invoke(this, new EventArgs());
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public Character CharacterListBox
+        //{
+        //    set
+        //    {
+        //        lvwCharacters.Items.Add(value);
+        //    }
+        //}
+
+        //public int CharacterRemove
+        //{
+        //    set
+        //    {
+        //        lvwCharacters.Items.RemoveAt(value);
+        //    }
+        //}
+
+
     }
 }

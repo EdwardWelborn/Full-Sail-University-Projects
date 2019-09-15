@@ -158,6 +158,7 @@
             this.tbOpenFormCount.TabIndex = 0;
             this.tbOpenFormCount.TabStop = false;
             this.tbOpenFormCount.Text = "0";
+            this.tbOpenFormCount.TextChanged += new System.EventHandler(this.tbOpenFormCount_TextChanged);
             this.tbOpenFormCount.MouseEnter += new System.EventHandler(this.tbOpenFormCount_MouseEnter);
             this.tbOpenFormCount.MouseLeave += new System.EventHandler(this.Clear_StatusHintEvent);
             // 

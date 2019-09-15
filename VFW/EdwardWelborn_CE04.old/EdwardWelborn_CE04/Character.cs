@@ -16,8 +16,6 @@ namespace EdwardWelborn_CE04
         public string Role { get; set; }
         public bool Mentor { get; set; }
 
-        public int ImageIndex { get; set; }
-
         public override string ToString()
         {
             string returnString = $"{Class}: {Name}";

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInputForm));
             this.gbUserInputForm = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.chkbMentor = new System.Windows.Forms.CheckBox();
             this.lblRole = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             // 
             // gbUserInputForm
             // 
+            this.gbUserInputForm.Controls.Add(this.button1);
             this.gbUserInputForm.Controls.Add(this.btnClearForm);
             this.gbUserInputForm.Controls.Add(this.chkbMentor);
             this.gbUserInputForm.Controls.Add(this.lblRole);
@@ -77,6 +79,16 @@
             this.gbUserInputForm.TabIndex = 0;
             this.gbUserInputForm.TabStop = false;
             this.gbUserInputForm.Text = "User Input";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(195, 285);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnClearForm
             // 
@@ -330,6 +342,7 @@
         private System.Windows.Forms.Button btnClearForm;
         private System.Windows.Forms.ToolStripStatusLabel tspStatusBarHelper;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
