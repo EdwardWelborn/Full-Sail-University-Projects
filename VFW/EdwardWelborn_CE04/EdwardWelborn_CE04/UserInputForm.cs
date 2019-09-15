@@ -9,6 +9,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
@@ -18,7 +19,9 @@ namespace EdwardWelborn_CE04
 
         private EventHandler CharacterAdded;
         public MainForm FormMain;
-        public int intFormCount = 0;
+        
+        public event EventHandler Updated;  // define an event handler
+        private static int _id = 0;
 
         public Character characterInfo
         {
@@ -70,23 +73,25 @@ namespace EdwardWelborn_CE04
 
         private void UserInputForm_Load(object sender, EventArgs e)
         {
-            intFormCount++;
-            
             // On loading the user input form, it will also open the main form where the counter are.
             AddHovertip((ToolStripStatusLabel) statusStrip.Items[0], this.numLevel, "Enter Character Level");
-            // add to main form open form counter
-            FormMain.OpenTextBox.Text = intFormCount.ToString();
-
-            // FormMain.tbOpenFormCount.Text = intFormCount.ToString();
         }
 
         private void UserInputForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Decriment open input form count
-            intFormCount--;
-            FormMain.OpenTextBox.Text = intFormCount.ToString();
-            //   FormMain.tbOpenFormCount.Text = intFormCount.ToString();
+            // Decrement open input form count
+
+            //            MainForm formMainForm = new MainForm();
+            //            formMainForm.Owner = (Form) this;
+            //            SetTextBoxOnForm1(FormMain.intFormCount.ToString());
+            //            formMainForm.Show();
+//            if (Updated != null)
+//            {
+//                Updated(sender, new EventArgs()); //Raise a change.
+//            }
+
         }
+ 
         public static void AddHovertip(ToolStripStatusLabel lb, Control c, string tip)
         {
             c.MouseEnter += (sender, e) =>
@@ -121,6 +126,7 @@ namespace EdwardWelborn_CE04
             // clear the user inputs
             btnClearForm_Click(this, new EventArgs());
         }
+
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             // This button will clear the data on the form only
@@ -131,8 +137,8 @@ namespace EdwardWelborn_CE04
             cmbRace.SelectedIndex = -1;
             cmbRole.SelectedIndex = -1;
             chkbMentor.Checked = false;
-
         }
+
         private void tbName_MouseEnter(object sender, EventArgs e)
         {
             // Status tooltip for tbName
@@ -168,16 +174,24 @@ namespace EdwardWelborn_CE04
             // Status tooltip for for chkbMentor
             tspStatusBarHelper.Text = "Is This Character a Mentor?";
         }
+
+        private void numLevel_Enter(object sender, EventArgs e)
+        {
+            // This clears the 0 out of the numericUpDown text so they can immediately edit without deleting the 0
+            numLevel.Text = "";
+        }
         private void ClearStatusText_Event(object sender, EventArgs e)
         {
             // clears the tooltip text on mouse exit of the control
             tspStatusBarHelper.Text = "";
         }
 
-        private void numLevel_Enter(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            // This clears the 0 out of the numericUpDown text so they can immediately edit without deleting the 0
-            numLevel.Text = "";
+            if (Updated != null)
+            {
+                Updated(sender, new EventArgs()); //Raise a change.
+            }
         }
     }
 }

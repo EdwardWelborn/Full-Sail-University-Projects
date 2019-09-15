@@ -20,7 +20,7 @@ namespace EdwardWelborn_CE04
         {
             set
             {
-                lbCharacters.Items.Add(value);
+                lvwCharacters.Items.Add(value);
             }
         }
 
@@ -28,12 +28,12 @@ namespace EdwardWelborn_CE04
         {
             set
             {
-                lbCharacters.Items.RemoveAt(value);
+                lvwCharacters.Items.RemoveAt(value);
             }
         }
 
         //Event Handler for when a Person is added to the LB
-        public void HandleCharacterAdded(object sender, EventArgs e)
+        public void CharacterAddedHandler(object sender, EventArgs e)
         {
             //fmMain is passed in as the Sender object
             //turn sender object into mainForm as a Form1
@@ -43,9 +43,9 @@ namespace EdwardWelborn_CE04
             foreach (Character c in formInput.CharacterData)
             {
                 //if the listBox doesn't contain the Person object already then add it.
-                if (!lbCharacters.Items.Contains(c))
+                if (!lvwCharacters.Items.Contains(c))
                 {
-                    lbCharacters.Items.Add(c);
+                    lvwCharacters.Items.Add(c);
                 }
             }
         }
@@ -60,6 +60,11 @@ namespace EdwardWelborn_CE04
         {
             // This will clear the list, the list view box, and clear the data object counter on main form
 
+        }
+
+        private void ListViewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // uncheck tooltip for display on Mainform
         }
     }
 }

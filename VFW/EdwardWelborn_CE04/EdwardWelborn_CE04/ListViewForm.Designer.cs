@@ -33,15 +33,22 @@
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tspbtnClearData = new System.Windows.Forms.ToolStripButton();
-            this.lbCharacters = new System.Windows.Forms.ListBox();
+            this.lvwCharacters = new System.Windows.Forms.ListView();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList
             // 
-            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
-            this.imageList.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "01-Warrior.png");
+            this.imageList.Images.SetKeyName(1, "rogue.png");
+            this.imageList.Images.SetKeyName(2, "Druid.png");
+            this.imageList.Images.SetKeyName(3, "mage.png");
+            this.imageList.Images.SetKeyName(4, "priest.png");
+            this.imageList.Images.SetKeyName(5, "Shaman.png");
+            this.imageList.Images.SetKeyName(6, "Hunter.png");
+            this.imageList.Images.SetKeyName(7, "Warlock.png");
             // 
             // toolStrip1
             // 
@@ -62,25 +69,29 @@
             this.tspbtnClearData.Text = "Clear Data";
             this.tspbtnClearData.Click += new System.EventHandler(this.tspbtnClearData_Click);
             // 
-            // lbCharacters
+            // lvwCharacters
             // 
-            this.lbCharacters.FormattingEnabled = true;
-            this.lbCharacters.Location = new System.Drawing.Point(0, 28);
-            this.lbCharacters.Name = "lbCharacters";
-            this.lbCharacters.Size = new System.Drawing.Size(245, 381);
-            this.lbCharacters.TabIndex = 2;
+            this.lvwCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwCharacters.HideSelection = false;
+            this.lvwCharacters.LargeImageList = this.imageList;
+            this.lvwCharacters.Location = new System.Drawing.Point(0, 25);
+            this.lvwCharacters.Name = "lvwCharacters";
+            this.lvwCharacters.Size = new System.Drawing.Size(245, 383);
+            this.lvwCharacters.TabIndex = 2;
+            this.lvwCharacters.UseCompatibleStateImageBehavior = false;
             // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 408);
-            this.Controls.Add(this.lbCharacters);
+            this.Controls.Add(this.lvwCharacters);
             this.Controls.Add(this.toolStrip1);
             this.Location = new System.Drawing.Point(700, 100);
             this.Name = "ListViewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CE04 ListViewForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListViewForm_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -92,6 +103,6 @@
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tspbtnClearData;
-        private System.Windows.Forms.ListBox lbCharacters;
+        private System.Windows.Forms.ListView lvwCharacters;
     }
 }

@@ -12,19 +12,25 @@ using System.Windows.Forms;
 
 namespace EdwardWelborn_CE04
 {
+
     public partial class MainForm : Form
     {
-        public UserInputForm formUserInput;
+        public UserInputForm formUserInput = new UserInputForm();
         public ListViewForm formList;
-        
+        public int intFormCount;
+
         // public property to get counts
         private EventHandler CharacterAdded;
-        public System.Windows.Forms.TextBox OpenTextBox;
 
-
+        
         public MainForm()
         {
             InitializeComponent();
+        }
+        private void tbOpenFormCount_TextChanged(object sender, EventArgs e)
+        {
+            //Send Notification to all subscribers
+            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +45,7 @@ namespace EdwardWelborn_CE04
             {
                 formList = new ListViewForm(this);
 
-                CharacterAdded += formList.HandleCharacterAdded;
+                CharacterAdded += formList.CharacterAddedHandler;
 
                 foreach (Character c in formUserInput.CharacterData)
                 {
@@ -59,11 +65,12 @@ namespace EdwardWelborn_CE04
 
         private void btnOpenInputForm_Click(object sender, EventArgs e)
         {
-            
+            intFormCount++;
+            tbOpenFormCount.Text = intFormCount.ToString();
+            UserInputForm formUserInputForm = new UserInputForm();
             // opens new input form, and increments the counter
-            UserInputForm formInptForm = new UserInputForm();
-            
-            formInptForm.Show();
+            formUserInputForm.Updated += (se, ev) => tbOpenFormCount.Text = intFormCount.ToString(); ; // update textbox
+            formUserInput.Show();
         }
         public bool ToolTipChecked
         {
@@ -72,7 +79,7 @@ namespace EdwardWelborn_CE04
                 displayToolStripMenuItem.Checked = value;
             }
         }
-
+ 
         private void tbOpenFormCount_MouseEnter(object sender, EventArgs e)
         {
             // Shows a hint in the status bar
@@ -82,11 +89,6 @@ namespace EdwardWelborn_CE04
         private void Clear_StatusHintEvent(object sender, EventArgs e)
         {
             tspMainForm.Text = "";
-        }
-
-        private void tbNumberofCharacters_TextChanged(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
     }
 }
