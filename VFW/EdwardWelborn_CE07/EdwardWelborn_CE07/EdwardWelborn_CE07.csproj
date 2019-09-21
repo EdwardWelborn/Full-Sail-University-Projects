@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{968C748D-4EAE-4566-8F1F-798E1B71AF85}</ProjectGuid>
+    <ProjectGuid>{5250B7F6-7A86-41CF-9623-D4F4634C4CE7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EdwardWelbornCE05</RootNamespace>
-    <AssemblyName>EdwardWelbornCE05</AssemblyName>
+    <RootNamespace>EdwardWelborn_CE07</RootNamespace>
+    <AssemblyName>EdwardWelborn_CE07</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,13 +57,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpaceShips.cs" />
-    <Compile Include="UserInputDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserInputDialog.Designer.cs">
-      <DependentUpon>UserInputDialog.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,9 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserInputDialog.resx">
-      <DependentUpon>UserInputDialog.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

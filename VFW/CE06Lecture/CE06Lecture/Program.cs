@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EdwardWelbornCE05
+namespace CE06Lecture
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace EdwardWelbornCE05
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new TabForm());
         }
     }
 }

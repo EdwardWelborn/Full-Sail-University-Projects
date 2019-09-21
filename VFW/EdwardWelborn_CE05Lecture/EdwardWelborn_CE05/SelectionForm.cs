@@ -23,7 +23,7 @@ namespace EdwardWelborn_CE05
             public int intImageIndex;
             public string newName;
 
-            // constructor assignes the index argument to the instance variable
+            // constructor assigns the index argument to the instance variable
             public ChangeClassArgs(int index, string name)
             {
                 intImageIndex = index;

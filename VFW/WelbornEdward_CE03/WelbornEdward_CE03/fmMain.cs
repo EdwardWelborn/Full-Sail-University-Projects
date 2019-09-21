@@ -41,14 +41,11 @@ namespace WelbornEdward_CE03
 
             set
             {
-
                 tbFirstName.Text = value.Firstname;
                 tbLastName.Text = value.Lastname;
                 chkbStudent.Checked = value.Student;
                 cmbGender.Text = value.Gender;
                 udAge.Text = value.Age;
-
-
             }
 
         }
@@ -122,8 +119,6 @@ namespace WelbornEdward_CE03
              udAge.Text = "";
         }
 
-       
-
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -146,7 +141,6 @@ namespace WelbornEdward_CE03
                 displayToolStripMenuItem.Checked = value;
             }
         }
-
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

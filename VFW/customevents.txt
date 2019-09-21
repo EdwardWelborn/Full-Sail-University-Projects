@@ -1,0 +1,10 @@
+The functionality is all present, but events should be better utilized for communication between the forms to avoid keeping references of all active forms. As an application grows and has more components, keeping references to every component becomes less feasible and the use of events to handle communication between those components becomes critical to keeping the application well structured.
+•	Structure / Efficiency: Fair 4/10, 
+The main form doesn't need to store a reference to the list box form. The field being used for this is only used in a few places. One, when creating and displaying the form, which can be done with a variable that is local to that method. Another is checking whether the form already exists. Instead of keeping a variable of the whole form for this, you can just use the checked property of the display menu option to keep track of whether or not the form has been launched. An event should be used to keep that checked property up to date when the list form closes.
+The above is true for the list form storing a reference to the main form as well. The communication between these forms should be limited entirely to events because the existence of the other form can't be guaranteed as the user is able to freely close and launch other forms. Events work independently of whether a form exists since the event just triggers any handler that is registered for it.
+•	Layout: Excellent 15/15
+•	User Input Controls: Excellent 10/10
+•	Main Window - Functionality: Excellent 20/20
+•	Custom Events: Fair 10/25, 
+Only one custom event is used in the application. The custom event for updating the list box with newly added objects is set up and works properly. Custom events should be used for all communication between the two forms rather than storing references to the other form. Some necessary communication between the forms includes when an item is selected, when the list form is closed, and when the list form's clear button is used.
+•	Second Window - Functionality: Excellent 20/20
