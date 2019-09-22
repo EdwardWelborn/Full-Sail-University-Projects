@@ -37,6 +37,9 @@ namespace EdwardWelborn_CE06
             // Clear list and contents of the listview
             tvwTripTotal.Nodes.Clear();
             totalsList.Clear();
+            textTotalHours.Text = "";
+            textTotalMiles.Text = "";
+            textTotalLegs.Text = "";
             // sets the viewing tab back to 0
             tabTrip.SelectTab(0);
         }
