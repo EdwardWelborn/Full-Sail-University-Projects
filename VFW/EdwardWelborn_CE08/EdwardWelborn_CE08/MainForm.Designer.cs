@@ -40,13 +40,9 @@
             this.viewData_groupBox = new System.Windows.Forms.GroupBox();
             this.viewStockData_TreeView = new System.Windows.Forms.TreeView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lastPrice_numbericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.openingPrice_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.grpQuoteBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.viewData_groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lastPrice_numbericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.openingPrice_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // grpQuoteBox
@@ -150,49 +146,23 @@
             // 
             // viewStockData_TreeView
             // 
-            this.viewStockData_TreeView.Location = new System.Drawing.Point(22, 25);
+            this.viewStockData_TreeView.Location = new System.Drawing.Point(6, 19);
             this.viewStockData_TreeView.Name = "viewStockData_TreeView";
             this.viewStockData_TreeView.Size = new System.Drawing.Size(185, 177);
             this.viewStockData_TreeView.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 236);
+            this.textBox1.Location = new System.Drawing.Point(45, 248);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 5;
-            // 
-            // lastPrice_numbericUpDown
-            // 
-            this.lastPrice_numbericUpDown.Location = new System.Drawing.Point(13, 263);
-            this.lastPrice_numbericUpDown.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.lastPrice_numbericUpDown.Name = "lastPrice_numbericUpDown";
-            this.lastPrice_numbericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.lastPrice_numbericUpDown.TabIndex = 6;
-            // 
-            // openingPrice_numericUpDown
-            // 
-            this.openingPrice_numericUpDown.Location = new System.Drawing.Point(174, 262);
-            this.openingPrice_numericUpDown.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.openingPrice_numericUpDown.Name = "openingPrice_numericUpDown";
-            this.openingPrice_numericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.openingPrice_numericUpDown.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 313);
-            this.Controls.Add(this.openingPrice_numericUpDown);
-            this.Controls.Add(this.lastPrice_numbericUpDown);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.viewData_groupBox);
             this.Controls.Add(this.grpQuoteBox);
@@ -204,8 +174,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.viewData_groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lastPrice_numbericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.openingPrice_numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,8 +193,6 @@
         private System.Windows.Forms.GroupBox viewData_groupBox;
         private System.Windows.Forms.TreeView viewStockData_TreeView;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown lastPrice_numbericUpDown;
-        private System.Windows.Forms.NumericUpDown openingPrice_numericUpDown;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,7 @@ namespace EdwardWelborn_CE09
     {
         // public global database connection
         MySqlConnection conn = new MySqlConnection();
-
-        // variable to indicate the current row
+       // variable to indicate the current row
         int currentRow = 0;
 
         // instantiate the data table to hold the recordset
@@ -31,7 +31,7 @@ namespace EdwardWelborn_CE09
             string cs = DBUtils.BuildConnectionString();
             conn = DBUtils.Connect(cs);
             // Retrieve data from database 
-
+            currentrow_numericUpDown.Value = 1;
             if (!RetrieveData())
             {
                 MessageBox.Show("An Error occured while retrieving data");
@@ -53,9 +53,9 @@ namespace EdwardWelborn_CE09
             // get count of rows using the select method sending no argument, which gets 
             // an array of the datarow objects
             int numOfRows = dataTable.Select().Length;
-            // TODO: year is not populating.. maybe change the control?
+            
             // put the first records data into the form
-            year_combobox.Text = dataTable.Rows[0]["year"].ToString();
+            year_numericUpDown.Text = dataTable.Rows[0]["year"].ToString();
             make_textbox.Text = dataTable.Rows[0]["make"].ToString();
             model_textBox.Text = dataTable.Rows[0]["model"].ToString();
             class_textBox.Text = dataTable.Rows[0]["vclass"].ToString();
@@ -69,7 +69,7 @@ namespace EdwardWelborn_CE09
             if (currentRow < dataTable.Select().Length - 1)
             {
                 currentRow++;
-                year_combobox.Text = dataTable.Rows[currentRow]["year"].ToString();
+                year_numericUpDown.Text = dataTable.Rows[currentRow]["year"].ToString();
                 make_textbox.Text = dataTable.Rows[currentRow]["make"].ToString();
                 model_textBox.Text = dataTable.Rows[currentRow]["model"].ToString();
                 class_textBox.Text = dataTable.Rows[currentRow]["vclass"].ToString();
@@ -82,7 +82,7 @@ namespace EdwardWelborn_CE09
             if (currentRow > 0)
             {
                 currentRow--;
-                year_combobox.Text = dataTable.Rows[currentRow]["year"].ToString();
+                year_numericUpDown.Text = dataTable.Rows[currentRow]["year"].ToString();
                 make_textbox.Text = dataTable.Rows[currentRow]["make"].ToString();
                 model_textBox.Text = dataTable.Rows[currentRow]["model"].ToString();
                 class_textBox.Text = dataTable.Rows[currentRow]["vclass"].ToString();
@@ -97,16 +97,38 @@ namespace EdwardWelborn_CE09
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Stream saveStream;
             // save database to xml
-            // TODO: save data to an xml file
+            // instantiate a save dialog
+            SaveFileDialog dlg = new SaveFileDialog();
+            // add default extention as xml
+            dlg.InitialDirectory = "c:\\VFW\\";
+            dlg.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            dlg.FilterIndex = 2;
+            dlg.RestoreDirectory = true;
+            // if user clicks ok
 
+            dlg.DefaultExt = "xml";
+            // if user clicks ok
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                if (dataTable.Rows.Count != 0)
+                {
+                    dataTable.TableName = "Vehicle";
+                    dataTable.WriteXml(dlg.FileName, true);
+                }
+                else
+                {
+                    MessageBox.Show("No Data to Save", "Alert");
+                }
+            }
         }
 
         private void first_button_Click(object sender, EventArgs e)
         {
             currentRow = 0;
             // make sure we don't go past the end
-            year_combobox.Text = dataTable.Rows[currentRow]["year"].ToString();
+            year_numericUpDown.Text = dataTable.Rows[currentRow]["year"].ToString();
             make_textbox.Text = dataTable.Rows[currentRow]["make"].ToString();
             model_textBox.Text = dataTable.Rows[currentRow]["model"].ToString();
             class_textBox.Text = dataTable.Rows[currentRow]["vclass"].ToString();
@@ -117,11 +139,11 @@ namespace EdwardWelborn_CE09
         {
             currentRow = dataTable.Select().Length - 1;
             // make sure we don't go past the end
-                year_combobox.Text = dataTable.Rows[currentRow]["year"].ToString();
-                make_textbox.Text = dataTable.Rows[currentRow]["make"].ToString();
-                model_textBox.Text = dataTable.Rows[currentRow]["model"].ToString();
-                class_textBox.Text = dataTable.Rows[currentRow]["vclass"].ToString();
-                currentrow_numericUpDown.Value = currentRow;
+            year_numericUpDown.Text = dataTable.Rows[currentRow]["year"].ToString();
+            make_textbox.Text = dataTable.Rows[currentRow]["make"].ToString();
+            model_textBox.Text = dataTable.Rows[currentRow]["model"].ToString();
+            class_textBox.Text = dataTable.Rows[currentRow]["vclass"].ToString();
+            currentrow_numericUpDown.Value = currentRow + 1;
         }
     }
 }

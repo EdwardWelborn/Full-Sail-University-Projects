@@ -9,7 +9,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 
-namespace CEdwardWelborn_CE09
+namespace EdwardWelborn_CE10
 {
     public static class DBUtils
     {
@@ -49,7 +49,7 @@ namespace CEdwardWelborn_CE09
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
                 // DEBUG: to see if it connected or not
-                // MessageBox.Show("Connected");
+                 MessageBox.Show("Connected");
             }
             catch (MySqlException e)
             {

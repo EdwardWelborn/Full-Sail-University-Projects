@@ -17,7 +17,7 @@ namespace EdwardWelborn_CE08
     public partial class MainForm : Form
     {
         //list to hold the stock data
-        private readonly List<TradeQuote> newData;
+        private List<TradeQuote> newData;
         // variable to manage the List index
         int index;
         // add variables to be used throughout the process
@@ -25,39 +25,10 @@ namespace EdwardWelborn_CE08
         // create a string to hold the start of the API
         // apikey=951127dd655eeef190d9a3285b31e7cb
         private string startingAPI = "https://marketdata.websol.barchart.com/getQuote.xml?apikey=951127dd655eeef190d9a3285b31e7cb&symbols=";
-        // string to hold the completed API
-        // unique Identifier
-        // private string uniqueIdentifier = "bb75bb6f59198fa85943cec05f25d64d";
-        // private string apiEndpoint;
-        //string to hold the completed API
+        // string to hold the complete api string
         public string apiEndPoint;
 
-/*       public TradeQuote data
-        {
-            get
-            {
-                TradeQuote d = new TradeQuote();
-                d.Name = CompanyName_TextBox.Text;
-                d.Symbol = Symbol_textBox.Text;
-                d.LastPrice = lastPrice_numericUpDown.Value;
-                d.OpeningPrice = openingPrice_numericUpDown.Value;
-                d.HighPrice = highPrice_numbericUpDown.Value;
-                d.LowPrice = lastPrice_numericUpDown.Value;
 
-                return d;
-            }
-
-            set
-            {
-                CompanyName_TextBox.Text = value.Name;
-                Symbol_textBox.Text = value.Symbol;
-                lastPrice_numericUpDown.Value = value.LastPrice;
-                openingPrice_numericUpDown.Value = value.OpeningPrice;
-                highPrice_numbericUpDown.Value = value.HighPrice;
-                lowPrice_numericUpDown.Value = value.LowPrice;
-            }
-        }
-        */
 
         public MainForm()
         {
@@ -100,7 +71,7 @@ namespace EdwardWelborn_CE08
             apiEndPoint = startingAPI + stringSymbols.TrimEnd(',');
 
             // DEBUG: Test the API
-            textBox1.Text = apiEndPoint;
+           // textBox1.Text = apiEndPoint;
         }
 
         private void ReadTheData()
@@ -113,7 +84,7 @@ namespace EdwardWelborn_CE08
             decimal highPrice = 0;
             decimal lowPrice = 0;
             // variable to hold the data
-
+            List<string> xmlData = new List<string>();
             // get and read the xml
             using (XmlReader apiData = XmlReader.Create(apiEndPoint))
             {
@@ -124,81 +95,34 @@ namespace EdwardWelborn_CE08
                     {
                         stockName = apiData.ReadElementContentAsString();
                     }
+
                     if (apiData.Name == "symbol")
                     {
                         symbol = apiData.ReadElementContentAsString();
                     }
+
                     if (apiData.Name == "lastPrice")
                     {
                         lastPrice = apiData.ReadElementContentAsDecimal();
                     }
+
                     if (apiData.Name == "open")
                     {
                         openingPrice = apiData.ReadElementContentAsDecimal();
                     }
+
                     if (apiData.Name == "high")
                     {
                         highPrice = apiData.ReadElementContentAsDecimal();
                     }
+
                     if (apiData.Name == "low")
                     {
                         lowPrice = apiData.ReadElementContentAsDecimal();
                     }
-
-                    textBox1.Text = stockName;
-                    openingPrice_numericUpDown.Value = openingPrice;
-                    lastPrice_numbericUpDown.Value = lastPrice;
+                    
                 }
-                // populate the controls with the values
-                
             }
-            //verifying with a try...catch Web connectivity before trying to download the data
-            /*            using (XmlReader reader = XmlReader.Create(apiEndPoint))
-                        {
-                            // loop through xml data
-                            while (reader.Read())
-                            {
-                                if (reader.Name == "name")
-                                {
-                                    stockName = reader.ReadElementContentAsString();
-                                }
-
-                                if (reader.Name == "symbol")
-                                {
-                                    symbol = reader.ReadElementContentAsString();
-                                }
-
-                                if (reader.Name == "lastPrice")
-                                {
-                                    lastPrice = reader.ReadElementContentAsDecimal();
-                                }
-
-                                if (reader.Name == "open")
-                                {
-                                    openingPrice = reader.ReadElementContentAsDecimal();
-                                }
-
-                                if (reader.Name == "high")
-                                {
-                                    highPrice = reader.ReadElementContentAsDecimal();
-                                }
-
-                                if (reader.Name == "low")
-                                {
-                                    lowPrice = reader.ReadElementContentAsDecimal();
-                                }
-                                TradeQuote t = new TradeQuote();
-                                t.Name = stockName;
-                                t.Symbol = symbol;
-                                t.LastPrice = lastPrice;
-                                t.HighPrice = highPrice;
-                                t.OpeningPrice = openingPrice;
-                                t.LowPrice = lowPrice;
-                                newData.Add(t);
-                                textBox1.Text = t.Name;
-                            }
-                        }
-            */
         }
 
         private void BuildTreeList(List<TradeQuote> tradeQuote)
@@ -216,12 +140,43 @@ namespace EdwardWelborn_CE08
                 child1 = rootNode.Nodes.Add("opening: " + obj.OpeningPrice);
                 child1 = rootNode.Nodes.Add("high: " + obj.HighPrice);
                 child1 = rootNode.Nodes.Add("low: " + obj.LowPrice);
-                textBox1.Text = obj.Name;
+                // textBox1.Text = obj.Name;
+                viewStockData_TreeView.Nodes.Add(child1);
+
             }
         }
+
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            XmlDataDocument xmldoc = new XmlDataDocument();
+            XmlNode xmlnode;
+            var fileName = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.InitialDirectory = "C:\\VFW\\";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    fileName = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    xmldoc.Load(fileName);
+                    xmlnode = xmldoc.ChildNodes[1];
+                    viewStockData_TreeView.Nodes.Clear();
+                    viewStockData_TreeView.Nodes.Add(new TreeNode(xmldoc.DocumentElement.Name));
+                    TreeNode tNode;
+                    tNode = viewStockData_TreeView.Nodes[0];
+                    AddNode(xmlnode, tNode);
+                }
+            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,7 +191,7 @@ namespace EdwardWelborn_CE08
         {
             // File-> New menu click option, this will clear the data, and start fresh
             newData.Clear();
-
+            listBox_StockSelector.SelectedItem = -1;
 
             listBox_StockSelector.SelectedItems.Clear();
 
@@ -248,11 +203,11 @@ namespace EdwardWelborn_CE08
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
-
+            listBox_StockSelector.SelectedItem = -1;
             BuildAPI();
-
             ReadTheData();
-            textBox1.Text = newData.Count.ToString();
+            // DEBUG: testing the read data method
+             textBox1.Text = newData.Count.ToString();
             BuildTreeList(newData);
         }
 
@@ -274,6 +229,27 @@ namespace EdwardWelborn_CE08
             }
         }
 
-
+        private void AddNode(XmlNode inXmlNode, TreeNode inTreeNode)
+        {
+            XmlNode xNode;
+            TreeNode tNode;
+            XmlNodeList nodeList;
+            int i = 0;
+            if (inXmlNode.HasChildNodes)
+            {
+                nodeList = inXmlNode.ChildNodes;
+                for (i = 0; i <= nodeList.Count - 1; i++)
+                {
+                    xNode = inXmlNode.ChildNodes[i];
+                    inTreeNode.Nodes.Add(new TreeNode(xNode.Name));
+                    tNode = inTreeNode.Nodes[i];
+                    AddNode(xNode, tNode);
+                }
+            }
+            else
+            {
+                inTreeNode.Text = inXmlNode.InnerText.ToString();
+            }
+        }
     }
 }
