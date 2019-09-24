@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F7007CB9-F249-4112-8CAA-55C307CBC67B}</ProjectGuid>
+    <ProjectGuid>{1DB03389-A753-42A4-BC48-C55DBCF7DB6B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CE08Lecture</RootNamespace>
-    <AssemblyName>CE08Lecture</AssemblyName>
+    <RootNamespace>EdwardWelborn_CE09</RootNamespace>
+    <AssemblyName>EdwardWelborn_CE09</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\PrivateAssemblies\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBUtils.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,7 +70,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
