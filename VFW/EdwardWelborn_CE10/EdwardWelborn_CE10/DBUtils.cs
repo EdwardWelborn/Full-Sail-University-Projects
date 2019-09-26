@@ -49,7 +49,7 @@ namespace EdwardWelborn_CE10
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
                 // DEBUG: to see if it connected or not
-                 MessageBox.Show("Connected");
+                // MessageBox.Show("Connected");
             }
             catch (MySqlException e)
             {
