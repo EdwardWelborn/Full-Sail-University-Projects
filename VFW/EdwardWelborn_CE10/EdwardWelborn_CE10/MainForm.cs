@@ -145,5 +145,24 @@ namespace EdwardWelborn_CE10
             // exit application from the file>exit menu option
             Application.Exit();
         }
+
+        private void make_textBox_MouseEnter(object sender, EventArgs e)
+        {
+            help_toolStripStatusLabel.Text = "This is the Make of the vehicle";
+        }
+        private void ClearHelpText_Event()
+        {
+            help_toolStripStatusLabel.Text = "";
+        }
+
+        private void model_textBox_MouseEnter(object sender, EventArgs e)
+        {
+            help_toolStripStatusLabel.Text = "This is the Model of the vehicle";
+        }
+
+        private void class_textBox_MouseEnter(object sender, EventArgs e)
+        {
+            help_toolStripStatusLabel.Text = "This is the Class Type of the vehicle";
+        }
     }
 }

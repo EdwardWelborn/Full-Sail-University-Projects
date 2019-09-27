@@ -52,20 +52,25 @@
             this.dataSelector_listView = new System.Windows.Forms.ListView();
             this.large_imageList = new System.Windows.Forms.ImageList(this.components);
             this.small_imageList = new System.Windows.Forms.ImageList(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.help_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.dataInformation_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicldID_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.year_numericUpDown)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(538, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(807, 35);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,14 +79,14 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -91,14 +96,14 @@
             this.largeIconsToolStripMenuItem,
             this.smallIconsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // largeIconsToolStripMenuItem
             // 
             this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
             this.largeIconsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
             this.largeIconsToolStripMenuItem.Text = "Large Icons";
             this.largeIconsToolStripMenuItem.Click += new System.EventHandler(this.largeIconsToolStripMenuItem_Click);
             // 
@@ -106,7 +111,7 @@
             // 
             this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
             this.smallIconsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
             this.smallIconsToolStripMenuItem.Text = "Small Icons";
             this.smallIconsToolStripMenuItem.Click += new System.EventHandler(this.smallIconsToolStripMenuItem_Click);
             // 
@@ -126,39 +131,45 @@
             this.dataInformation_groupbox.Controls.Add(this.year_numericUpDown);
             this.dataInformation_groupbox.Controls.Add(this.dataSelector_listView);
             this.dataInformation_groupbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataInformation_groupbox.Location = new System.Drawing.Point(0, 24);
+            this.dataInformation_groupbox.Location = new System.Drawing.Point(0, 35);
+            this.dataInformation_groupbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataInformation_groupbox.Name = "dataInformation_groupbox";
-            this.dataInformation_groupbox.Size = new System.Drawing.Size(538, 253);
+            this.dataInformation_groupbox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataInformation_groupbox.Size = new System.Drawing.Size(807, 489);
             this.dataInformation_groupbox.TabIndex = 1;
             this.dataInformation_groupbox.TabStop = false;
             this.dataInformation_groupbox.Text = "Vehicle Information";
             // 
             // vehicldID_numericUpDown
             // 
-            this.vehicldID_numericUpDown.Location = new System.Drawing.Point(87, 32);
+            this.vehicldID_numericUpDown.Location = new System.Drawing.Point(130, 49);
+            this.vehicldID_numericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.vehicldID_numericUpDown.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.vehicldID_numericUpDown.Name = "vehicldID_numericUpDown";
-            this.vehicldID_numericUpDown.Size = new System.Drawing.Size(152, 20);
+            this.vehicldID_numericUpDown.ReadOnly = true;
+            this.vehicldID_numericUpDown.Size = new System.Drawing.Size(228, 26);
             this.vehicldID_numericUpDown.TabIndex = 11;
             // 
             // vehicleID_label
             // 
             this.vehicleID_label.AutoSize = true;
-            this.vehicleID_label.Location = new System.Drawing.Point(23, 35);
+            this.vehicleID_label.Location = new System.Drawing.Point(34, 54);
+            this.vehicleID_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.vehicleID_label.Name = "vehicleID_label";
-            this.vehicleID_label.Size = new System.Drawing.Size(56, 13);
+            this.vehicleID_label.Size = new System.Drawing.Size(82, 20);
             this.vehicleID_label.TabIndex = 10;
             this.vehicleID_label.Text = "Vehicle ID";
             // 
             // update_button
             // 
-            this.update_button.Location = new System.Drawing.Point(162, 219);
+            this.update_button.Location = new System.Drawing.Point(243, 337);
+            this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(75, 23);
+            this.update_button.Size = new System.Drawing.Size(112, 35);
             this.update_button.TabIndex = 9;
             this.update_button.Text = "Update";
             this.update_button.UseVisualStyleBackColor = true;
@@ -166,9 +177,10 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Location = new System.Drawing.Point(55, 219);
+            this.cancel_button.Location = new System.Drawing.Point(82, 337);
+            this.cancel_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cancel_button.Name = "cancel_button";
-            this.cancel_button.Size = new System.Drawing.Size(75, 23);
+            this.cancel_button.Size = new System.Drawing.Size(112, 35);
             this.cancel_button.TabIndex = 8;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
@@ -177,70 +189,81 @@
             // class_label
             // 
             this.class_label.AutoSize = true;
-            this.class_label.Location = new System.Drawing.Point(23, 186);
+            this.class_label.Location = new System.Drawing.Point(34, 286);
+            this.class_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.class_label.Name = "class_label";
-            this.class_label.Size = new System.Drawing.Size(59, 13);
+            this.class_label.Size = new System.Drawing.Size(86, 20);
             this.class_label.TabIndex = 7;
             this.class_label.Text = "Class Type";
             // 
             // year_label
             // 
             this.year_label.AutoSize = true;
-            this.year_label.Location = new System.Drawing.Point(23, 150);
+            this.year_label.Location = new System.Drawing.Point(34, 231);
+            this.year_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.year_label.Name = "year_label";
-            this.year_label.Size = new System.Drawing.Size(29, 13);
+            this.year_label.Size = new System.Drawing.Size(43, 20);
             this.year_label.TabIndex = 6;
             this.year_label.Text = "Year";
             // 
             // model_label
             // 
             this.model_label.AutoSize = true;
-            this.model_label.Location = new System.Drawing.Point(23, 106);
+            this.model_label.Location = new System.Drawing.Point(34, 163);
+            this.model_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.model_label.Name = "model_label";
-            this.model_label.Size = new System.Drawing.Size(36, 13);
+            this.model_label.Size = new System.Drawing.Size(52, 20);
             this.model_label.TabIndex = 5;
             this.model_label.Text = "Model";
             // 
             // make_label
             // 
             this.make_label.AutoSize = true;
-            this.make_label.Location = new System.Drawing.Point(23, 71);
+            this.make_label.Location = new System.Drawing.Point(34, 109);
+            this.make_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.make_label.Name = "make_label";
-            this.make_label.Size = new System.Drawing.Size(34, 13);
+            this.make_label.Size = new System.Drawing.Size(48, 20);
             this.make_label.TabIndex = 2;
             this.make_label.Text = "Make";
             // 
             // class_textBox
             // 
-            this.class_textBox.Location = new System.Drawing.Point(87, 183);
+            this.class_textBox.Location = new System.Drawing.Point(130, 282);
+            this.class_textBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.class_textBox.Name = "class_textBox";
-            this.class_textBox.Size = new System.Drawing.Size(152, 20);
+            this.class_textBox.Size = new System.Drawing.Size(226, 26);
             this.class_textBox.TabIndex = 4;
+            this.class_textBox.MouseEnter += new System.EventHandler(this.class_textBox_MouseEnter);
             // 
             // model_textBox
             // 
-            this.model_textBox.Location = new System.Drawing.Point(87, 106);
+            this.model_textBox.Location = new System.Drawing.Point(130, 163);
+            this.model_textBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.model_textBox.Name = "model_textBox";
-            this.model_textBox.Size = new System.Drawing.Size(152, 20);
+            this.model_textBox.Size = new System.Drawing.Size(226, 26);
             this.model_textBox.TabIndex = 3;
+            this.model_textBox.MouseEnter += new System.EventHandler(this.model_textBox_MouseEnter);
             // 
             // make_textBox
             // 
-            this.make_textBox.Location = new System.Drawing.Point(87, 67);
+            this.make_textBox.Location = new System.Drawing.Point(130, 103);
+            this.make_textBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.make_textBox.Name = "make_textBox";
-            this.make_textBox.Size = new System.Drawing.Size(152, 20);
+            this.make_textBox.Size = new System.Drawing.Size(226, 26);
             this.make_textBox.TabIndex = 2;
+            this.make_textBox.MouseEnter += new System.EventHandler(this.make_textBox_MouseEnter);
             // 
             // year_numericUpDown
             // 
-            this.year_numericUpDown.Location = new System.Drawing.Point(87, 146);
+            this.year_numericUpDown.Location = new System.Drawing.Point(130, 225);
+            this.year_numericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.year_numericUpDown.Maximum = new decimal(new int[] {
             2500,
             0,
             0,
             0});
             this.year_numericUpDown.Name = "year_numericUpDown";
-            this.year_numericUpDown.Size = new System.Drawing.Size(152, 20);
+            this.year_numericUpDown.Size = new System.Drawing.Size(228, 26);
             this.year_numericUpDown.TabIndex = 1;
             // 
             // dataSelector_listView
@@ -249,10 +272,11 @@
             this.dataSelector_listView.HideSelection = false;
             this.dataSelector_listView.LabelWrap = false;
             this.dataSelector_listView.LargeImageList = this.large_imageList;
-            this.dataSelector_listView.Location = new System.Drawing.Point(264, 31);
+            this.dataSelector_listView.Location = new System.Drawing.Point(396, 48);
+            this.dataSelector_listView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataSelector_listView.MultiSelect = false;
             this.dataSelector_listView.Name = "dataSelector_listView";
-            this.dataSelector_listView.Size = new System.Drawing.Size(262, 212);
+            this.dataSelector_listView.Size = new System.Drawing.Size(391, 324);
             this.dataSelector_listView.SmallImageList = this.small_imageList;
             this.dataSelector_listView.TabIndex = 0;
             this.dataSelector_listView.UseCompatibleStateImageBehavior = false;
@@ -270,15 +294,33 @@
             this.small_imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.small_imageList.Images.SetKeyName(0, "iconfinder_sedan_285810.png");
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.help_toolStripStatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 502);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(807, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // help_toolStripStatusLabel
+            // 
+            this.help_toolStripStatusLabel.Name = "help_toolStripStatusLabel";
+            this.help_toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 277);
+            this.ClientSize = new System.Drawing.Size(807, 524);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataInformation_groupbox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -289,6 +331,8 @@
             this.dataInformation_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicldID_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.year_numericUpDown)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,6 +362,8 @@
         private System.Windows.Forms.ImageList small_imageList;
         private System.Windows.Forms.NumericUpDown vehicldID_numericUpDown;
         private System.Windows.Forms.Label vehicleID_label;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel help_toolStripStatusLabel;
     }
 }
 
