@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D0E4481256DA8BA0007EFE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E4480256DA8BA0007EFE4 /* AppDelegate.swift */; };
+		6D0E4483256DA8BA0007EFE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E4482256DA8BA0007EFE4 /* SceneDelegate.swift */; };
+		6D0E4485256DA8BA0007EFE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E4484256DA8BA0007EFE4 /* MainViewController.swift */; };
+		6D0E4488256DA8BA0007EFE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E4486256DA8BA0007EFE4 /* Main.storyboard */; };
+		6D0E448A256DA8BA0007EFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E4489256DA8BA0007EFE4 /* Assets.xcassets */; };
+		6D0E448D256DA8BA0007EFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0E448B256DA8BA0007EFE4 /* LaunchScreen.storyboard */; };
+		6D52E939257931B600B59E7E /* backbutton.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E934257931B600B59E7E /* backbutton.jpeg */; };
+		6D52E93A257931B600B59E7E /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E935257931B600B59E7E /* background.jpeg */; };
+		6D52E96625793BED00B59E7E /* fridgecrown.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E96125793BED00B59E7E /* fridgecrown.jpeg */; };
+		6D52E96725793BED00B59E7E /* fridgeflert.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E96225793BED00B59E7E /* fridgeflert.jpeg */; };
+		6D52E96825793BED00B59E7E /* coolfridge.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E96325793BED00B59E7E /* coolfridge.jpeg */; };
+		6D52E96925793BED00B59E7E /* fingerfridge.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E96425793BED00B59E7E /* fingerfridge.jpeg */; };
+		6D52E96A25793BED00B59E7E /* cheffridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D52E96525793BED00B59E7E /* cheffridge.jpg */; };
+		6D52E96D25794FD300B59E7E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E96C25794FD300B59E7E /* LoginViewController.swift */; };
+		6D52E97125794FFF00B59E7E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E97025794FFF00B59E7E /* SignupViewController.swift */; };
+		6D52E9742579504400B59E7E /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E9732579504400B59E7E /* AlertViewController.swift */; };
+		6D52E9782579509A00B59E7E /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E9772579509A00B59E7E /* AlertDetailViewController.swift */; };
+		6D52E97B257950CF00B59E7E /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E97A257950CF00B59E7E /* FridgeViewController.swift */; };
+		6D52E9802579512800B59E7E /* FreezerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E97F2579512800B59E7E /* FreezerViewController.swift */; };
+		6D52E9832579517000B59E7E /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E9822579517000B59E7E /* RecipeViewController.swift */; };
+		6D52E98825796C6300B59E7E /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52E98725796C6300B59E7E /* ItemsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6D0E447D256DA8BA0007EFE4 /* WelbornEdward_FridgePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WelbornEdward_FridgePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0E4480256DA8BA0007EFE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D0E4482256DA8BA0007EFE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6D0E4484256DA8BA0007EFE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6D0E4487256DA8BA0007EFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D0E4489256DA8BA0007EFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D0E448C256DA8BA0007EFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6D0E448E256DA8BA0007EFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D52E934257931B600B59E7E /* backbutton.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backbutton.jpeg; sourceTree = "<group>"; };
+		6D52E935257931B600B59E7E /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
+		6D52E96125793BED00B59E7E /* fridgecrown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fridgecrown.jpeg; sourceTree = "<group>"; };
+		6D52E96225793BED00B59E7E /* fridgeflert.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fridgeflert.jpeg; sourceTree = "<group>"; };
+		6D52E96325793BED00B59E7E /* coolfridge.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coolfridge.jpeg; sourceTree = "<group>"; };
+		6D52E96425793BED00B59E7E /* fingerfridge.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fingerfridge.jpeg; sourceTree = "<group>"; };
+		6D52E96525793BED00B59E7E /* cheffridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cheffridge.jpg; sourceTree = "<group>"; };
+		6D52E96C25794FD300B59E7E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6D52E97025794FFF00B59E7E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		6D52E9732579504400B59E7E /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertViewController.swift; path = WelbornEdward_FridgePal/ViewControllers/AlertViewController.swift; sourceTree = SOURCE_ROOT; };
+		6D52E9772579509A00B59E7E /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertDetailViewController.swift; path = WelbornEdward_FridgePal/ViewControllers/AlertDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		6D52E97A257950CF00B59E7E /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FridgeViewController.swift; path = WelbornEdward_FridgePal/ViewControllers/FridgeViewController.swift; sourceTree = SOURCE_ROOT; };
+		6D52E97F2579512800B59E7E /* FreezerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreezerViewController.swift; sourceTree = "<group>"; };
+		6D52E9822579517000B59E7E /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = WelbornEdward_FridgePal/StoryBoards/RecipeViewController.swift; sourceTree = SOURCE_ROOT; };
+		6D52E98725796C6300B59E7E /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D0E447A256DA8BA0007EFE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D0E4474256DA8BA0007EFE4 = {
+			isa = PBXGroup;
+			children = (
+				6D0E447F256DA8BA0007EFE4 /* WelbornEdward_FridgePal */,
+				6D0E447E256DA8BA0007EFE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6D0E447E256DA8BA0007EFE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D0E447D256DA8BA0007EFE4 /* WelbornEdward_FridgePal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D0E447F256DA8BA0007EFE4 /* WelbornEdward_FridgePal */ = {
+			isa = PBXGroup;
+			children = (
+				6D52E9252579310600B59E7E /* Images */,
+				6D0E4496256DA9CB0007EFE4 /* SupportFiles */,
+				6D0E4498256DA9DA0007EFE4 /* ViewControllers */,
+				6D0E4495256DA8CF0007EFE4 /* StoryBoards */,
+				6D0E4489256DA8BA0007EFE4 /* Assets.xcassets */,
+				6D0E448E256DA8BA0007EFE4 /* Info.plist */,
+			);
+			path = WelbornEdward_FridgePal;
+			sourceTree = "<group>";
+		};
+		6D0E4495256DA8CF0007EFE4 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6D0E4486256DA8BA0007EFE4 /* Main.storyboard */,
+				6D0E448B256DA8BA0007EFE4 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		6D0E4496256DA9CB0007EFE4 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6D0E4480256DA8BA0007EFE4 /* AppDelegate.swift */,
+				6D0E4482256DA8BA0007EFE4 /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		6D0E4498256DA9DA0007EFE4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6D52E98725796C6300B59E7E /* ItemsViewController.swift */,
+				6D52E9732579504400B59E7E /* AlertViewController.swift */,
+				6D52E9772579509A00B59E7E /* AlertDetailViewController.swift */,
+				6D52E97A257950CF00B59E7E /* FridgeViewController.swift */,
+				6D52E97F2579512800B59E7E /* FreezerViewController.swift */,
+				6D0E4484256DA8BA0007EFE4 /* MainViewController.swift */,
+				6D52E96C25794FD300B59E7E /* LoginViewController.swift */,
+				6D52E9822579517000B59E7E /* RecipeViewController.swift */,
+				6D52E97025794FFF00B59E7E /* SignupViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6D52E9252579310600B59E7E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D52E96525793BED00B59E7E /* cheffridge.jpg */,
+				6D52E96325793BED00B59E7E /* coolfridge.jpeg */,
+				6D52E96425793BED00B59E7E /* fingerfridge.jpeg */,
+				6D52E96225793BED00B59E7E /* fridgeflert.jpeg */,
+				6D52E96125793BED00B59E7E /* fridgecrown.jpeg */,
+				6D52E934257931B600B59E7E /* backbutton.jpeg */,
+				6D52E935257931B600B59E7E /* background.jpeg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D0E447C256DA8BA0007EFE4 /* WelbornEdward_FridgePal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D0E4491256DA8BA0007EFE4 /* Build configuration list for PBXNativeTarget "WelbornEdward_FridgePal" */;
+			buildPhases = (
+				6D0E4479256DA8BA0007EFE4 /* Sources */,
+				6D0E447A256DA8BA0007EFE4 /* Frameworks */,
+				6D0E447B256DA8BA0007EFE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WelbornEdward_FridgePal;
+			productName = WelbornEdward_FridgePal;
+			productReference = 6D0E447D256DA8BA0007EFE4 /* WelbornEdward_FridgePal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D0E4475256DA8BA0007EFE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					6D0E447C256DA8BA0007EFE4 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 6D0E4478256DA8BA0007EFE4 /* Build configuration list for PBXProject "WelbornEdward_FridgePal" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6D0E4474256DA8BA0007EFE4;
+			productRefGroup = 6D0E447E256DA8BA0007EFE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D0E447C256DA8BA0007EFE4 /* WelbornEdward_FridgePal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D0E447B256DA8BA0007EFE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D52E939257931B600B59E7E /* backbutton.jpeg in Resources */,
+				6D52E96825793BED00B59E7E /* coolfridge.jpeg in Resources */,
+				6D52E96A25793BED00B59E7E /* cheffridge.jpg in Resources */,
+				6D0E448D256DA8BA0007EFE4 /* LaunchScreen.storyboard in Resources */,
+				6D0E448A256DA8BA0007EFE4 /* Assets.xcassets in Resources */,
+				6D52E96725793BED00B59E7E /* fridgeflert.jpeg in Resources */,
+				6D0E4488256DA8BA0007EFE4 /* Main.storyboard in Resources */,
+				6D52E96625793BED00B59E7E /* fridgecrown.jpeg in Resources */,
+				6D52E96925793BED00B59E7E /* fingerfridge.jpeg in Resources */,
+				6D52E93A257931B600B59E7E /* background.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D0E4479256DA8BA0007EFE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D52E96D25794FD300B59E7E /* LoginViewController.swift in Sources */,
+				6D52E9802579512800B59E7E /* FreezerViewController.swift in Sources */,
+				6D52E9742579504400B59E7E /* AlertViewController.swift in Sources */,
+				6D0E4485256DA8BA0007EFE4 /* MainViewController.swift in Sources */,
+				6D52E9832579517000B59E7E /* RecipeViewController.swift in Sources */,
+				6D52E97125794FFF00B59E7E /* SignupViewController.swift in Sources */,
+				6D52E98825796C6300B59E7E /* ItemsViewController.swift in Sources */,
+				6D52E9782579509A00B59E7E /* AlertDetailViewController.swift in Sources */,
+				6D52E97B257950CF00B59E7E /* FridgeViewController.swift in Sources */,
+				6D0E4481256DA8BA0007EFE4 /* AppDelegate.swift in Sources */,
+				6D0E4483256DA8BA0007EFE4 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6D0E4486256DA8BA0007EFE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D0E4487256DA8BA0007EFE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D0E448B256DA8BA0007EFE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D0E448C256DA8BA0007EFE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6D0E448F256DA8BA0007EFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6D0E4490256DA8BA0007EFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D0E4492256DA8BA0007EFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QK22WHVDS9;
+				INFOPLIST_FILE = WelbornEdward_FridgePal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WelbornEdwardFridgePal.WelbornEdward-FridgePal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D0E4493256DA8BA0007EFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QK22WHVDS9;
+				INFOPLIST_FILE = WelbornEdward_FridgePal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WelbornEdwardFridgePal.WelbornEdward-FridgePal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D0E4478256DA8BA0007EFE4 /* Build configuration list for PBXProject "WelbornEdward_FridgePal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0E448F256DA8BA0007EFE4 /* Debug */,
+				6D0E4490256DA8BA0007EFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D0E4491256DA8BA0007EFE4 /* Build configuration list for PBXNativeTarget "WelbornEdward_FridgePal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0E4492256DA8BA0007EFE4 /* Debug */,
+				6D0E4493256DA8BA0007EFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D0E4475256DA8BA0007EFE4 /* Project object */;
+}
