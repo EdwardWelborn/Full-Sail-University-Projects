@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -25,22 +26,45 @@ class SignUpViewController: UIViewController {
     {
 //        check that all fields are checked in
         if (firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") ||
-        (lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") ||
-        
+        (lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "")
         {
             return "Please Fill in ALL fields"
         }
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        if Utilities.isPasswordValid(cleanedPassword) == false
+        {
+            return "Please Make SURE your password is at least 8 characters, contains a special character and a number."
+        }
         return ""
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton)
     {
 //        validate the fields
-        
+        let error = validateFields()
+        if error != ""
+        {
+//            there is something wrong with the fields, show error message
+            showError(error)
+        }
+        else
+        {
+//            Create the user
+//            go to homescreen
+            Auth.auth().createUser(withEmail: <#T##String#>, password: <#T##String#>) { (result, err) in
+                <#code#>
+            }
+        }
 //        create the new user
         
 //        transition to home screen
+    }
+    
+    func showError(_ message : String)
+    {
+        errorLabel.alpha = 1
+        errorLabel.text = message
     }
     
     override func viewDidLoad()
