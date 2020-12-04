@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -52,8 +53,17 @@ class SignUpViewController: UIViewController {
         {
 //            Create the user
 //            go to homescreen
-            Auth.auth().createUser(withEmail: <#T##String#>, password: <#T##String#>) { (result, err) in
-                <#code#>
+            Auth.auth().createUser(withEmail: emailAddressTextField, password: passwordTextField) { (result, err) in
+                // check for errors
+                if let err != nil
+                {
+                    // there was an error, so send it to the label
+                    self.showError("Error Creating User")
+                }
+                else{
+                    // user was created successfully, store first name and last name
+                    let db = FireStore.firestore()
+                }
             }
         }
 //        create the new user
