@@ -1,0 +1,15 @@
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\WelbornEdward_Lab1.exe
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\WelbornEdward_Lab1.deps.json
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\WelbornEdward_Lab1.runtimeconfig.json
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\WelbornEdward_Lab1.dll
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\ref\WelbornEdward_Lab1.dll
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\bin\Debug\net6.0\WelbornEdward_Lab1.pdb
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.csproj.AssemblyReference.cache
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.AssemblyInfoInputs.cache
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.AssemblyInfo.cs
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.csproj.CoreCompileInputs.cache
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.dll
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\ref\WelbornEdward_Lab1.dll
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.pdb
+C:\Users\Roy.Welborn\source\repos\WelbornEdward_Lab1\obj\Debug\net6.0\WelbornEdward_Lab1.genruntimeconfig.cache
