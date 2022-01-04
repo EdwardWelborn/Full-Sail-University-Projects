@@ -50,7 +50,7 @@ namespace Tester
             //Console.ReadKey();
 
             // string[] inputs = new string[inputLines.Length];
-            string [] insults = inputLines[0].Split(':');
+            string[] insults = inputLines[0].Split(':');
             string[] inputs1 = inputLines[1].Split(':');
             string[] inputs2 = inputLines[2].Split(':');
             string[] inputs3 = inputLines[3].Split(':');

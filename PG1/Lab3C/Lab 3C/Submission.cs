@@ -25,18 +25,27 @@ namespace FSPG1
         // Test 1 - write an overloaded constructor that will accept 
         // a string value (only a string) to intialize retort.  Do 
         // not accept an int and do not initialize hidden
+        public Submission(string strValue)
+        {
 
+        }
 
         // Test 2 - Write a getter for retort (GetRetort)
         // Getters return the data type matching the field they are
         // 'getting' and do not accept parameters (for now)
 
+        public void GetRetort(string strRetort)
+        {
 
+        }
         // Test 3 - Write a setter for retort (SetRetort)
         // Setters don't return anything and accept a parameter that
         // matches the member field they are 'setting'
 
+        public void SetRetort(string strRetort)
+        {
 
+        }
         // Test 4 - Write a property for hidden named Hidden
         // The property must update/access the hidden member field
 

@@ -22,15 +22,15 @@ namespace Debug_Exercise
 
         // there is one error in the Main method - it is a simple typo that needs to
         // be corrected. You do not need to add any additional programming statements
-        static void Main(string[] args)
+        static void Main(string[] arg)
         {
             int age = Support.GetAge(gener.Next(MIN, MAX));
-            string name = Support.GetName(names[gener.Next(names.Length)]);
+            string name = Support.GetName(names[gener.Next(names.Length)]); 
 
             DisplayUserInfo(name, age);
-
+            
             SayABCs();
-
+            
             Console.ReadKey();
         }
 
