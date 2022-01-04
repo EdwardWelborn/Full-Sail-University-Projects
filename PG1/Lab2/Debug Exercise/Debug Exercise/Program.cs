@@ -27,7 +27,7 @@ namespace Debug_Exercise
             int age = Support.GetAge(gener.Next(MIN, MAX));
             string name = Support.GetName(names[gener.Next(names.Length)]);
 
-            DisplayUserInfo(name, ag);
+            DisplayUserInfo(name, age);
 
             SayABCs();
 
@@ -42,7 +42,7 @@ namespace Debug_Exercise
         public static void DisplayUserInfo(string who, int age)
         {
             Console.Write("Please provide a warm welcome to my next guest, ");
-            Console.WriteLine(name + ", on the occasion of turning " + years + " years old!");
+            Console.WriteLine(who + ", on the occasion of turning " + age + " years old!");
         }
 
         // there are 2 errors in the SayABCs method. One is an incorrect variable 
@@ -52,16 +52,20 @@ namespace Debug_Exercise
         {
             for(int ndx = 97; ndx <= 122; ndx++)
             {
-                if ((index + 3) % 10 == 0)
+                if ((ndx + 3) % 10 == 0)
                 {
                     Console.WriteLine();
                 }
                 if (ndx == 97)
+                
                     Console.Write("\n" + (char)ndx + " ");
+                
                 else
+                
                     Console.Write((char)ndx + " ");
+                
             }
-            Console.WriteLine()
+            Console.WriteLine();
         }
     }
 }
