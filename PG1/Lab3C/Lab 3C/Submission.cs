@@ -27,16 +27,16 @@ namespace FSPG1
         // not accept an int and do not initialize hidden
         public Submission(string strValue)
         {
-
+            retort = strValue;
         }
 
         // Test 2 - Write a getter for retort (GetRetort)
         // Getters return the data type matching the field they are
         // 'getting' and do not accept parameters (for now)
 
-        public void GetRetort(string strRetort)
+        public string GetRetort()
         {
-
+            return retort;
         }
         // Test 3 - Write a setter for retort (SetRetort)
         // Setters don't return anything and accept a parameter that
@@ -44,11 +44,16 @@ namespace FSPG1
 
         public void SetRetort(string strRetort)
         {
-
+            retort = strRetort;
         }
         // Test 4 - Write a property for hidden named Hidden
         // The property must update/access the hidden member field
 
+        public int Hidden
+        {
+            get { return hidden; }
+            set { hidden = value; }
+        }
 
         // Test 5 - Write a method named YellAtMe that accepts
         // no parameters and returns the value of retort as 
@@ -57,20 +62,27 @@ namespace FSPG1
         // to access it from any string. The definition of ToUpper is:
         // public string ToUpper()
 
+        public string YellAtMe()
+        {
+            return retort.ToUpper();
+
+        }
 
         // Test 6 - Complete the method so that it returns 
         // the input value multiplied by 4
         public static int Test6(int input)
         {
-            return 0;
+            int intNewValue = input * 4;
+            return intNewValue;
         }
 
         // Test 7 - Complete the method so that it returns
         // the square root of the input value as a float
         // Use Math.Sqrt and cast the returned value to float
-        public static float Test7(float input)
+        public static float Test7(Double input)
         {
-            return 0;
+            Double dblNewValue = Math.Sqrt(input);
+            return (float)dblNewValue;
         }
 
         // Test 8 - Complete the method so that it returns
@@ -82,7 +94,9 @@ namespace FSPG1
 
         public static int Test8(int min, int max, int seed)
         {
-            return 0;
+            Random intRandom = new Random(seed);
+
+            return intRandom.Next(min, max);
         }
 
         // Test 9 - Complete the method so that it returns 
@@ -91,7 +105,10 @@ namespace FSPG1
 
         public static int Test9(int number1, int number2)
         {
-            return 0;
+            int intReturn;
+            intReturn = number1 / number2;
+
+            return intReturn;
         }
 
         // Test 10 - Complete the method so that it return
@@ -100,7 +117,9 @@ namespace FSPG1
 
         public static int Test10(int number1, int number2)
         {
-            return 0;
+            Decimal decReturn;
+            decReturn = Decimal.Remainder(number1, number2);
+            return (int)decReturn;
         }
     }
 }
