@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using Tester;
 
 namespace FSPG1
@@ -21,7 +22,15 @@ namespace FSPG1
         // Return the int array
         public static int[] Test1(char[] phrase)
         {
-            return null;
+            int[] intIntArray = new int[phrase.Length];
+            int intCounter = 0;
+
+            foreach (char chr in phrase)
+            {
+                intIntArray[intCounter] = (int)chr;
+                intCounter++;
+            }
+            return intIntArray;
         }
 
         // Test 2 - Array statistics
@@ -31,7 +40,30 @@ namespace FSPG1
         // Return the array
         public static double[] Test2(double[] data)
         {
-            return null;
+            double smallest = data[0];
+            double largest = data[0];
+            double sum = 0;
+            double[] dblNewArray = new double[3];
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] > largest)
+                    largest = data[i];
+
+                if (data[i] < smallest)
+                    smallest = data[i];
+            }
+            //get the mean 
+            // MARK: This is still broken, largest and smallest are fine
+            double mean = data.Length / (largest - smallest);
+
+            dblNewArray[0] = smallest;
+            dblNewArray[1] = largest;
+            dblNewArray[2] = mean;
+            
+
+
+            return dblNewArray;
         }
 
         // Test 3 - Normalize an array (of double)
@@ -93,7 +125,17 @@ namespace FSPG1
         //
         public static int[,] Test7(int [,] table)
         {
-            return null;
+            int intTable1 = table.GetLength(0);
+            int intTable2 = table.GetLength(1);
+            int[,] intArrayResult = new int[intTable2, intTable1];
+            for (int rows = 0; rows < intTable1; rows++)
+            {
+                for (int column = 0; column < intTable2; ++column)
+                {
+                    intArrayResult[column, rows] = table[rows, column];
+                }
+            }
+            return intArrayResult;
         }
 
         // Test 8 – Return a 2D array
@@ -103,7 +145,15 @@ namespace FSPG1
         // 
         public static int [,] Test8(int [] mins, int [] maxes, int [] seeds)
         {
-            return null;
+            int[,] intArrayResult = new int[3, mins.Length];
+            for (int index = 0; index < mins.Length; index++)
+            {
+                intArrayResult[0, index] = mins[index];
+                intArrayResult[1, index] = maxes[index];
+                intArrayResult[2, index] = seeds[index];
+            }  
+            return intArrayResult;
+
         }
 
         // Test 9 – Convert int array to char array
