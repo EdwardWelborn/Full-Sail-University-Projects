@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using Tester;
+using System.Linq;
 
 namespace FSPG1
 {
@@ -40,28 +41,27 @@ namespace FSPG1
         // Return the array
         public static double[] Test2(double[] data)
         {
-            double smallest = data[0];
-            double largest = data[0];
-            double sum = 0;
+            double dblSmallest = data[0];
+            double dblLargest = data[0];
+            double dblSum = 0;
             double[] dblNewArray = new double[3];
 
             for (int i = 0; i < data.Length; i++)
             {
-                if (data[i] > largest)
-                    largest = data[i];
+                dblSum += data[i];
+                if (data[i] > dblLargest)
+                    dblLargest = data[i];
 
-                if (data[i] < smallest)
-                    smallest = data[i];
+                if (data[i] < dblSmallest)
+                    dblSmallest = data[i];
             }
+
             //get the mean 
-            // MARK: This is still broken, largest and smallest are fine
-            double mean = data.Length / (largest - smallest);
+            double dblMean = dblSum / data.Length;
 
-            dblNewArray[0] = smallest;
-            dblNewArray[1] = largest;
-            dblNewArray[2] = mean;
-            
-
+            dblNewArray[0] = dblSmallest;
+            dblNewArray[1] = dblLargest;
+            dblNewArray[2] = dblMean;
 
             return dblNewArray;
         }
@@ -77,6 +77,21 @@ namespace FSPG1
         // nothing to return
         public static void Test3(double[] numbers)
         {
+            double smallest = numbers[0];
+            double largest = numbers[0];
+            double sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+                if (numbers[i] > largest)
+                    largest = numbers[i];
+            }
+            for (int i = 0; i < numbers.Length; i++)
+            {
+
+                numbers[i] = numbers[i] / largest;
+            }
+            
         }
 
         // Test 4 - Uniqueness
@@ -85,7 +100,18 @@ namespace FSPG1
         // If the array is unique, return true; otherwise, return false
         public static bool Test4(string [] names)
         {
-            return false;
+            bool bHasDuplicate = false;
+
+            if (names.Distinct().Count() != names.Count())
+            {
+                bHasDuplicate = false;
+            }
+            else
+            {
+                bHasDuplicate = true;
+            }
+
+            return bHasDuplicate;
         }
 
         // Test 5 - Acronym
@@ -93,7 +119,11 @@ namespace FSPG1
         // acronym (first letter of each word). Return the string
         public static string Test5(string [] words)
         {
-            return null;
+            string strResult = "";
+
+            strResult = String.Join("", words.Select(x => x[0].ToString()).ToArray());
+
+            return strResult;
         }
 
         // Test 6 - Array reverse
@@ -105,7 +135,8 @@ namespace FSPG1
         //
         public static char[] Test6(char[] letters)
         {
-            return null;
+            Array.Reverse(letters);
+            return letters;
         }
 
         // Test 7 - Transpose array
@@ -162,7 +193,15 @@ namespace FSPG1
         // Return the char array
         public static char[] Test9(int[] ascii)
         {
-            return null;
+            
+            char[] chrArrayOutput = new char[ascii.Length];
+
+            int i;
+            for (i = 0; i < ascii.Length; ++i)
+            {
+                chrArrayOutput[i] = (char)ascii[i];
+            }
+            return chrArrayOutput;
         }
 
         // Test 10 – Modify an existing array
@@ -171,6 +210,11 @@ namespace FSPG1
         // upper, odd indexes are lower)
         public static void Test10(char[] word)
         {
+            for (int i = 1; i < word.Length; i+=2)
+            {
+                word[i] = char.ToLower(word[i]);
+                
+            }
         }
     }
 }

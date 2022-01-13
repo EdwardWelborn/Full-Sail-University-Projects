@@ -10,4 +10,7 @@ All Code and examples from my Programming 1 Class
 Lab1
 Lab2
 Lab3
+Lab4
+Lab5
+Lab6
 
