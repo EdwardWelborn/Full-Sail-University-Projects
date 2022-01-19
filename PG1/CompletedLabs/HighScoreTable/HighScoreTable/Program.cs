@@ -36,41 +36,67 @@ namespace HighScoreTable
             //       and Utility.IsReadGood() which returns a bool to
             //       indicate if the last read (ReadInt) was successful
 
+            bool validInput = false;
+            int totalScores = 0;
 
+            while (!validInput)
+            {
+                Console.Write("How many high scores would you like? ");
+                
+                totalScores = Utility.ReadInt();
+                if (!Utility.IsReadGood())
+                {
+                    Console.WriteLine("\n===> Invalid Input, please enter a NUMBER greather than 0 <===\n");
+
+                }
+                else
+                {
+                    validInput = true;
+                    Console.WriteLine("\n\n");
+                    break;
+                }
+            }
 
             // TODO: Define an array of ints, which will hold the high scores.
             //       Make the array the exact size indicated by the user above.
 
+            int[] highScores = new int[totalScores];
 
             // TODO: Ask the user for each high score, and read in their inputs.
             //       Make sure to read in as many high scores are in the array.
             //       If the high score array is size 5, then read in 5 inputs.
             //       You DO NOT NEED to support error checking for each score;
             //       assume each input will be an integer.
+            
 
-
+            for (int i = 0; i < totalScores; i++)
+            {
+                Console.Write("Please enter score {0}/{1}: ", i + 1, totalScores);
+                int input = Utility.ReadInt();
+                highScores[i] = input;
+            }
             // TODO: Uncomment the following lines
-            //Console.WriteLine();
-            //Console.WriteLine("High Scores - Unsorted");
+            Console.WriteLine();
+            Console.WriteLine("High Scores - Unsorted");
 
             // TODO: Call **your** PrintArray method (which you must write
             //       below - it's a separate TODO after the Main method)
             //       passing the array of high scores.
-
+            PrintArray(highScores);
 
             // TODO: Call the SortArrayHighToLow method (already written below so
             //       don't attempt to change/re-write it). Pass the array of high 
             //       scores, to sort them.
-
+            SortArrayHighToLow(highScores);
 
             // TODO: Uncomment the following lines
-            //Console.WriteLine();
-            //Console.WriteLine("High Scores - Sorted");
+            Console.WriteLine();
+            Console.WriteLine("High Scores - Sorted");
 
 
             // TODO: Call **your** PrintArray method (which you must write below)
             //       passing the array of high scores.
-
+            PrintArray(highScores);
 
             //Console.SetCursorPosition(0, Console.WindowHeight - 1);
             Console.Write("\n\nPress any key to exit . . .");
@@ -82,7 +108,14 @@ namespace HighScoreTable
         //       anything.
         //       The function will loop through the array and print out
         //       each int on its own line.
+        static void PrintArray(int[] scores)
+        {
 
+            for (int x = 0; x < scores.Length; x++)
+            {
+                Console.WriteLine(scores[x]);
+            }
+        }
 
         /// <summary>
         /// This procedure takes an array of ints and sorts them in place.
