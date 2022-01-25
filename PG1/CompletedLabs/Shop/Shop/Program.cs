@@ -25,6 +25,7 @@
 #define INVENTORY
 
 using System;
+using System.Security.Cryptography.X509Certificates;
 using FSPG;
 
 namespace Shop
@@ -61,6 +62,8 @@ namespace Shop
             // TODO: Define an Inventory object for the player,
             //		 an Inventory object for the store. 
             Inventory mPlayerInventory = new Inventory();
+            Inventory mShopInventory = new Inventory();
+
 
             // TODO: Ask the user for their name and define a string for the
             //       name. Store their input in the string. If they entered 
@@ -69,23 +72,30 @@ namespace Shop
             string heroName = Console.ReadLine();
             if (heroName == null)
             {
-                heroName = "Bob the Barbarian";
+                heroName = "Bob";
             }
             
 
             // TODO: Use the Gold property to give the player inventory 200 Gold.
-            mPlayerInventory.Gold(200);
+            mPlayerInventory.Gold = 200;
 
             // TODO: Use the AddItem method to add each item in the
             //		 PlayerStartingItems array to the player's inventory.
-            
+            for (int x = 0; x < PlayerStartingItems.Length; x++)
+            {
+                mPlayerInventory.AddItem(PlayerStartingItems[x]);
+            }
 
+            Console.WriteLine(mPlayerInventory);
             // TODO: Use the Gold property to give the store inventory 350 Gold.
-
+            mShopInventory.Gold = 350;
 
             // TODO: Use the AddItem method to add each item in the
             //		 StoreStartingItems array to the store's inventory.
-
+            for (int x = 0; x < StoreStartingItems.Length; x++)
+            {
+                mShopInventory.AddItem(StoreStartingItems[x]);
+            }
 
             while (true)
             {
@@ -96,7 +106,7 @@ namespace Shop
 
                     // TODO: Call the ShowInventories method and pass in the player's name,
                     //		 the player's inventory and the store's inventory.
-                    
+                    ShowInventories(heroName, mPlayerInventory, mShopInventory);
 
                     Console.SetCursorPosition(5, 18);
                     Console.Write("What would you like to do?"
@@ -120,11 +130,12 @@ namespace Shop
 
                 // TODO: Call the DoTransaction method and send it the player's name,
                 //		 the player's inventory, the store's inventory and the doBuy variable.
+                DoTransaction(heroName, mPlayerInventory, mShopInventory, doBuy);
                 
             }
 
             Console.Clear();
-            Utility.WriteCentered("Thanks! Come on back now ya hear?!");
+            Utility.WriteCentered("Thank You! Come back soon, and safe travels!");
             Utility.WaitForEnterKey();
         }
 

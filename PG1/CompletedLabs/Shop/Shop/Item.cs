@@ -52,7 +52,5 @@ namespace Shop
         {
             cost = itemCost;
         }
-
     }
-
 }
