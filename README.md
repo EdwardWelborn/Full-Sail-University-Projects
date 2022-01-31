@@ -5,7 +5,7 @@ This repository well hold all code that is written during my tenure at Full Sail
 
 ## COP1000-0
 
-All Code and examples from my Programming 1 Class
+## All Code and examples from my Programming 1 Class
 
 Lab1
 Lab2
@@ -13,4 +13,11 @@ Lab3
 Lab4
 Lab5
 Lab6
+Lab7
+Lab9
+
+As well as the 2 practice assignments
+
+## All Code and examples in the Programming II Class
+
 
