@@ -16,7 +16,7 @@ Lab6
 Lab7
 Lab9
 
-As well as the 2 practice assignments
+As well as the 2 practical assignments
 
 ## All Code and examples in the Programming II Class
 
