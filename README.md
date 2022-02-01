@@ -22,4 +22,6 @@ As well as the 2 practical assignments
 
 ## All Code and examples in the Programming II Class
 
+Github Repository for PG2 classwork
+
 
