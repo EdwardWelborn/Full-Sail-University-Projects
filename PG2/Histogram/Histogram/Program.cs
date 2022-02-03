@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using System.Threading.Channels;
 
 
 namespace Histogram
@@ -94,26 +95,44 @@ namespace Histogram
 
         public static String GetSpeech()
         {
+            // This method grabs all the text from the filename and returns a string for processing
             StreamReader sr = new StreamReader(@"D:\GitHub\Full-Sail-University-Projects\PG2\Histogram\Histogram\speechString.txt");
            
             String inline = sr.ReadToEnd();
-
-
 
             return inline;
         }
 
         private static void removeWord(List<string> output)
         {
-            Utility.PressAnyKeyToContinue("This Feature still under Construction\nPress Any Key to Continue");
+            Console.Clear();
+
+            Utility.PressAnyKeyToContinue("Press Any Key to Return to Main Menu");
         }
 
         private static void wordSearch(Dictionary<string, int> input)
         {
             // This method searches for a word in the unique dictionary
+            
             Console.Clear();
+            Dictionary<String, int> resultList = new Dictionary<string, int>();
+            Console.Write("Please Enter a Word to Search: ");
+            String result = Validation.ValidateText(Console.ReadLine());
 
-            Utility.PressAnyKeyToContinue("This Feature still under Construction\nPress Any Key to Continue");
+            if (input.ContainsKey(result))
+            {
+
+                // Utility.PrintBars();
+
+            }
+            else
+            {
+                Console.WriteLine($"\nKeyword {result} not found!");
+            }
+
+           //  Utility.PrintBars(resultList.ToList());
+
+            Utility.PressAnyKeyToContinue("\nPress Any Key to Return to Main Menu");
         }
 
         private static void showHistogram(Dictionary<string, int> input)
@@ -123,7 +142,7 @@ namespace Histogram
 
             Utility.PrintBars(input.ToList());
 
-            Utility.PressAnyKeyToContinue("Press Any Key to Continue");
+            Utility.PressAnyKeyToContinue("Press Any Key to Return to Main Menu");
         }
 
         private static void listWords(List<string> items)
@@ -134,7 +153,7 @@ namespace Histogram
             {
                 Console.WriteLine(obj);
             }
-            Utility.PressAnyKeyToContinue("\n Press Any Key to Continue");
+            Utility.PressAnyKeyToContinue("\nPress Any Key to Return to Main Menu");
         }
 
         private static void ShowSpeech(String text)
@@ -142,7 +161,7 @@ namespace Histogram
             // This method shows the raw text that came in from the text file
             Console.Clear();
             Console.WriteLine(text);
-            Utility.PressAnyKeyToContinue("\n Press Any Key to Continue");
+            Utility.PressAnyKeyToContinue("\nPress Any Key to Return to Main Menu");
         }
     }
 }
