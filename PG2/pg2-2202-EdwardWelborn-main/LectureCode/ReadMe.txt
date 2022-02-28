@@ -1,1 +1,0 @@
-Use this directory to put your projects that you create during the lectures.
