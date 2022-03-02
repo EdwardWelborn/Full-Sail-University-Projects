@@ -37,9 +37,10 @@ void ClearInputBuffer()
     std::cin.clear();
     std::cin.ignore(INT_MAX, '\n');
 }
+
 int ValidateInt(int x)
 {
-    while (true)
+	while (true)
     {
         if (std::cin >> x)
         {
@@ -114,7 +115,7 @@ void Program3()
     results = (number1 + 1) * (number2 + 2) - number3;
     std::cout << "(a + 1) * (b + 2) - c = " << results;
 
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1-4
@@ -130,7 +131,7 @@ void Program4()
     std::cout << "\nlonglong \t" << LLONG_MIN << " - " << LLONG_MAX;
     std::cout << "\nulonglong \t 0 - " << ULONG_MAX;
 
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1-5
@@ -143,7 +144,7 @@ void Program5()
 	std::cin.getline(name, 32);
     std::cout << "Greetings " << name << ", did you know, that the dot over the i is called a title?";
 
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1-6
@@ -176,7 +177,7 @@ void Program6()
     {
         std::cout << "\nAWESOME! Travel time, enjoy your golden years.";
     }
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1-7
@@ -197,7 +198,7 @@ void Program7()
         std::cout << "\nNo sir, This number is NOT even.";
     }
 
-    std::cout << "\n";
+    std::cout << "\n\n";
 
 }
 
@@ -224,7 +225,7 @@ void Program8()
             std::cout << "\nRandom Number: \t" << rndNumber << "\tDivisible? " << "Nope";
         }
     }
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1.9
@@ -282,7 +283,7 @@ void Program9()
         }
     }
 
-    std::cout << "\n";
+    std::cout << "\n\n";
 }
 
 // Program 1-10
@@ -313,19 +314,19 @@ void Program10()
 	    }
     case 2:
 	    {
-		    rndNumber = rand() % 30;
+		    rndNumber = rand() % 10 + 30;
 		    std::cout << "\nYou will have to fight " << rndNumber << " monsters to get to the next level\n";
             break;
 	    }
     case 3:
 	    {
-		    rndNumber = rand() % 50;
+		    rndNumber = rand() % 10 + 50;
 		    std::cout << "\nYou will have to fight " << rndNumber << " monsters to get to the next level\n";
             break;
 	    }
     case 4:
 	    {
-		    rndNumber = rand() % 100;
+		    rndNumber = rand() % 100 + 50;
 		    std::cout << "\nYou will have to fight " << rndNumber << " monsters, and hope to not die!\n";
             break;
 	    }
@@ -336,6 +337,8 @@ void Program10()
 	    }
 
     }
+    ClearInputBuffer();
+    std::cout << "\n";
 }
 
 
