@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="DO NOT CHANGE">
+      <UniqueIdentifier>{a2b28274-1209-4b64-ae64-bc4aba5b36f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TODO STUDENT WORK">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Item.cpp">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryTracker.cpp">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClCompile>
+    <ClCompile Include="ScopeMain.cpp">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClCompile>
+    <ClCompile Include="Store.cpp">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemoryTracker.h">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>DO NOT CHANGE</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClInclude>
+    <ClInclude Include="Store.h">
+      <Filter>TODO STUDENT WORK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Debugging Steps.txt">
+      <Filter>TODO STUDENT WORK</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
