@@ -142,6 +142,7 @@
     <ClCompile Include="BaseAccount.cpp" />
     <ClCompile Include="CheckingAccount.cpp" />
     <ClCompile Include="CreditAccount.cpp" />
+    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SavingsAccount.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="BaseAccount.h" />
     <ClInclude Include="CheckingAccount.h" />
     <ClInclude Include="CreditAccount.h" />
+    <ClInclude Include="Helper.h" />
     <ClInclude Include="SavingsAccount.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

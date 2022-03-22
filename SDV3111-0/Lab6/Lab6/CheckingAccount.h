@@ -1,7 +1,9 @@
 ﻿#pragma once
 
-class CheckingAccount
+#include "BaseAccount.h"
+
+class CheckingAccount : public BaseAccount
 {
 public:
-	
+	void Withdraw(float amount);
 };
