@@ -12,4 +12,5 @@ void Store::Print() const
 	{
 		m_Inventories[i].Print();
 	}
+	delete m_Inventories;
 }

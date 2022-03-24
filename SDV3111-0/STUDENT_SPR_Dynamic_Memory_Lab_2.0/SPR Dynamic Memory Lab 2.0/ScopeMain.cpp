@@ -9,7 +9,7 @@
 // TODO
 // Change this number to the line number the Output window shows you
 // to follow a memory leak. Put -1 to disable.
-#define MEMORY_LEAK_LINE 0
+#define MEMORY_LEAK_LINE 1020
 
 void ScopeMain()
 {
@@ -19,4 +19,5 @@ void ScopeMain()
 
 	Store* s = new Store();
 	s->Print();
+
 }
