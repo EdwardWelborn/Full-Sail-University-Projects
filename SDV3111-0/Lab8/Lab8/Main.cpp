@@ -12,29 +12,27 @@ void SwapValues(int* a, int* b);
 
 int main()
 {
-    int* i;
-    std::cout << *i;
+ 
+    int number1 = 100;
+    int number2 = 200;
+    int number3 = 0;
 
-    int num1 = 1;
-    int num2 = 2;
-    int num3 = 0;
-
-    std::cout << num1 << std::endl << num2 << std::endl << num3 << std::endl;
-    std::cout << "After adding: " << AddNumbersReturnInt(&num1, &num2) << std::endl << std::endl;
+    std::cout << number1 << std::endl << number2 << std::endl << number3 << std::endl;
+    std::cout << "After adding: " << AddNumbersReturnInt(&number1, &number2) << std::endl << std::endl;
 
 
-    int num4 = 10;
-    int num5 = 22;
-    int num6 = 0;
+    int number4 = 1000;
+    int number5 = 2000;
+    int number6 = 0;
 
-    std::cout << num4 << std::endl << num5 << std::endl << num6 << std::endl;
-    AddNumbersReturnVoid(num4, num5, &num6);
-    std::cout << "After adding: " << num6 << std::endl << std::endl << std::endl;
+    std::cout << number4 << std::endl << number5 << std::endl << number6 << std::endl;
+    AddNumbersReturnVoid(number4, number5, &number6);
+    std::cout << "After adding: " << number6 << std::endl << std::endl << std::endl;
 
 
-    std::cout << "Current:" << std::endl << num3 << std::endl << num6 << std::endl;
-    SwapValues(&num3, &num6);
-    std::cout << "Swapped:" << std::endl << num3 << std::endl << num6 << std::endl << std::endl;
+    std::cout << "Current:" << std::endl << number3 << std::endl << number6 << std::endl;
+    SwapValues(&number3, &number6);
+    std::cout << "Swapped:" << std::endl << number3 << std::endl << number6 << std::endl << std::endl;
 
     std::cout << "Triangle stack areas" << std::endl;
     TriangleStack a = TriangleStack();
@@ -87,8 +85,8 @@ void AddNumbersReturnVoid(int a, int b, int* sum)
 
 void SwapValues(int* a, int* b)
 {
-    int t = 0;
-    t = *a;
+    int j = 0;
+    j = *a;
     *a = *b;
-    *b = t;
+    *b = j;
 }
