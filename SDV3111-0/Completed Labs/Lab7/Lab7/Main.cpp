@@ -1,6 +1,5 @@
 // Lab7.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
 #include <vector>
 #include "Base.h"
@@ -11,22 +10,27 @@
 void AddRecord(std::vector<Base*>& v);
 void DisplayRecords(std::vector<Base*>& v);
 void DuplicateRecord(std::vector<Base*>& v);
+void MainMenu();
+void AddMenu();
+void yesNoMenu();
+
+int options = 0;
+int addOptions = 0;
+int yesNo = 0;
 
 std::vector<Base*> records;
 
 int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	//_CrtSetBreakAlloc(205);
 	_CrtDumpMemoryLeaks();
 
-	bool isRunning = true;
+	bool canExit = false;
 
-	while (isRunning)
+	while (!canExit)
 	{
-		Header("  Abstract Base Classes Lab  ");
-		int options = GetValidatedInt("Please select an option. (Enter the number and press enter)\n1) Add Record\n2) Display Records\n3) Duplicate a Record\n4) Exit\n", 1, 4);
-		system("cls");
+		Header("  Lab 7 Abstract Base Classes Lab  ");
+		MainMenu();
 
 		switch (options)
 		{
@@ -42,8 +46,10 @@ int main()
 			DuplicateRecord(records);
 			break;
 		case 4:
+			canExit = true;
 			system("cls");
-			isRunning = false;
+			std::cout << "\nThank you for trying Lab7 / Abstract Base Classes\nPress Any Key to Exit." << std::endl;
+			std::cin.get();
 			break;
 		}
 	}
@@ -56,15 +62,15 @@ int main()
 
 void AddRecord(std::vector<Base*>& v)
 {
-	bool isRunning = true;
+	bool canExit = false;
 
-	while (isRunning)
+	while (!canExit)
 	{
-		Header("  Adding a Record  ");
-		int optionsOne = GetValidatedInt("What type of record do you want to add?\n1) Add Employee\n2) Add Student\n3) Exit\n", 1, 3);
+		Header("  Add a Record  ");
+		AddMenu();
 		system("cls");
 
-		switch (optionsOne)
+		switch (addOptions)
 		{
 		case 1:
 		{
@@ -74,17 +80,18 @@ void AddRecord(std::vector<Base*>& v)
 				Employee* employee = new Employee;
 				char* employeeName = nullptr;
 
-				promptForText("Employee Name: ", employeeName);
+				textPrompt("Employee Name: ", employeeName);
 
 				employee->SetName(employeeName);
-				employee->SetSalary(GetValidatedInt("Employee Salary: ", 0));
+				employee->SetSalary(ValidateInt("Employee Salary: ", 0));
 
 				records.push_back(employee);
 				system("cls");
 
 				Header("  Employee  ");
-				int repeated = GetValidatedInt("Add another Employee record?\n1) Yes\n2) No\n", 1, 2);
-				switch (repeated)
+				yesNoMenu();
+				
+				switch (yesNo)
 				{
 				case 1:
 					system("cls");
@@ -105,17 +112,17 @@ void AddRecord(std::vector<Base*>& v)
 				Student* student = new Student;
 				char* studentName = nullptr;
 
-				promptForText("Student Name: ", studentName);
+				textPrompt("Student Name: ", studentName);
 
 				student->SetName(studentName);
-				student->SetGPA(GetValidatedFloat("Student GPA: ", 0, 4.0));
+				student->SetGPA(ValidateFloat("Student GPA: ", 0, 4.0));
 
 				records.push_back(student);
 				system("cls");
 
 				Header("  Student  ");
-				int repeated = GetValidatedInt("Add another Student record?\n1) Yes\n2) No\n", 1, 2);
-				switch (repeated)
+				yesNoMenu();
+				switch (yesNo)
 				{
 				case 1:
 					system("cls");
@@ -130,7 +137,7 @@ void AddRecord(std::vector<Base*>& v)
 		}
 		case 3:
 			system("cls");
-			isRunning = false;
+			canExit = true;
 			break;
 		}
 	}
@@ -150,7 +157,7 @@ void DuplicateRecord(std::vector<Base*>& v)
 {
 	Header("  Duplicate a Record  ");
 	int index = 0;
-	index = GetValidatedInt("Please enter a number for the index you want to copy: ", 0, records.size());
+	index = ValidateInt("Please choose a record to copy: ", 0, records.size());
 
 	Student* s = dynamic_cast<Student*>(records[index]);
 	if (s != nullptr)
@@ -165,5 +172,35 @@ void DuplicateRecord(std::vector<Base*>& v)
 		Employee* employee = new Employee(*e);
 		records.push_back(employee);
 	}
+	system("cls");
+}
+
+void MainMenu()
+{
+	std::cout << "Main Menu\n" << std::endl;
+	std::cout << "1.. Add Record" << std::endl;
+	std::cout << "2.. Display Record" << std::endl;
+	std::cout << "3.. Duplicate Record" << std::endl;
+	std::cout << "4.. Exit Program\n" << std::endl;
+	options = ValidateInt("Please choose an option: ", 1, 4);
+	system("cls");
+}
+
+void AddMenu()
+{
+	std::cout << "Add Record Menu\n" << std::endl;
+	std::cout << "1.. Add Employee" << std::endl;
+	std::cout << "2.. Add Student" << std::endl;
+	std::cout << "3.. Return to Main Menu\n" << std::endl;
+	addOptions = ValidateInt("Please choose an option: ", 1, 3);
+	system("cls");
+}
+
+void yesNoMenu()
+{
+	std::cout << "Add Record Menu\n" << std::endl;
+	std::cout << "1.. Yes" << std::endl;
+	std::cout << "2.. No\n" << std::endl;
+	yesNo = ValidateInt("Please choose an option: ", 1, 2);
 	system("cls");
 }
