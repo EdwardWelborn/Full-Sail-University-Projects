@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.1.32328.378
+VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WelbornEdward_GOL", "WelbornEdward_GOL\WelbornEdward_GOL.csproj", "{2BB4E0DE-19A4-463F-9E2A-3FDE281AD30F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WelbornEdward_GOL", "WelbornEdward_GOL\WelbornEdward_GOL.csproj", "{9FEEC930-56C4-4842-858D-565A699693DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2BB4E0DE-19A4-463F-9E2A-3FDE281AD30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BB4E0DE-19A4-463F-9E2A-3FDE281AD30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BB4E0DE-19A4-463F-9E2A-3FDE281AD30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BB4E0DE-19A4-463F-9E2A-3FDE281AD30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEEC930-56C4-4842-858D-565A699693DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEEC930-56C4-4842-858D-565A699693DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEEC930-56C4-4842-858D-565A699693DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEEC930-56C4-4842-858D-565A699693DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D2DB3AB2-317E-4B21-BA4C-233B2EA12FA6}
+		SolutionGuid = {6EB777FF-5B22-4420-A74A-3EC6B5504FEF}
 	EndGlobalSection
 EndGlobal
