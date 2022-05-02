@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Change the namespace to your project's namespace.
-namespace WelbornEdward_GOL
+namespace GameOfLife
 {
     internal class GraphicsPanel : Panel
     {
