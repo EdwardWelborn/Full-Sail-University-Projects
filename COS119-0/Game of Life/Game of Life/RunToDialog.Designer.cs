@@ -85,6 +85,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RunToDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Run To";
             ((System.ComponentModel.ISupportInitialize)(this.runToNumericUpDown)).EndInit();
             this.ResumeLayout(false);

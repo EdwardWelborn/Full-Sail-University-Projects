@@ -29,5 +29,8 @@
     <Setting Name="seed" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2022</Value>
     </Setting>
+    <Setting Name="lineWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -86,6 +86,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TimerIntervalDailog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Timer Interval";
             ((System.ComponentModel.ISupportInitialize)(this.timerIntervalNumericUpDown)).EndInit();
             this.ResumeLayout(false);

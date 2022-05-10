@@ -131,5 +131,17 @@ namespace Game_of_Life.Properties {
                 this["seed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int lineWidth {
+            get {
+                return ((int)(this["lineWidth"]));
+            }
+            set {
+                this["lineWidth"] = value;
+            }
+        }
     }
 }

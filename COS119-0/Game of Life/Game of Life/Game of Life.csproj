@@ -58,6 +58,12 @@
     <Compile Include="fmMain.Designer.cs">
       <DependentUpon>fmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="UniverseSizeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UniverseSizeDialog.Designer.cs">
+      <DependentUpon>UniverseSizeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunToDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmMain.resx">
       <DependentUpon>fmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UniverseSizeDialog.resx">
+      <DependentUpon>UniverseSizeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RunToDialog.resx">
       <DependentUpon>RunToDialog.cs</DependentUpon>
