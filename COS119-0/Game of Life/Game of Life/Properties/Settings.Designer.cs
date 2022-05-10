@@ -119,5 +119,17 @@ namespace Game_of_Life.Properties {
                 this["description"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2022")]
+        public int seed {
+            get {
+                return ((int)(this["seed"]));
+            }
+            set {
+                this["seed"] = value;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -27,6 +28,12 @@ namespace Game_of_Life
         string[,] cellData = new string[columns, rows]; 
         bool[,] cells;
         int cellCount;
+        int seed;
+        int gridWidth;
+        int gridHeight;
+        int gridX;
+        int gridY;
+        int gridZ;
 
         int neighbors = 0;
         bool neighborDisplay = true;
@@ -35,16 +42,23 @@ namespace Game_of_Life
         Color gridColor;
         Color cellColor;
         Color backgroundColor;
+        Brush cellBrush;
+
+        Pen gridPen;
 
         // The Timer class
         Timer timer = new Timer();
+        Timer runToTimer = new Timer();
 
         // Generation count
         int generations = 0;
+        private int randomizedSeed;
 
         string boundryType;
         bool toroidal;
         bool finite;
+        private Random rnd;
+        private int runTo = 0;
 
         public fmMain()
         {
@@ -63,6 +77,9 @@ namespace Game_of_Life
             timer.Interval = Properties.Settings.Default.timeInterval;
             timer.Tick += Timer_Tick;
             timer.Enabled = false; // do not start timer running
+            timer.Tag = 0;
+
+            seed = Properties.Settings.Default.seed;
             // setup colors
             gridColor = Properties.Settings.Default.gridColor;
             cellColor = Properties.Settings.Default.cellColor;
@@ -71,10 +88,9 @@ namespace Game_of_Life
             cells = new bool[columns, rows];
 
             // initial labels
-            universeToolStripStatusLabel.Text = "Universe Size = " + columns + "x" + rows + "(" + boundryType + ")";
-            generationToolStripStatusLabel.Text = "Generation = " + generations;
-            aliveToolStripStatusLabel.Text = "Cells alive = " + Alive;
-            timerIntervaloolStripStatusLabel.Text = "Timer Interval = 0" + timer.Interval;
+  
+            UpdateStatusLabels();
+            UpdateColors();
 
         }
         // Figures out how many neighbors each cell has
@@ -145,10 +161,8 @@ namespace Game_of_Life
                 }
             }
             universe = (bool[,])scratchPad.Clone();
-            universeToolStripStatusLabel.Text = "Universe Size = " + columns + "x" + rows + "(" + boundryType + ")";
-            generationToolStripStatusLabel.Text = "Generation = " + generations;
-            aliveToolStripStatusLabel.Text = "Cells alive = " + neighbors;
-            timerIntervaloolStripStatusLabel.Text = "Timer Interval = 0" + timer.Interval;
+            UpdateStatusLabels();
+
             graphicsPanel1.Invalidate();
         }
 
@@ -158,12 +172,17 @@ namespace Game_of_Life
             NextGeneration();
         }
 
+        private void RunToTimer_Tick(object sender, EventArgs e)
+        {
+            runToTimer.Stop();
+        }
+
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
-            cellCount = 0;
+            //Convert to FLOATS! https://youtu.be/aD-Y-3PT1Oo
             // Calculate the width and height of each cell in pixels
             // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
-            int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(1);
+            int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
             // CELL HEIGHT = WINDOW HEIGHT / NUMBER OF CELLS IN Y
             int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
 
@@ -180,28 +199,49 @@ namespace Game_of_Life
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     // A rectangle to represent each cell in pixels
+                    //RectangleF floatRect;
                     Rectangle cellRect = Rectangle.Empty;
                     cellRect.X = x * cellWidth;
                     cellRect.Y = y * cellHeight;
                     cellRect.Width = cellWidth;
                     cellRect.Height = cellHeight;
 
+                    // Outline the cell with a pen
+                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+
                     // Fill the cell with a brush if alive
                     if (universe[x, y] == true)
                     {
                         e.Graphics.FillRectangle(cellBrush, cellRect);
                     }
-
-                    // Outline the cell with a pen
-                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+                    if (scratchPad[x, y] == true)
+                    {
+                        e.Graphics.FillRectangle(cellBrush, cellRect);
+                    }
+                    else if (neighborDisplay == true)
+                    {
+                        Brush brush = Brushes.Green;
+                        neighbors = Neighbors(x, y);
+                        if (neighbors >= 3)
+                        {
+                            brush = Brushes.Red;
+                        }
+                        StringFormat format = new StringFormat();
+                        format.Alignment = StringAlignment.Center;
+                        format.LineAlignment = StringAlignment.Center;
+                        Rectangle rectangle = new Rectangle(cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+                        if (neighbors != 0)
+                        {
+                            e.Graphics.DrawString(neighbors.ToString(), Font, brush, rectangle, format);
+                        }
+                    }
                 }
             }
-
-            // Cleaning up pens and brushes
+            // Cleaning up pens and brushes (helps garbage collector)
             gridPen.Dispose();
             cellBrush.Dispose();
         }
-
+        // StartUp Template MouseClick: https://youtu.be/a6cx_MIUaeY
         private void graphicsPanel1_MouseClick(object sender, MouseEventArgs e)
         {
             // If the left mouse button was clicked
@@ -428,68 +468,137 @@ namespace Game_of_Life
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            timer.Start();
+            EnableSimulation();
         }
 
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            timer.Enabled = false;
+            DisableSimulation();
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            timer.Stop();
+            DisableSimulation();
         }
 
         private void nextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            timer.Enabled = false;
+            DisableSimulation();
             NextGeneration();
-        }
-
-        private void runToToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void fromCurrentSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RandomizeCells(seed);
         }
 
         private void fromNewSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SeedDialog dlg = new SeedDialog();
 
+
+            dlg.Seed = seed;
+
+
+            if (DialogResult.OK == dlg.ShowDialog())
+
+                RandomizeCells(dlg.Seed);
         }
 
         private void fromTimerSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RandomizeCells(new Random((int)DateTime.Now.Ticks).Next());
         }
 
         private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ColorDialog dlg = new ColorDialog();
 
+
+            dlg.Color = backgroundColor;
+
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+
+                backgroundColor = dlg.Color;
+
+
+                UpdateColors();
+            }
         }
 
         private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ColorDialog dlg = new ColorDialog();
 
+
+            dlg.Color = cellColor;
+
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+
+                cellColor = dlg.Color;
+
+
+                UpdateColors();
+            }
         }
 
         private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ColorDialog dlg = new ColorDialog();
 
+
+            dlg.Color = gridColor;
+
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+
+                gridColor = dlg.Color;
+
+
+                UpdateColors();
+            }
         }
 
         private void newSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            SeedDialog dlg = new SeedDialog();
+
+            dlg.Seed = randomizedSeed;
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                RandomizeCells(dlg.Seed);
+                seed = dlg.Seed;
+            }
+            else
+            {
+                seed = Properties.Settings.Default.seed;
+            }
+
+            seedToolStripStatusLabel.Text = "Seed = " + seed;
+
         }
 
         private void timerIntervalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TimerIntervalDailog dlg = new TimerIntervalDailog();
 
+            dlg.TimerInterval = timer.Interval;
+
+            if (DialogResult.OK == dlg.ShowDialog())
+                timer.Interval = dlg.TimerInterval;
+            else
+            {
+                timer.Interval = Properties.Settings.Default.timeInterval;
+            }
+
+            timerIntervaloolStripStatusLabel.Text = "Timer Interval = " + timer.Interval;
         }
 
         private void universSizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -526,8 +635,8 @@ namespace Game_of_Life
 
             startToolStripButton.Enabled = true;
             startToolStripMenuItem.Enabled = true;
-
-
+            stopToolStripButton.Enabled = false;
+            stopToolStripMenuItem.Enabled = false;
             pauseToolStripButton.Enabled = false;
             pauseToolStripMenuItem.Enabled = false;
         }
@@ -540,8 +649,8 @@ namespace Game_of_Life
 
             startToolStripButton.Enabled = false;
             startToolStripMenuItem.Enabled = false;
-
-
+            stopToolStripMenuItem.Enabled = true;
+            stopToolStripButton.Enabled = true;
             pauseToolStripButton.Enabled = true;
             pauseToolStripMenuItem.Enabled = true;
         }
@@ -563,5 +672,126 @@ namespace Game_of_Life
             finiteToolStripMenuItem.Image = Properties.Resources.checkmark; ;
             toroidalToolStripMenuItem.Image = null;
         }
+
+        private void UpdateColors()
+        {
+
+            cellBrush = new SolidBrush(cellColor);
+
+
+            gridPen = new Pen(gridColor, 0 < gridWidth ? gridWidth : -gridWidth);
+
+
+            graphicsPanel1.BackColor = backgroundColor;
+
+
+            backgroundColorToolStripMenuItem.BackColor = backgroundColor;
+            cellColorToolStripMenuItem.BackColor = cellColor;
+            gridColorToolStripMenuItem.BackColor = gridColor;
+
+
+            backgroundColorToolStripMenuItem.ForeColor = Color.FromArgb(~(backgroundColor.ToArgb()));
+            cellColorToolStripMenuItem.ForeColor = Color.FromArgb(~(cellColor.ToArgb()));
+            gridColorToolStripMenuItem.ForeColor = Color.FromArgb(~(gridColor.ToArgb()));
+
+
+            graphicsPanel1.Invalidate();
+        }
+
+        private void resetColorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cellBrush = new SolidBrush(Properties.Settings.Default.cellColor);
+
+
+            gridPen = new Pen(gridColor, 0 < gridWidth ? gridWidth : -gridWidth);
+
+
+            graphicsPanel1.BackColor = Properties.Settings.Default.backgroundColor;
+
+
+            backgroundColorToolStripMenuItem.BackColor = backgroundColor;
+            cellColorToolStripMenuItem.BackColor = cellColor;
+            gridColorToolStripMenuItem.BackColor = gridColor;
+
+
+            backgroundColorToolStripMenuItem.ForeColor = Color.FromArgb(~(backgroundColor.ToArgb()));
+            cellColorToolStripMenuItem.ForeColor = Color.FromArgb(~(cellColor.ToArgb()));
+            gridColorToolStripMenuItem.ForeColor = Color.FromArgb(~(gridColor.ToArgb()));
+
+
+            graphicsPanel1.Invalidate();
+        }
+
+        private void RandomizeCells(int _seed)
+        {
+
+            Reseed(_seed);
+
+            DisableSimulation();
+            generations = 0;
+
+            int x = 0, y;
+            for (; x < columns; ++x)
+                for (y = 0; y < rows; ++y)
+                    cells[x, y] = 0 == rnd.Next(3);
+
+            graphicsPanel1.Invalidate();
+        }
+
+
+        private void Reseed(int newSeed)
+        {
+            seed = newSeed;
+            rnd = new Random(seed);
+            UpdateStatusLabels();
+        }
+
+        private void UpdateStatusLabels()
+        {
+            universeToolStripStatusLabel.Text = "Universe Size = " + columns + "x" + rows + " (" + boundryType + ")";
+            generationToolStripStatusLabel.Text = "Generation = " + generations;
+            aliveToolStripStatusLabel.Text = "Cells alive = " + Alive;
+            timerIntervaloolStripStatusLabel.Text = "Timer Interval = " + timer.Interval;
+            seedToolStripStatusLabel.Text = "Seed = " + seed;
+        }
+
+        private void runToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RunToDialog dlg = new RunToDialog();
+
+            dlg.RunTo = runTo;
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                runTo = dlg.RunTo;
+                RunTo(runTo);
+            }
+        }
+
+        private void RunTo(int runTo)
+        {
+            
+            timer.Start();
+            // timer won't stop
+            for (int x = 1; x <= runTo; x++)
+            {
+                if (x >= runTo)
+                    timer.Stop();
+            }
+        }
     }
 }
+
+// MARK: TODO
+// 
+// 1.. FIX RANDOMIZE
+
+// 2.. Universe Size settings Form
+
+// 3.. living cell count is not working
+
+// 4.. RunTo goes to generations instantly rather than via the timer.interval
+
+// 5.. Finite / Toroidal
+
+// 6.. Show Hide Neighbors count
