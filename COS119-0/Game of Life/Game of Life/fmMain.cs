@@ -34,7 +34,7 @@ namespace Game_of_Life
 
 
         int neighbors = 0;
-        bool nCount = true;
+        bool neighborCountDisplay = true;
         private int counter = 0;
 
         // Drawing colors
@@ -266,7 +266,6 @@ namespace Game_of_Life
 
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
-            //Convert to FLOATS! https://youtu.be/aD-Y-3PT1Oo
             // Calculate the width and height of each cell in pixels
             // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
             int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
@@ -286,54 +285,46 @@ namespace Game_of_Life
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     // A rectangle to represent each cell in pixels
-                    //RectangleF floatRect;
                     Rectangle cellRect = Rectangle.Empty;
                     cellRect.X = x * cellWidth;
                     cellRect.Y = y * cellHeight;
                     cellRect.Width = cellWidth;
                     cellRect.Height = cellHeight;
 
-                    // Outline the cell with a pen
-                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-
                     // Fill the cell with a brush if alive
                     if (universe[x, y] == true)
                     {
                         e.Graphics.FillRectangle(cellBrush, cellRect);
-                    }
-                    if (scratchPad[x, y] == true)
-                    {
-                        e.Graphics.FillRectangle(cellBrush, cellRect);
-                    }
-                    else if (nCount == true)
-                    {
-                        Brush brush = Brushes.Green;
-                        if (border == true)
+
+                        if (neighborCountDisplay)
                         {
-                            neighbors = CountNeighborsToroidal(x, y);
-                        }
-                        else
-                        {
-                            neighbors = CountNeighborsFinite(x, y);
+                            Font font = new Font("Arial", 10f);
+
+                            StringFormat stringFormat = new StringFormat();
+                            stringFormat.Alignment = StringAlignment.Center;
+                            stringFormat.LineAlignment = StringAlignment.Center;
+
+                            int neighbors = CountNeighborsFinite(x, y);
+
+                            if (neighbors > 3 || neighbors < 2)
+                            {
+                                e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Crimson, cellRect, stringFormat);
+                            }
+                            else
+                            {
+                                e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Green, cellRect, stringFormat);
+                            }
                         }
 
-                        //neighbors = Neighbors(x, y);
-                        if (neighbors >= 3)
-                        {
-                            brush = Brushes.Red;
-                        }
-                        StringFormat format = new StringFormat();
-                        format.Alignment = StringAlignment.Center;
-                        format.LineAlignment = StringAlignment.Center;
-                        Rectangle rectangle = new Rectangle(cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-                        if (neighbors != 0)
-                        {
-                            e.Graphics.DrawString(neighbors.ToString(), Font, brush, rectangle, format);
-                        }
                     }
+
+                    // Outline the cell with a pen
+                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+
                 }
             }
-            // Cleaning up pens and brushes (helps garbage collector)
+
+            // Cleaning up pens and brushes
             gridPen.Dispose();
             cellBrush.Dispose();
         }
@@ -839,11 +830,11 @@ namespace Game_of_Life
         {
             if (neighborCountToolStripMenuItem.Checked == true)
             {
-                nCount = true;
+                neighborCountDisplay = true;
             }
             else
             {
-                nCount = false;
+                neighborCountDisplay = false;
             }
 
             graphicsPanel1.Invalidate();
@@ -858,4 +849,4 @@ namespace Game_of_Life
 // 3.. living cell count is not working = DONE!
 // 4.. RunTo goes to generations instantly rather than via the timer.interval
 // 5.. Finite / Toroidal = DONE!!
-// 6.. Show Hide Neighbors count
+// 6.. Show Hide Neighbors count = DONE!!!!!
