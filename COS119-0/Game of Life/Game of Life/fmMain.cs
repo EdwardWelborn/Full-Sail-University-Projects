@@ -31,10 +31,7 @@ namespace Game_of_Life
         int cellCount;
         int seed;
         int gridWidth;
-        int gridHeight;
-        int gridX;
-        int gridY;
-        int gridZ;
+
 
         int neighbors = 0;
         bool nCount = true;
@@ -56,8 +53,7 @@ namespace Game_of_Life
         private int randomizedSeed;
 
         string boundryType;
-        bool toroidal;
-        bool finite;
+       
         private Random rnd;
         private int runTo = 0;
         bool countType = false;
@@ -279,7 +275,6 @@ namespace Game_of_Life
                     if (universe[x, y])
                     {
                         cellCount++;
-
                     }
                 }
             }
@@ -302,87 +297,6 @@ namespace Game_of_Life
 
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
-            /*
-            // Calculate the width and height of each cell in pixels
-            // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
-            int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
-            // CELL HEIGHT = WINDOW HEIGHT / NUMBER OF CELLS IN Y
-            int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
-
-            // A Pen for drawing the grid lines (color, width)
-            Pen gridPen = new Pen(gridColor, 1);
-
-            // A Brush for filling living cells interiors (color)
-            Brush cellBrush = new SolidBrush(cellColor);
-
-            // Iterate through the universe in the y, top to bottom
-            for (int y = 0; y < universe.GetLength(1); y++)
-            {
-                // Iterate through the universe in the x, left to right
-                for (int x = 0; x < universe.GetLength(0); x++)
-                {
-                    // A rectangle to represent each cell in pixels
-                    Rectangle cellRect = Rectangle.Empty;
-                    cellRect.X = x * cellWidth;
-                    cellRect.Y = y * cellHeight;
-                    cellRect.Width = cellWidth;
-                    cellRect.Height = cellHeight;
-
-                    // Fill the cell with a brush if alive
-                    if (universe[x, y] == true)
-                    {
-                        e.Graphics.FillRectangle(cellBrush, cellRect);
-                        /*
-                                                if (nCount)
-                                                {
-                                                    Font font = new Font("Arial", 20f);
-
-                                                    StringFormat stringFormat = new StringFormat();
-                                                    stringFormat.Alignment = StringAlignment.Center;
-                                                    stringFormat.LineAlignment = StringAlignment.Center;
-
-                                                    int neighbors = CountNeighborsFinite(x, y);
-
-                                                    if (neighbors > 3 || neighbors < 2)
-                                                    {
-                                                        e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Crimson, cellRect, stringFormat);
-                                                    }
-                                                    else
-                                                    {
-                                                        e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Green, cellRect, stringFormat);
-                                                    }
-                                                }
-                        // *
-                        if (nCount == true)
-                        {
-                            Brush brush = Brushes.Green;
-                            neighbors = Neighbors(x, y);
-                            if (neighbors >= 3)
-                            {
-                                brush = Brushes.Red;
-                            }
-                            StringFormat format = new StringFormat();
-                            format.Alignment = StringAlignment.Center;
-                            format.LineAlignment = StringAlignment.Center;
-                            Rectangle rectangle = new Rectangle(cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-                            if (neighbors != 0)
-                            {
-                                e.Graphics.DrawString(neighbors.ToString(), Font, brush, rectangle, format);
-                            }
-                        }
-                    }
-
-                    // Outline the cell with a pen
-                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-
-                }
-            }
-
-            // Cleaning up pens and brushes
-            gridPen.Dispose();
-            cellBrush.Dispose();
-            */
-
             //Convert to FLOATS! https://youtu.be/aD-Y-3PT1Oo
             // Calculate the width and height of each cell in pixels
             // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
