@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Windows.Forms;
 
 namespace Game_of_Life
@@ -10,6 +11,8 @@ namespace Game_of_Life
         public SeedDialog()
         {
             InitializeComponent();
+            seedNumericUpDown.Text = null;
+            seedNumericUpDown.Maximum = Decimal.MaxValue;
         }
 
         #region << Properties >>

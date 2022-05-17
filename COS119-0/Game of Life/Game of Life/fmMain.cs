@@ -35,6 +35,7 @@ namespace Game_of_Life
 
         int neighbors = 0;
         bool nCount = true;
+        private int counter = 0;
 
         // Drawing colors
         Color gridColor;
@@ -56,7 +57,7 @@ namespace Game_of_Life
        
         private Random rnd;
         private int runTo = 0;
-        bool countType = false;
+        bool border;
 
         public fmMain()
         {
@@ -67,7 +68,8 @@ namespace Game_of_Life
             //window size
             Size = new Size(725, 620);
 
-            countType = false;
+            border = false;
+            boundryType = "Finite";
             finiteToolStripMenuItem.Checked = true;
             toroidalToolStripMenuItem.Checked = false;
             neighborCountToolStripMenuItem.Checked = true;
@@ -95,85 +97,52 @@ namespace Game_of_Life
 
         }
         // Figures out how many neighbors each cell has
-        public int Neighbors(int cellX, int cellY)
-        {
-            int isAlive = 0;
-            // checking for boundries
-            for (int y = cellY - 1; y <= cellY + 1; y++)
-            {
-                int yNeighbor = y;
-                if (y < 0)
-                {
-                    yNeighbor = universe.GetLength(1) - 1;
-                }
-                else if (y > universe.GetLength(1) - 1)
-                {
-                    yNeighbor = 0;
-                }
-                for (int x = cellX - 1; x <= cellX + 1; x++)
-                {
-                    int xNeighbor = x;
-                    if (x < 0)
-                    {
-                        xNeighbor = universe.GetLength(0) - 1;
-                    }
-                    else if (x > universe.GetLength(0) - 1)
-                    {
-                        xNeighbor = 0;
-                    }
-                    if (universe[xNeighbor, yNeighbor] == true && (x != cellX || y != cellY))
-                    {
-                        isAlive++;
-                    }
-                }
-            }
-            return isAlive;
-        }
-
         private int CountNeighborsFinite(int x, int y)
         {
 
-            int count = 0;
-            int xLen = universe.GetLength(0);
-            int yLen = universe.GetLength(1);
+            
+                int count = 0;
+                int xLen = universe.GetLength(0);
+                int yLen = universe.GetLength(1);
 
-            for (int yOffset = -1; yOffset <= 1; yOffset++)
-            {
-                for (int xOffset = -1; xOffset <= 1; xOffset++)
+                for (int yOffset = -1; yOffset <= 1; yOffset++)
                 {
-                    int xCheck = x + xOffset;
-                    int yCheck = y + yOffset;
+                    for (int xOffset = -1; xOffset <= 1; xOffset++)
+                    {
+                        int xCheck = x + xOffset;
+                        int yCheck = y + yOffset;
 
-                    if (xOffset == 0 && yOffset == 0)
-                    {
-                        continue;
-                    }
+                        if (yOffset == 0 && xOffset == 0)
+                        {
+                            continue;
+                        }
+                        if (xCheck < 0)
+                        {
+                            continue;
+                        }
+                        if (yCheck < 0)
+                        {
+                            continue;
+                        }
+                        if (xCheck >= xLen)
+                        {
+                            continue;
+                        }
+                        if (yCheck >= yLen)
+                        {
+                            continue;
+                        }
 
-                    if (xCheck < 0)
-                    {
-                        xCheck = xLen - 1;
-                    }
-                    if (yCheck < 0)
-                    {
-                        yCheck = yLen - 1;
-                    }
-                    if (xCheck >= xLen)
-                    {
-                        xCheck = 0;
-                    }
-                    if (yCheck >= yLen)
-                    {
-                        yCheck = 0;
-                    }
-
-                    if (universe[xCheck, yCheck] == true)
-                    {
-                        count++;
+                        if (universe[xCheck, yCheck] == true)
+                        {
+                            count++;
+                        }
                     }
                 }
+
+                return count;
             }
-            return count;
-        }
+        
 
         private int CountNeighborsToroidal(int x, int y)
         {
@@ -228,7 +197,7 @@ namespace Game_of_Life
                 {
                     int neighborCount = 0;
                     scratchPad[x, y] = false;
-                    if (countType)
+                    if (border)
                     {
                         neighborCount = CountNeighborsToroidal(x, y);
                     }
@@ -339,7 +308,16 @@ namespace Game_of_Life
                     else if (nCount == true)
                     {
                         Brush brush = Brushes.Green;
-                        neighbors = Neighbors(x, y);
+                        if (border == true)
+                        {
+                            neighbors = CountNeighborsToroidal(x, y);
+                        }
+                        else
+                        {
+                            neighbors = CountNeighborsFinite(x, y);
+                        }
+
+                        //neighbors = Neighbors(x, y);
                         if (neighbors >= 3)
                         {
                             brush = Brushes.Red;
@@ -544,39 +522,37 @@ namespace Game_of_Life
         private void fromCurrentSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RandomizeCells(seed);
+            UpdateStatusLabels();
         }
 
         private void fromNewSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SeedDialog dlg = new SeedDialog();
 
-
             dlg.Seed = seed;
-
 
             if (DialogResult.OK == dlg.ShowDialog())
 
                 RandomizeCells(dlg.Seed);
+
+            UpdateStatusLabels();
         }
 
         private void fromTimerSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RandomizeCells(new Random((int)DateTime.Now.Ticks).Next());
+            UpdateStatusLabels();
         }
 
         private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog dlg = new ColorDialog();
 
-
             dlg.Color = backgroundColor;
-
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
-
                 backgroundColor = dlg.Color;
-
 
                 UpdateColors();
             }
@@ -586,15 +562,11 @@ namespace Game_of_Life
         {
             ColorDialog dlg = new ColorDialog();
 
-
             dlg.Color = cellColor;
-
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
-
                 cellColor = dlg.Color;
-
 
                 UpdateColors();
             }
@@ -604,15 +576,11 @@ namespace Game_of_Life
         {
             ColorDialog dlg = new ColorDialog();
 
-
             dlg.Color = gridColor;
-
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
-
                 gridColor = dlg.Color;
-
 
                 UpdateColors();
             }
@@ -620,7 +588,6 @@ namespace Game_of_Life
 
         private void newSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             SeedDialog dlg = new SeedDialog();
 
             dlg.Seed = randomizedSeed;
@@ -717,17 +684,21 @@ namespace Game_of_Life
         private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Change universe style to toroidal
-            countType = true;
+            border = true;
             finiteToolStripMenuItem.Checked = false;
             toroidalToolStripMenuItem.Checked = true;
+            boundryType = "Toroidal";
+            UpdateStatusLabels();
         }
 
         private void finiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Change universe style to finite
-            countType = false;
+            border = false;
             finiteToolStripMenuItem.Checked = true;
             toroidalToolStripMenuItem.Checked = false;
+            boundryType = "Finite";
+            UpdateStatusLabels();
         }
 
         private void UpdateColors()
@@ -795,14 +766,13 @@ namespace Game_of_Life
             graphicsPanel1.Invalidate();
         }
 
-
         private void Reseed(int newSeed)
         {
             seed = newSeed;
             rnd = new Random(seed);
             UpdateStatusLabels();
         }
-
+ 
         private void UpdateStatusLabels()
         {
             universeToolStripStatusLabel.Text = "Universe Size = " + columns + "x" + rows + " (" + boundryType + ")";
@@ -817,6 +787,7 @@ namespace Game_of_Life
             RunToDialog dlg = new RunToDialog();
 
             dlg.RunTo = runTo;
+            dlg.runToNumericUpDown.Text = null;
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
@@ -827,14 +798,15 @@ namespace Game_of_Life
 
         private void RunTo(int runTo)
         {
-            
-            timer.Start();
-            // timer won't stop
-            for (int x = 1; x <= runTo; x++)
+            // This method fires instantaneously instead of like the simulation with timer.interval
+            counter = 1;
+            EnableSimulation();
+            for (counter = 1; counter <= runTo; counter++)
             {
-                if (x >= runTo)
-                    timer.Stop();
-            }
+                NextGeneration();
+            } 
+            DisableSimulation();
+
         }
         private void ResizeUniverse()
         {
@@ -885,5 +857,5 @@ namespace Game_of_Life
 // 2.. Universe Size settings Form = DONE!!
 // 3.. living cell count is not working = DONE!
 // 4.. RunTo goes to generations instantly rather than via the timer.interval
-// 5.. Finite / Toroidal not working.. stuck in toroidal mode
+// 5.. Finite / Toroidal = DONE!!
 // 6.. Show Hide Neighbors count

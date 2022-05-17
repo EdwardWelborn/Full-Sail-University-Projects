@@ -15,6 +15,7 @@ namespace Game_of_Life
         public TimerIntervalDailog()
         {
             InitializeComponent();
+            timerIntervalNumericUpDown.Text = null;
             timerIntervalNumericUpDown.Maximum = Decimal.MaxValue;
         }
 
