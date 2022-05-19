@@ -143,5 +143,29 @@ namespace Game_of_Life.Properties {
                 this["lineWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int columns {
+            get {
+                return ((int)(this["columns"]));
+            }
+            set {
+                this["columns"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int rows {
+            get {
+                return ((int)(this["rows"]));
+            }
+            set {
+                this["rows"] = value;
+            }
+        }
     }
 }
