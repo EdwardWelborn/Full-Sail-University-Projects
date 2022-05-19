@@ -50,13 +50,13 @@ namespace Game_of_Life
     
 
         // Generation count
-        int generations = 0;
+        int generations = 1;
         private int randomizedSeed;
 
         string boundryType;
        
         private Random rnd;
-        private int runTo = 0;
+        private int runTo = 1;
         bool border;
 
         public fmMain()
@@ -79,6 +79,7 @@ namespace Game_of_Life
             timer.Tick += Timer_Tick;
             timer.Enabled = false; // do not start timer running
             timer.Tag = 0;
+            
 
             seed = Properties.Settings.Default.seed;
             // setup colors
@@ -262,6 +263,14 @@ namespace Game_of_Life
         private void Timer_Tick(object sender, EventArgs e)
         {
             NextGeneration();
+            if (runTo > 1)
+            {
+                counter++;
+                if (counter >= runTo)
+                {
+                    DisableSimulation();
+                }
+            }
         }
 
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
@@ -491,16 +500,20 @@ namespace Game_of_Life
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            counter = 1;
+            runTo = 1;
             EnableSimulation();
         }
 
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             DisableSimulation();
         }
 
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             DisableSimulation();
         }
 
@@ -648,6 +661,8 @@ namespace Game_of_Life
         }
         private void DisableSimulation()
         {
+            counter = 1;
+            runTo = 1;
 
             timer.Enabled = false;
 
@@ -775,6 +790,8 @@ namespace Game_of_Life
 
         private void runToToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            counter = 1;
+            runTo = 1;
             RunToDialog dlg = new RunToDialog();
 
             dlg.RunTo = runTo;
@@ -792,13 +809,10 @@ namespace Game_of_Life
             // This method fires instantaneously instead of like the simulation with timer.interval
             counter = 1;
             EnableSimulation();
-            for (counter = 1; counter <= runTo; counter++)
-            {
-                NextGeneration();
-            } 
-            DisableSimulation();
+            
 
         }
+
         private void ResizeUniverse()
         {
             bool[,] newCells = new bool[columns, rows];
@@ -847,6 +861,6 @@ namespace Game_of_Life
 // 1.. FIX RANDOMIZE = DNE!!!!
 // 2.. Universe Size settings Form = DONE!!
 // 3.. living cell count is not working = DONE!
-// 4.. RunTo goes to generations instantly rather than via the timer.interval
+// 4.. RunTo goes to generations instantly rather than via the timer.interval = DONE!!
 // 5.. Finite / Toroidal = DONE!!
 // 6.. Show Hide Neighbors count = DONE!!!!!
