@@ -26,8 +26,8 @@ namespace Game_of_Life
         bool neighborCountDisplay = true;
         int counter = 0;
 
-        private Random rnd;
-        private int runTo = 1;
+        Random rnd;
+        int runTo = 1;
         bool border;
         string boundryType;
 
@@ -42,8 +42,8 @@ namespace Game_of_Life
         Timer timer = new Timer();
     
         // Generation count
-        int generations = 1;
-        private int randomizedSeed;
+        int generations = 0;
+        int randomizedSeed;
          
         // Main Method. It all starts here
         public fmMain()
@@ -79,7 +79,6 @@ namespace Game_of_Life
             gridColor = Properties.Settings.Default.gridColor;
             cellColor = Properties.Settings.Default.cellColor;
             backgroundColor = Properties.Settings.Default.backgroundColor;
-
             
             // initialize universe
             ResizeUniverse();
@@ -93,8 +92,6 @@ namespace Game_of_Life
         // Figures out how many neighbors each cell has when the boundytype is finite
         private int CountNeighborsFinite(int x, int y)
         {
-
-            
                 int count = 0;
                 int xLen = universe.GetLength(0);
                 int yLen = universe.GetLength(1);
@@ -258,7 +255,7 @@ namespace Game_of_Life
             if (runTo > 1)
             {
                 counter++;
-                if (counter >= runTo)
+                if (counter >= runTo + 1)
                 {
                     DisableSimulation();
                 }
@@ -815,8 +812,8 @@ namespace Game_of_Life
         // opens the dialog for the user to run the simulation to a certain number
         private void runToToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            counter = 1;
             runTo = 1;
+            counter = 1;
             RunToDialog dlg = new RunToDialog();
 
             dlg.RunTo = runTo;
@@ -833,7 +830,6 @@ namespace Game_of_Life
         private void RunTo(int runTo)
         {
             // This method fires instantaneously instead of like the simulation with timer.interval
-            counter = 1;
             EnableSimulation();
             
 

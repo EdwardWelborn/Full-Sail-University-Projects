@@ -177,14 +177,16 @@
             // toroidalToolStripMenuItem
             // 
             this.toroidalToolStripMenuItem.Name = "toroidalToolStripMenuItem";
-            this.toroidalToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.toroidalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.toroidalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toroidalToolStripMenuItem.Text = "Toroidal";
             this.toroidalToolStripMenuItem.Click += new System.EventHandler(this.toroidalToolStripMenuItem_Click);
             // 
             // finiteToolStripMenuItem
             // 
             this.finiteToolStripMenuItem.Name = "finiteToolStripMenuItem";
-            this.finiteToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.finiteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.finiteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.finiteToolStripMenuItem.Text = "Finite";
             this.finiteToolStripMenuItem.Click += new System.EventHandler(this.finiteToolStripMenuItem_Click);
             // 
@@ -203,35 +205,40 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.startToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.pauseToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.stopToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // nextToolStripMenuItem
             // 
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.nextToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
             // runToToolStripMenuItem
             // 
             this.runToToolStripMenuItem.Name = "runToToolStripMenuItem";
-            this.runToToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.runToToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.runToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runToToolStripMenuItem.Text = "Run To";
             this.runToToolStripMenuItem.Click += new System.EventHandler(this.runToToolStripMenuItem_Click);
             // 
@@ -248,21 +255,24 @@
             // fromCurrentSeedToolStripMenuItem
             // 
             this.fromCurrentSeedToolStripMenuItem.Name = "fromCurrentSeedToolStripMenuItem";
-            this.fromCurrentSeedToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.fromCurrentSeedToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.fromCurrentSeedToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.fromCurrentSeedToolStripMenuItem.Text = "From Current Seed";
             this.fromCurrentSeedToolStripMenuItem.Click += new System.EventHandler(this.fromCurrentSeedToolStripMenuItem_Click);
             // 
             // fromNewSeedToolStripMenuItem
             // 
             this.fromNewSeedToolStripMenuItem.Name = "fromNewSeedToolStripMenuItem";
-            this.fromNewSeedToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.fromNewSeedToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.fromNewSeedToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.fromNewSeedToolStripMenuItem.Text = "From New Seed";
             this.fromNewSeedToolStripMenuItem.Click += new System.EventHandler(this.fromNewSeedToolStripMenuItem_Click);
             // 
             // fromTimerSeedToolStripMenuItem
             // 
             this.fromTimerSeedToolStripMenuItem.Name = "fromTimerSeedToolStripMenuItem";
-            this.fromTimerSeedToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.fromTimerSeedToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.fromTimerSeedToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.fromTimerSeedToolStripMenuItem.Text = "From Timer Seed";
             this.fromTimerSeedToolStripMenuItem.Click += new System.EventHandler(this.fromTimerSeedToolStripMenuItem_Click);
             // 
@@ -520,7 +530,7 @@
             this.generationToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 3, 15, 2);
             this.generationToolStripStatusLabel.Name = "generationToolStripStatusLabel";
             this.generationToolStripStatusLabel.Size = new System.Drawing.Size(90, 17);
-            this.generationToolStripStatusLabel.Text = "Generations = 0";
+            this.generationToolStripStatusLabel.Text = "Generations = 1";
             // 
             // aliveToolStripStatusLabel
             // 
