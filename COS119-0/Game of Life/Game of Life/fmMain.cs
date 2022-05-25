@@ -353,6 +353,7 @@ namespace Game_of_Life
             }
         }
 
+        // clears the grid and resets all variables.
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResetUniverse();
@@ -665,6 +666,8 @@ namespace Game_of_Life
             DisableSimulation();
             Clear();
             generations = 0;
+            counter = 1;
+            runTo = 1;
 
             cells = new bool[columns, rows];
 
@@ -866,7 +869,7 @@ namespace Game_of_Life
             graphicsPanel1.Invalidate();
         }
 
-        // shows or hides the neighbor count
+        // shows or hides the neighbor count 
         private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (neighborCountToolStripMenuItem.Checked == true)
@@ -884,10 +887,5 @@ namespace Game_of_Life
 }
 
 // MARK: TODO
-// 
-// 1.. FIX RANDOMIZE = DNE!!!!
-// 2.. Universe Size settings Form = DONE!!
-// 3.. living cell count is not working = DONE!
-// 4.. RunTo goes to generations instantly rather than via the timer.interval = DONE!!
-// 5.. Finite / Toroidal = DONE!!
-// 6.. Show Hide Neighbors count = DONE!!!!!
+//
+// NOTHING ALL DONE, thank goodness
