@@ -100,13 +100,13 @@ public:
 
 		std::ifstream binifl(_input, std::ios::binary); // open binary file
 
-		int numOfValues; // initialize variable for 1st 4 bytes
-		binifl.read((char*)&numOfValues, sizeof(int)); // read first 4 bytes to see how many ints total
+		int numOfValues; // initialize variable 
+		binifl.read((char*)&numOfValues, sizeof(int)); // read first 4 bytes to find total integers
 
-		int value; // initialize variable to store each value read
+		int value; // variable to store each value read
 		for (int i = 0; i < numOfValues; ++i) {
-			binifl.read((char*)&value, sizeof(int)); // read the int
-			mValues.push_back(value); // add int to vector
+			binifl.read((char*)&value, sizeof(int)); // read the integer
+			mValues.push_back(value); // add integer to the vector
 		}
 
 		binifl.close(); // close the file
@@ -127,8 +127,8 @@ public:
 	void Clear() {
 		// TODO: Implement this method
 
-		mValues.clear(); // erases all elements from vector
-		mValues.shrink_to_fit(); // discards excess capacity
+		mValues.clear(); // erases the vector
+		mValues.shrink_to_fit(); // remove excess
 	}
 
 	// Sort the vector 
@@ -160,10 +160,10 @@ public:
 	bool Contains(int _val) const {
 		// TODO: Implement this method
 
-		bool isTrue = false; // initialize variable to be returned - bool
-		for (int i = 0; i < mValues.size(); i++) // loop through vector
-			if (_val == mValues[i]) { // check if values are equal
-				isTrue = true; // return true if value is present
+		bool isTrue = false; // initialize the variable to be returned
+		for (int i = 0; i < mValues.size(); i++) // loop through the vector
+			if (_val == mValues[i]) { // check if the values are equal
+				isTrue = true; // return true if there is a value
 				break;
 			}
 		return isTrue;
@@ -179,10 +179,10 @@ public:
 	void MovePalindromes() {
 		// TODO: Implement this method
 
-		for (std::vector<int>::iterator iter = mValues.begin(); iter != mValues.end(); ) { //iterate through vector
-			if (IsPalindromeNumber((int)*iter) == true) { // check if palindrome
-				mPalindromes.push_back(*iter); // add to vector if true
-				iter = mValues.erase(iter); // erase from old vector & set iter to next pointer
+		for (std::vector<int>::iterator iter = mValues.begin(); iter != mValues.end(); ) { //iterate through the vector
+			if (IsPalindromeNumber((int)*iter) == true) { // check to see if it is a  palindrome
+				mPalindromes.push_back(*iter); // if it is a palindrome, add it to the vector
+				iter = mValues.erase(iter); // erase from old vector and set iter to next pointer
 			}
 			else // if not not erase, increment iter
 				++iter;
