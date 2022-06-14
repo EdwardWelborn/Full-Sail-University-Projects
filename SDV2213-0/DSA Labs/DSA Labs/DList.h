@@ -289,10 +289,10 @@ public:
 		// TODO: Implement this method
 		if (mHead == nullptr) { // check if mHead is empty
 			mHead = mTail = new Node(_data, nullptr, nullptr); // assign new node to both head & tail
-			++mSize; // increment size
+			++mSize; // increase the size of the node
 		}
 		else {
-			mHead = mHead->prev = new Node(_data, mHead, nullptr); // assign head to new node, and current head's prev to new node
+			mHead = mHead->prev = new Node(_data, mHead, nullptr); // assign the head to new node, and current head's prev to the new node
 			++mSize; // increment size
 		}
 	}
@@ -303,7 +303,7 @@ public:
 	void AddTail(const Type& _data) {
 		// TODO: Implement this method
 		if (mHead == nullptr) { // check if mHead is empty
-			mHead = mTail = new Node(_data, nullptr, nullptr); // assign new node to both head & tail
+			mHead = mTail = new Node(_data, nullptr, nullptr); // assign the new node to both head & tail
 			++mSize; // increment size
 		}
 		else {
@@ -400,7 +400,7 @@ public:
 		if (_iter.mCurr == nullptr) { // check if list is empty
 
 		}
-		else if (_iter.mCurr == mHead) { // check if pointing to head
+		else if (_iter.mCurr == mHead) { // check to see if we are pointing to head
 			Iterator temp;
 			temp.mCurr = mHead->next;
 			delete mHead;
@@ -409,7 +409,7 @@ public:
 			mHead->prev = nullptr;
 			_iter.mCurr = mHead;
 		}
-		else if (_iter.mCurr == mTail) { //check if pointing to tail
+		else if (_iter.mCurr == mTail) { //check to see if we are pointing to tail
 			Iterator temp;
 			temp.mCurr = mTail->prev;
 			delete mTail;
