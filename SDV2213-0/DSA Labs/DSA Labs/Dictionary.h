@@ -34,21 +34,21 @@ NOTE: If the unit test is not on, that code will not be compiled!
 
 
 // Main toggle
-#define LAB_5	0
+#define LAB_5	1 
 
 // Individual unit test toggles
-#define LAB5_PAIR_CTOR				0
-#define LAB5_CTOR					0
-#define LAB5_DTOR					0
-#define LAB5_CLEAR					0
-#define LAB5_INSERT_NEW				0
-#define LAB5_INSERT_EXISTING		0
-#define LAB5_FIND					0
-#define LAB5_FIND_NOT_FOUND			0
-#define LAB5_REMOVE					0
-#define LAB5_REMOVE_NOT_FOUND		0
-#define LAB5_ASSIGNMENT_OP			0
-#define LAB5_COPY_CTOR				0
+#define LAB5_PAIR_CTOR				1
+#define LAB5_CTOR					1
+#define LAB5_DTOR					1
+#define LAB5_CLEAR					1
+#define LAB5_INSERT_NEW				1
+#define LAB5_INSERT_EXISTING		1
+#define LAB5_FIND					1
+#define LAB5_FIND_NOT_FOUND			1
+#define LAB5_REMOVE					1
+#define LAB5_REMOVE_NOT_FOUND		1
+#define LAB5_ASSIGNMENT_OP			1
+#define LAB5_COPY_CTOR				1
 
 /************/
 /* Includes */
@@ -69,8 +69,8 @@ class Dictionary {
 		// In:	_key
 		//		_value
 		Pair(const Key& _key, const Value& _value) {
-			// TODO: Implement this method
-
+			key = _key;
+			value = _value;
 		}
 
 		// For testing
@@ -82,9 +82,9 @@ class Dictionary {
 
 	// Data members
 	// NOTE: All values set to -1 for unit test purposes
-	std::list<Pair>* mTable = reinterpret_cast<std::list<Pair>*>(-1);							// A dynamic array of lists (these are the buckets)
-	size_t mNumBuckets = -1;																	// Number of elements in mTable
-	unsigned int(*mHashFunc)(const Key&) = reinterpret_cast<unsigned int(*)(const Key&)>(-1);	// Pointer to the hash function
+	std::list<Pair>* mTable = reinterpret_cast<std::list<Pair>*>(-1);							// A dynamic array of lists
+	size_t mNumBuckets = -1;																	// Number of elements in Table
+	unsigned int(*mHashFunc)(const Key&) = reinterpret_cast<unsigned int(*)(const Key&)>(-1);	// Pointer to the hash 
 
 
 public:
@@ -94,14 +94,16 @@ public:
 	//		_hashFunc			The hashing function to be used
 	Dictionary(size_t _numBuckets, unsigned int (*_hashFunc)(const Key&)) {
 		// TODO: Implement this method
-
+		mNumBuckets = _numBuckets;
+		mHashFunc = _hashFunc;
+		mTable = new std::list<Pair>[mNumBuckets];
 	}
 
 	// Destructor
 	//		Cleans up any dynamically allocated memory
 	~Dictionary() {
 		// TODO: Implement this method
-
+		delete[] mTable;
 	}
 
 	// Copy constructor
@@ -109,7 +111,8 @@ public:
 	// In:	_copy				The object to copy from
 	Dictionary(const Dictionary& _copy) {
 		// TODO: Implement this method
-
+		mTable = nullptr;
+		*this = _copy;
 	}
 
 	// Assignment operator
@@ -120,7 +123,16 @@ public:
 	//		This allows us to daisy-chain
 	Dictionary& operator=(const Dictionary& _assign) {
 		// TODO: Implement this method
-	
+		if (this != &_assign) {
+			mNumBuckets = _assign.mNumBuckets;
+			mHashFunc = _assign.mHashFunc;
+			delete[] mTable;
+			mTable = new std::list<Pair>[mNumBuckets];
+			for (int bucket = 0; bucket < mNumBuckets; ++bucket)
+				for (auto iter = _assign.mTable[bucket].begin(); iter != _assign.mTable[bucket].end(); ++iter)
+					mTable[bucket].push_back(Pair(iter->key, iter->value));
+		}
+		return *this;
 	}
 
 	// Clear
@@ -128,7 +140,8 @@ public:
 	//  NOTE:	Does not delete table or reset hash function
 	void Clear() {
 		// TODO: Implement this method
-
+		for (int i = 0; i < mNumBuckets; ++i)
+			mTable[i].clear();
 	}
 
 	// Insert an item into the table
@@ -138,7 +151,17 @@ public:
 	// NOTE:	If there is already an item at the provided key, overwrite it.
 	void Insert(const Key& _key, const Value& _value) {
 		// TODO: Implement this method
-
+		int bucket = mHashFunc(_key);
+		auto iter = mTable[bucket].begin();
+		for (iter; iter != mTable[bucket].end();)
+			if (iter->key == _key) {
+				iter->value = _value;
+				break;
+			}
+			else
+				++iter;
+		if (iter == mTable[bucket].end())
+			mTable[bucket].push_back(Pair(_key, _value));
 	}
 
 	// Find a value at a specified key
@@ -148,7 +171,15 @@ public:
 	// NOTE:		Return a null pointer if key is not present
 	const Value* Find(const Key& _key) {
 		// TODO: Implement this method
-
+		int bucket = mHashFunc(_key);
+		auto iter = mTable[bucket].cbegin();
+		for (iter; iter != mTable[bucket].cend();)
+			if (iter->key == _key) {
+				return &iter->value;
+			}
+			else
+				++iter;
+		return nullptr;
 	}
 
 	// Remove a value at a specified key
@@ -157,7 +188,17 @@ public:
 	// Return: True, if an item was removed
 	bool Remove(const Key& _key) {
 		// TODO: Implement this method
-
+		bool wasRemoved = false;
+		int bucket = mHashFunc(_key);
+		auto iter = mTable[bucket].begin();
+		for (iter; iter != mTable[bucket].end();)
+			if (iter->key == _key) {
+				iter = mTable[bucket].erase(iter);
+				wasRemoved = true;
+			}
+			else
+				++iter;
+		return wasRemoved;
 	}
-	
+
 };
